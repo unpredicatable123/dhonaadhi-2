@@ -20,10 +20,13 @@ export async function startLenis(): Promise<Lenis> {
 		prevent: (node) => node.closest('dialog, [data-lenis-prevent]') !== null
 	});
 	lenis.on('scroll', ScrollTrigger.update);
+	// Pin spacers from lazily created scenes change the page height.
+	window.addEventListener('dh:layout', () => lenis.resize());
 	tick = (t: number) => lenis.raf(t * 1000);
 	gsap.ticker.add(tick);
 	gsap.ticker.lagSmoothing(0);
 	instance = lenis;
+	if (import.meta.env.DEV) Object.assign(window, { __lenis: lenis });
 	return lenis;
 }
 

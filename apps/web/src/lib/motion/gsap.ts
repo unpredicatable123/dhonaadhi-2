@@ -8,6 +8,21 @@ type GsapBundle = {
 };
 
 let bundle: Promise<GsapBundle> | undefined;
+let refreshQueued = false;
+
+/**
+ * Triggers created after load (lazy scenes) add pin spacers that shift everything below;
+ * one debounced refresh re-measures all triggers and tells Lenis the new scroll height.
+ */
+function queueRefresh(g: GsapBundle) {
+	if (refreshQueued) return;
+	refreshQueued = true;
+	requestAnimationFrame(() => {
+		refreshQueued = false;
+		g.ScrollTrigger.refresh();
+		window.dispatchEvent(new Event('dh:layout'));
+	});
+}
 
 const bezier = (p: readonly number[]) => `M0,0 C${p[0]},${p[1]} ${p[2]},${p[3]} 1,1`;
 
@@ -50,9 +65,11 @@ export function withGsap(
 		const ctx = g.gsap.context(() => {
 			extra = setup(g);
 		}, scope);
+		queueRefresh(g);
 		revert = () => {
 			if (typeof extra === 'function') extra();
 			ctx.revert();
+			queueRefresh(g);
 		};
 	});
 	return () => {
