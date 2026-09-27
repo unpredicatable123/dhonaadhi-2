@@ -39,6 +39,9 @@ export type Facet =
 	  }
 	| { key: string; label: string; ui: 'toggle'; param: string; count: number; collapsed: boolean };
 
+/** Series follow the product tier ladder, not popularity. */
+const SERIES_ORDER = ['value', 'pro', 'ultra', 'sentinel', 'panosight', 'rugged'];
+
 type Config = {
 	attribute: string | null;
 	ui: string | null;
@@ -100,7 +103,7 @@ export function buildFacets(config: Config[], rows: FacetRow[]): Facet[] {
 				}
 			}
 			const options = [...counts.values()].sort((x, y) => {
-				const order = a.options ? Object.keys(a.options) : null;
+				const order = a.options ? Object.keys(a.options) : a.key === 'series' ? SERIES_ORDER : null;
 				return order
 					? order.indexOf(x.value) - order.indexOf(y.value)
 					: y.count - x.count || x.label.localeCompare(y.label);

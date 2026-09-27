@@ -75,7 +75,7 @@
 		hidden && '-translate-y-full',
 		overHero
 			? 'border-b border-transparent bg-transparent'
-			: 'border-b border-line bg-ink-950/80 backdrop-blur-xl backdrop-saturate-150'
+			: 'border-b border-line bg-ink-950/92 backdrop-blur-xl backdrop-saturate-150'
 	)}
 	data-print="hide"
 >

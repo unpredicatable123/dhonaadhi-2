@@ -7,6 +7,8 @@
 	 */
 	type Props = {
 		label: string;
+		/** Keep the label for assistive tech only (when a visible heading already names it). */
+		hideLabel?: boolean;
 		min: number;
 		max: number;
 		step?: number;
@@ -18,6 +20,7 @@
 
 	let {
 		label,
+		hideLabel = false,
 		min,
 		max,
 		step = 1,
@@ -41,7 +44,7 @@
 
 <fieldset class={cn('grid gap-3', className)}>
 	<legend class="mb-3 flex w-full items-baseline justify-between text-caption font-medium">
-		<span>{label}</span>
+		<span class={hideLabel ? 'sr-only' : undefined}>{label}</span>
 		<output for="{id}-lo {id}-hi" class="font-mono text-mono-sm text-fg-muted tabular-nums"
 			>{value[0]}–{value[1]}{unit}</output
 		>

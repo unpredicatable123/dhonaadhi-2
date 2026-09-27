@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { Plus } from '@lucide/svelte';
+	import { ChevronDown } from '@lucide/svelte';
 	import { cn } from '$lib/utils/cn';
 
 	type Props = {
@@ -36,10 +36,10 @@
 		>
 			<span class="flex-1">{title}</span>
 			{#if meta}<span class="font-mono text-mono-sm text-fg-muted">{meta}</span>{/if}
-			<Plus
+			<ChevronDown
 				class={cn(
 					'size-4 shrink-0 transition-transform duration-(--dur-base) ease-lens',
-					open && 'rotate-45'
+					open && 'rotate-180'
 				)}
 				aria-hidden="true"
 			/>

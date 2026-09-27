@@ -122,7 +122,8 @@ export const homeQuery = defineQuery(`*[_id == "homePage"][0]{
 export const productsHubQuery = defineQuery(`{
 	"categories": *[_type == "productCategory"] | order(orderRank) ${CATEGORY_CARD},
 	"latest": *[_type == "product" && status == "new"] | order(releaseDate desc) [0...8] ${PRODUCT_CARD},
-	"technologies": *[_type == "technology"] | order(title asc) { _id, title, "slug": slug.current, icon, summary, proofPoint }
+	"technologies": *[_type == "technology"] | order(title asc) { _id, title, "slug": slug.current, icon, summary, proofPoint },
+	"filterConfig": *[_type == "productSubcategory"] | order(orderRank).filterConfig[]{ attribute, ui, label, collapsed }
 }`);
 
 export const categoryQuery =
@@ -133,7 +134,8 @@ export const categoryQuery =
 	"subcategories": *[_type == "productSubcategory" && category._ref == ^._id] | order(orderRank) {
 		_id, title, "slug": slug.current, description,
 		"image": heroImage ${IMAGE},
-		"count": count(*[_type == "product" && subcategory._ref == ^._id])
+		"count": count(*[_type == "product" && subcategory._ref == ^._id]),
+		filterConfig[]{ _key, attribute, ui, label, collapsed }
 	}
 }`);
 
@@ -148,7 +150,7 @@ export const subcategoryQuery =
 
 /** Lightweight rows for computing facet options + counts across the whole listing scope. */
 export const facetSourceQuery =
-	defineQuery(`*[_type == "product" && category->slug.current == $category && ($subcategory == null || subcategory->slug.current == $subcategory)]{
+	defineQuery(`*[_type == "product" && ($category == null || category->slug.current == $category) && ($subcategory == null || subcategory->slug.current == $subcategory)]{
 	"series": series->{ "value": slug.current, title },
 	"formFactor": formFactor->{ "value": slug.current, title },
 	resolutionMp, lensType, lightType, ipRating, ikRating, poe, audio, deterrence, power, channels,
@@ -156,7 +158,7 @@ export const facetSourceQuery =
 }`);
 
 const LISTING_FILTER = `_type == "product"
-	&& category->slug.current == $category
+	&& ($category == null || category->slug.current == $category)
 	&& ($subcategory == null || subcategory->slug.current == $subcategory)
 	&& (count($series) == 0 || series->slug.current in $series)
 	&& (count($formFactor) == 0 || formFactor->slug.current in $formFactor)

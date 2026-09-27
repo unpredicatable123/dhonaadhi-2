@@ -71,7 +71,7 @@ export function serializeSelection(sel: Selection): string {
  */
 export function queryParams(
 	sel: Selection,
-	scope: { category: string; subcategory: string | null },
+	scope: { category: string | null; subcategory: string | null },
 	pages = 1
 ) {
 	const start = (sel.page - pages) * PAGE_SIZE;
