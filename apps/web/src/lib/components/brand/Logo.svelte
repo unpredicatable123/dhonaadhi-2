@@ -3,7 +3,7 @@
 	import { cn } from '$lib/utils/cn';
 
 	type Props = {
-		/** Accessible name — pass siteSettings.brandName. */
+		/** Accessible name — pass siteSettings.brandName. Empty = decorative. */
 		label: string;
 		variant?: 'lockup' | 'monogram';
 		class?: string;
@@ -29,11 +29,23 @@
 {/snippet}
 
 {#if variant === 'monogram'}
-	<svg viewBox="0 0 32 32" role="img" aria-label={label} class={cn('h-8 w-8', className)}>
+	<svg
+		viewBox="0 0 32 32"
+		role={label ? 'img' : undefined}
+		aria-label={label || undefined}
+		aria-hidden={label ? undefined : true}
+		class={cn('h-8 w-8', className)}
+	>
 		{@render mark()}
 	</svg>
 {:else}
-	<svg viewBox={wordmark.viewBox} role="img" aria-label={label} class={cn('h-6 w-auto', className)}>
+	<svg
+		viewBox={wordmark.viewBox}
+		role={label ? 'img' : undefined}
+		aria-label={label || undefined}
+		aria-hidden={label ? undefined : true}
+		class={cn('h-6 w-auto', className)}
+	>
 		<g
 			transform="translate({wordmark.monogramX} {wordmark.monogramY}) scale({wordmark.monogramScale})"
 		>

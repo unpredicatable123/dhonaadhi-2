@@ -37,6 +37,8 @@
 		placement?: 'center' | 'right' | 'left' | 'bottom' | 'full';
 		children: Snippet;
 		footer?: Snippet;
+		/** false: no visible header bar (title stays for screen readers; Esc/backdrop close). */
+		chrome?: boolean;
 		class?: string;
 		onclose?: () => void;
 	};
@@ -48,6 +50,7 @@
 		placement,
 		children,
 		footer,
+		chrome = true,
 		class: className,
 		onclose
 	}: Props = $props();
@@ -83,22 +86,26 @@
 	onclick={(e) => e.target === dialog && (open = false)}
 	data-lenis-prevent
 >
-	<header class="flex min-h-16 items-center gap-4 border-b border-line px-5">
-		<h2
-			id="{id}-title"
-			class={cn('flex-1 font-display text-xl font-medium', hideTitle && 'sr-only')}
-		>
-			{title}
-		</h2>
-		<button
-			type="button"
-			class="ml-auto grid tap place-items-center rounded-control text-fg-muted hover:bg-raised hover:text-fg"
-			onclick={() => (open = false)}
-		>
-			<X class="size-5" aria-hidden="true" />
-			<span class="sr-only">Close</span>
-		</button>
-	</header>
+	{#if chrome}
+		<header class="flex min-h-16 items-center gap-4 border-b border-line px-5">
+			<h2
+				id="{id}-title"
+				class={cn('flex-1 font-display text-xl font-medium', hideTitle && 'sr-only')}
+			>
+				{title}
+			</h2>
+			<button
+				type="button"
+				class="ml-auto grid tap place-items-center rounded-control text-fg-muted hover:bg-raised hover:text-fg"
+				onclick={() => (open = false)}
+			>
+				<X class="size-5" aria-hidden="true" />
+				<span class="sr-only">Close</span>
+			</button>
+		</header>
+	{:else}
+		<h2 id="{id}-title" class="sr-only">{title}</h2>
+	{/if}
 	<div class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5">
 		{@render children()}
 	</div>

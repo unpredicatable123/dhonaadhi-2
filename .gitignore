@@ -13,3 +13,4 @@ playwright-report
 screenshots/*.png
 !screenshots/.gitkeep
 *.log
+dev.log

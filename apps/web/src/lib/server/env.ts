@@ -23,7 +23,7 @@ const schema = z.union([
 		dataSource: z.literal('sanity').default('sanity')
 	}),
 	base.extend({
-		PUBLIC_SANITY_PROJECT_ID: z.undefined(),
+		PUBLIC_SANITY_PROJECT_ID: z.undefined().optional(),
 		dataSource: z.literal('fixtures').default('fixtures')
 	})
 ]);
