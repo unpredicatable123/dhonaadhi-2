@@ -156,6 +156,7 @@
 			{#if compare.items.length}
 				<a
 					href={paths.compare(compare.slugs)}
+					data-compare-icon
 					class="relative grid tap place-items-center rounded-control text-fg/80 hover:bg-raised hover:text-fg"
 				>
 					<Columns3 class="size-5" aria-hidden="true" />
