@@ -22,7 +22,7 @@
 		return trend
 			.map(
 				(v, i) =>
-					`${i ? 'L' : 'M'}${((i / (trend.length - 1)) * 100).toFixed(1)} ${(28 - ((v - min) / span) * 24).toFixed(1)}`
+					`${i ? 'L' : 'M'}${((i / (trend.length - 1)) * 298 + 1).toFixed(1)} ${(29 - ((v - min) / span) * 26).toFixed(1)}`
 			)
 			.join('');
 	});
@@ -48,7 +48,7 @@
 	{#if path}
 		<svg
 			use:draw
-			viewBox="0 0 100 30"
+			viewBox="0 0 300 32"
 			preserveAspectRatio="none"
 			class="h-8 w-full"
 			aria-hidden="true"
@@ -59,7 +59,6 @@
 				fill="none"
 				stroke="var(--color-thermal-400)"
 				stroke-width="1.5"
-				vector-effect="non-scaling-stroke"
 				class="spark"
 				class:drawn={drawn || motion.reduced}
 			/>
