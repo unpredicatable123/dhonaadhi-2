@@ -12,7 +12,8 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter({ runtime: 'nodejs22.x' }),
+			// E2E builds skip the Vercel adapter (its function tracing is slow); vite preview doesn't need it.
+			adapter: process.env.E2E_BUILD ? undefined : adapter({ runtime: 'nodejs22.x' }),
 			// One .env at the monorepo root serves web, studio and seed.
 			env: { dir: '../..' },
 			alias: { $fixtures: '../../seed/data' }

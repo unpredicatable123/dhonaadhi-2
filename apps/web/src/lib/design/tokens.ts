@@ -11,7 +11,7 @@ export const palette = {
 	'paper-50': '#f6f8fb',
 	'optic-400': '#2fe6c8',
 	'optic-600': '#12b89e',
-	'optic-700': '#0a7a69',
+	'optic-700': '#086a5b',
 	'thermal-400': '#ffb547',
 	'thermal-700': '#8a5200',
 	'signal-blue': '#4c8dff',

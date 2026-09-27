@@ -14,3 +14,5 @@ screenshots/*.png
 !screenshots/.gitkeep
 *.log
 dev.log
+e2e.log
+apps/web/playwright-report

@@ -37,12 +37,12 @@ test('compare: pick two products, open the table, remove one', async ({ page }) 
 	await expect(tray).toBeVisible();
 	await tray.getByRole('link', { name: /Compare 2/ }).click();
 	await expect(page).toHaveURL(/\/products\/compare\?ids=/);
-	await expect(page.locator('thead th[scope=col] a')).toHaveCount(2);
+	await expect(page.locator('thead th[scope=col] .font-mono')).toHaveCount(2);
 	await page
 		.getByRole('button', { name: /^Remove / })
 		.first()
 		.click();
-	await expect(page.locator('thead th[scope=col] a')).toHaveCount(1);
+	await expect(page.locator('thead th[scope=col] .font-mono')).toHaveCount(1);
 });
 
 test('command palette finds a model and opens its page', async ({ page }) => {

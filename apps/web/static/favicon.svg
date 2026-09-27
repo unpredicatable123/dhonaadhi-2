@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-	<style>.i{fill:#07090d}.o{fill:#0a7a69}@media (prefers-color-scheme:dark){.i{fill:#e8edf4}.o{fill:#2fe6c8}}</style>
+	<style>.i{fill:#07090d}.o{fill:#086a5b}@media (prefers-color-scheme:dark){.i{fill:#e8edf4}.o{fill:#2fe6c8}}</style>
 	<path class="i" fill-rule="evenodd" d="M2.5 3H15.5C22.68 3 28.5 8.82 28.5 16S22.68 29 15.5 29H2.5ZM7.5 16a8 8 0 1 0 16 0a8 8 0 1 0 -16 0Z"/>
 	<path class="o" fill-rule="evenodd" d="M7.5 16a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM17.05 13.32L18.6 16L17.05 18.68L13.95 18.68L12.4 16L13.95 13.32Z"/>
 </svg>

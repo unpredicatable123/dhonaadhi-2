@@ -19,7 +19,7 @@ export default defineConfig({
 		viewport: { width: 1440, height: 900 }
 	},
 	webServer: {
-		command: 'pnpm build && pnpm preview --port 4173 --strictPort',
+		command: 'pnpm exec cross-env E2E_BUILD=1 vite build && pnpm preview --port 4173 --strictPort',
 		port: 4173,
 		timeout: 240_000,
 		reuseExistingServer: !process.env.CI

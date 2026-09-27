@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import { VisualEditing } from '@sanity/visual-editing/svelte';
 	import Header from '$lib/components/shell/Header.svelte';
 	import Footer from '$lib/components/shell/Footer.svelte';
 	import CommandPalette from '$lib/components/shell/CommandPalette.svelte';
@@ -59,4 +58,7 @@
 <Toaster />
 <Shutter bind:this={shutter} />
 {#if data.settings.motion?.grain !== false}<div class="grain" aria-hidden="true"></div>{/if}
-{#if data.preview}<VisualEditing />{/if}
+<!-- Loaded only in preview: keeps the editor overlay (and its React runtime) out of the public bundle. -->
+{#if data.preview}
+	{#await import('@sanity/visual-editing/svelte') then { VisualEditing }}<VisualEditing />{/await}
+{/if}

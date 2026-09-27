@@ -183,8 +183,8 @@
 									>
 										{r.label}{#if highlight && r.differs}<span
 												class="ml-2 inline-block size-1.5 rounded-full bg-thermal-400 align-middle"
-												aria-label="differs"
-											></span>{/if}
+												aria-hidden="true"
+											></span><span class="sr-only"> (differs)</span>{/if}
 									</th>
 									{#each r.values as v, i (i)}
 										<td class="border-t border-l border-line px-3 py-2.5 font-mono">{v}</td>

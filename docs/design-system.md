@@ -38,7 +38,7 @@ The brief lists `optic-600` as the on-light primary. It measures **2.36:1** on p
 
 | Token                   | Hex       | On paper-50          | Replaces on light                       |
 | ----------------------- | --------- | -------------------- | --------------------------------------- |
-| `optic-700`             | `#0A7A69` | 4.93                 | optic-400/600 as text, link, focus ring |
+| `optic-700`             | `#086A5B` | 6.12                 | optic-400/600 as text, link, focus ring |
 | `steel-600`             | `#566173` | 5.89                 | steel-400 as secondary text             |
 | `signal-blue-600`       | `#2A5FC4` | 5.59                 | signal-blue                             |
 | `thermal-700`           | `#8A5200` | 6.00                 | thermal-400 as text                     |
@@ -66,7 +66,7 @@ Text needs 4.5:1 (AA normal) or 3:1 (≥ 24px, or ≥ 18.66px bold).
 
 ### 2.2 Non-text contrast (SC 1.4.11)
 
-`ink-700` hairlines measure 1.32:1 against ink-950. That is fine for **decorative** dividers, but not for component boundaries users must perceive. Inputs, checkboxes, the range track and selects therefore use `steel-500` borders (≥ 3:1), and change to optic-400 on focus. The focus ring is optic-400 on dark (12.6:1) and optic-700 on light (4.9:1), with a 2px width and 2px offset.
+`ink-700` hairlines measure 1.32:1 against ink-950. That is fine for **decorative** dividers, but not for component boundaries users must perceive. Inputs, checkboxes, the range track and selects therefore use `steel-500` borders (≥ 3:1), and change to optic-400 on focus. The focus ring is optic-400 on dark (12.6:1) and optic-700 on light (6.1:1), with a 2px width and 2px offset.
 
 An automated check (`pnpm test:contrast`) re-computes this table from the `@theme` tokens in CI, so a token change can't silently regress it.
 
@@ -137,6 +137,6 @@ Prose is capped at `max-w-[68ch]`.
 The home page and campaign/coming-soon pages stay **dark**, with the cinematic "Night Vision" scenes. The **catalogue is light**: `/products`, category and subcategory listings, product detail and compare. It's white paper for long reading and spec comparison.
 
 - The theme is chosen per route by `themeFor()` (`src/lib/theme.ts`). The server renders `data-theme` on `<html>` (no flash), and the layout keeps it in sync on client navigation.
-- **Primary buttons use the `btn` token:** teal with ink text on dark, **ink with white text on light** (19.9:1). Teal stays the accent for focus, active chips, checkboxes and sliders (`optic-700` with white text, 4.93:1).
+- **Primary buttons use the `btn` token:** teal with ink text on dark, **ink with white text on light** (19.9:1). Teal stays the accent for focus, active chips, checkboxes and sliders (`optic-700` with white text, 6.52:1).
 - **Deliberate dark islands on light pages:** the footer, the Lens (category) cards, and product image wells. The renders are studio shots on a dark backdrop, framed like a viewfinder.
 - Cards on light pages get a soft two-layer shadow (`shadow-card`); on dark pages the token is `none`.
