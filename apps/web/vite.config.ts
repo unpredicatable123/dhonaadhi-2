@@ -1,10 +1,41 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import adapter from '@sveltejs/adapter-vercel';
 import { sveltekit } from '@sveltejs/kit/vite';
+import type { Plugin } from 'vite';
+
+/** `import data from './file.ttf?base64'`: binary assets bundled into server code. */
+const base64 = (): Plugin => ({
+	name: 'dh:base64',
+	enforce: 'pre',
+	load(id) {
+		if (!id.endsWith('?base64')) return;
+		const file = id.slice(0, -'?base64'.length);
+		return `export default ${JSON.stringify(fs.readFileSync(file).toString('base64'))};`;
+	}
+});
+
+/**
+ * Production builds ship the seed images as static files at /fixtures/images, so a
+ * deployment without a Sanity project still has its imagery (dev resizes them on request).
+ */
+const fixtureImages = (): Plugin => ({
+	name: 'dh:fixture-images',
+	apply: 'build',
+	writeBundle(options) {
+		if (this.environment.name !== 'client' || !options.dir) return;
+		fs.cpSync(path.resolve('../../seed/data/images'), path.join(options.dir, 'fixtures/images'), {
+			recursive: true
+		});
+	}
+});
 
 export default defineConfig({
 	plugins: [
+		base64(),
+		fixtureImages(),
 		tailwindcss(),
 		sveltekit({
 			compilerOptions: {

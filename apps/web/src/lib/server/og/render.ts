@@ -1,8 +1,10 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import sharp from 'sharp';
+// Bundled (not read from disk) so the serverless function carries them.
+import clash from './fonts/clash-display-600.ttf?base64';
+import geist from './fonts/geist-latin-500-normal.woff?base64';
+import mono from './fonts/jetbrains-mono-latin-500-normal.woff?base64';
 
 type Node = { type: string; props: Record<string, unknown> & { children?: unknown } };
 const h = (type: string, style: Record<string, unknown>, children?: unknown): Node => ({
@@ -10,25 +12,24 @@ const h = (type: string, style: Record<string, unknown>, children?: unknown): No
 	props: { style: { display: 'flex', ...style }, children }
 });
 
-const fontDir = path.resolve(process.cwd(), 'src/lib/server/og/fonts');
 let fonts: { name: string; data: Buffer; weight: 500 | 600; style: 'normal' }[] | undefined;
 function loadFonts() {
 	fonts ??= [
 		{
 			name: 'Clash',
-			data: fs.readFileSync(path.join(fontDir, 'clash-display-600.ttf')),
+			data: Buffer.from(clash, 'base64'),
 			weight: 600,
 			style: 'normal'
 		},
 		{
 			name: 'Geist',
-			data: fs.readFileSync(path.join(fontDir, 'geist-latin-500-normal.woff')),
+			data: Buffer.from(geist, 'base64'),
 			weight: 500,
 			style: 'normal'
 		},
 		{
 			name: 'Mono',
-			data: fs.readFileSync(path.join(fontDir, 'jetbrains-mono-latin-500-normal.woff')),
+			data: Buffer.from(mono, 'base64'),
 			weight: 500,
 			style: 'normal'
 		}
