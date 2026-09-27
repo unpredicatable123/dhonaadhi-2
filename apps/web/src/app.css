@@ -157,6 +157,9 @@
 	--color-accent-fill: var(--accent-fill);
 	--color-accent-hover: var(--accent-hover);
 	--color-on-accent: var(--on-accent);
+	--color-btn: var(--btn);
+	--color-btn-hover: var(--btn-hover);
+	--color-on-btn: var(--on-btn);
 	--color-highlight: var(--highlight);
 	--color-link: var(--link);
 	--color-danger: var(--danger);
@@ -183,6 +186,10 @@
 	--accent-fill: var(--color-optic-400);
 	--accent-hover: var(--color-optic-600);
 	--on-accent: var(--color-ink-950);
+	--btn: var(--color-optic-400);
+	--btn-hover: var(--color-optic-600);
+	--on-btn: var(--color-ink-950);
+	--card-shadow: none;
 	--highlight: var(--color-thermal-400);
 	--link: var(--color-signal-blue);
 	--danger: var(--color-alert-500);
@@ -201,15 +208,20 @@
 	color-scheme: light;
 	--bg: var(--color-paper-50);
 	--surface: #ffffff;
-	--raised: #eef2f7;
-	--line: #d8dee7;
+	--raised: #eef2f6;
+	--line: #dfe4eb;
 	--control: var(--color-steel-500);
 	--fg: var(--color-ink-950);
 	--fg-muted: var(--color-steel-600);
 	--accent: var(--color-optic-700);
-	--accent-fill: var(--color-optic-400);
-	--accent-hover: var(--color-optic-600);
-	--on-accent: var(--color-ink-950);
+	--accent-fill: var(--color-optic-700);
+	--accent-hover: #086a5b;
+	--on-accent: #ffffff;
+	/* On white, primary actions are ink: calm and premium; teal stays the accent. */
+	--btn: var(--color-ink-950);
+	--btn-hover: var(--color-ink-800);
+	--on-btn: #ffffff;
+	--card-shadow: 0 1px 2px rgb(7 9 13 / 0.04), 0 12px 32px -16px rgb(7 9 13 / 0.18);
 	--highlight: var(--color-thermal-700);
 	--link: var(--color-signal-blue-600);
 	--danger: var(--color-alert-600);
@@ -275,6 +287,10 @@
 @utility focus-ring {
 	outline: 2px solid var(--focus);
 	outline-offset: 2px;
+}
+
+@utility shadow-card {
+	box-shadow: var(--card-shadow);
 }
 
 @utility tap {

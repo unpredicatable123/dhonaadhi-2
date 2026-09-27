@@ -29,6 +29,7 @@ One `.env` at the repo root (see `.env.example`). **If `PUBLIC_SANITY_PROJECT_ID
 
 ## Design tokens (see docs/design-system.md)
 
+- Theme: mixed — dark home/campaign pages, light catalogue (`src/lib/theme.ts`, docs/design-system.md §8). Primary buttons use the `btn` token.
 - Colours: ink-950 `#07090D`, ink-900 `#0C1017`, ink-800 `#141A23`, ink-700 `#1F2733`, steel-400 `#8A95A8`, mist-100 `#E8EDF4`, paper-50 `#F6F8FB`, optic-400 `#2FE6C8`, optic-600 `#12B89E`, thermal-400 `#FFB547`, signal-blue `#4C8DFF`, alert-500 `#FF5A5F`
 - On-light AA variants: optic-700 `#0A7A69`, steel-600 `#566173`, steel-500 `#6B7689` (control borders), signal-blue-600 `#2A5FC4`, thermal-700 `#8A5200`, alert-600 `#C4282E`
 - Type: Clash Display (display, 500/600, −0.02em) · Geist (UI) · JetBrains Mono (model numbers, spec values, detection labels)

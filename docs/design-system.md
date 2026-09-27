@@ -131,3 +131,12 @@ Prose is capped at `max-w-[68ch]`.
 - **Monogram:** a "D" built from a six-blade aperture. The counter of the D is the iris opening, and the blades rotate closed in the loader. Designed on a 32-unit grid so it stays crisp at 16px (favicon).
 - **Wordmark:** "Dhonaadhi" set in Clash Display 600, with custom kerning of the double "aa" (tightened −30 units). It is converted to outlined SVG paths so the logo never depends on font loading.
 - **Versions:** `logo-dark.svg` (mist-100 wordmark + optic-400 iris) and `logo-light.svg` (ink-950 wordmark + optic-700 iris), plus monogram-only versions and `favicon.svg` with `prefers-color-scheme` inside the SVG.
+
+## 8. Mixed theme (decided 2026-09-27)
+
+The home page and campaign/coming-soon pages stay **dark**, with the cinematic "Night Vision" scenes. The **catalogue is light**: `/products`, category and subcategory listings, product detail and compare. It's white paper for long reading and spec comparison.
+
+- The theme is chosen per route by `themeFor()` (`src/lib/theme.ts`). The server renders `data-theme` on `<html>` (no flash), and the layout keeps it in sync on client navigation.
+- **Primary buttons use the `btn` token:** teal with ink text on dark, **ink with white text on light** (19.9:1). Teal stays the accent for focus, active chips, checkboxes and sliders (`optic-700` with white text, 4.93:1).
+- **Deliberate dark islands on light pages:** the footer, the Lens (category) cards, and product image wells. The renders are studio shots on a dark backdrop, framed like a viewfinder.
+- Cards on light pages get a soft two-layer shadow (`shadow-card`); on dark pages the token is `none`.

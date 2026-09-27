@@ -20,7 +20,7 @@
 			duration: motion.reduced ? 120 : 420,
 			opacity: motion.reduced ? 0 : 1
 		}}
-		class="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-3xl rounded-panel border border-line bg-ink-900/95 p-3 shadow-[0_24px_60px_-12px_rgb(0_0_0/0.7)] backdrop-blur-xl print:hidden"
+		class="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-3xl rounded-panel border border-line bg-surface/95 p-3 shadow-[0_24px_60px_-12px_rgb(0_0_0/0.7)] backdrop-blur-xl print:hidden"
 		aria-label="Compare selection"
 	>
 		<div class="flex items-center gap-3">
@@ -47,7 +47,7 @@
 						<button
 							type="button"
 							onclick={() => compare.remove(item.slug)}
-							class="absolute -top-2 -right-2 grid size-6 place-items-center rounded-full border border-line bg-ink-950 text-fg-muted hover:text-fg"
+							class="absolute -top-2 -right-2 grid size-6 place-items-center rounded-full border border-line bg-bg text-fg-muted hover:text-fg"
 						>
 							<X class="size-3.5" aria-hidden="true" /><span class="sr-only"
 								>Remove {item.modelNumber} from compare</span
@@ -70,7 +70,7 @@
 				<a
 					href={paths.compare(compare.slugs)}
 					aria-disabled={compare.items.length < 2}
-					class="flex h-11 items-center justify-center gap-2 rounded-control bg-accent-fill px-4 text-sm font-medium text-on-accent hover:bg-accent-hover aria-disabled:pointer-events-none aria-disabled:opacity-50"
+					class="flex h-11 items-center justify-center gap-2 rounded-control bg-btn px-4 text-sm font-medium text-on-btn hover:bg-btn-hover aria-disabled:pointer-events-none aria-disabled:opacity-50"
 				>
 					Compare {compare.items.length}<ArrowRight class="size-4" aria-hidden="true" />
 				</a>

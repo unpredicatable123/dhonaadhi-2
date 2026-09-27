@@ -114,7 +114,7 @@
 	</ul>
 </section>
 
-<section class="border-y border-line bg-ink-900/50 py-10" aria-labelledby="needs">
+<section class="border-y border-line bg-raised/60 py-10" aria-labelledby="needs">
 	<div class="container-site flex flex-wrap items-center gap-x-6 gap-y-4">
 		<h2 id="needs" class="font-sans text-sm font-medium text-fg-muted">Shop by need</h2>
 		<ul class="flex flex-wrap gap-2">
@@ -165,7 +165,7 @@
 	<h2 id="tools" class="sr-only">Tools</h2>
 	<ul class="grid gap-px overflow-hidden rounded-panel bg-line md:grid-cols-3">
 		{#each tools as t (t.title)}
-			<li class="bg-ink-950">
+			<li class="bg-bg">
 				<a href={t.href} class="group flex h-full gap-4 p-6 transition-colors hover:bg-raised">
 					<t.icon class="size-6 shrink-0 text-accent" aria-hidden="true" />
 					<span class="grid gap-1">

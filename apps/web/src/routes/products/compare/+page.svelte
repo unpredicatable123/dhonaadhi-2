@@ -110,15 +110,13 @@
 				</colgroup>
 				<thead>
 					<tr>
-						<th
-							scope="col"
-							class="sticky top-(--header-h) z-10 bg-ink-950 p-3 text-left align-bottom"
+						<th scope="col" class="sticky top-(--header-h) z-10 bg-bg p-3 text-left align-bottom"
 							><span class="sr-only">Specification</span></th
 						>
 						{#each products as p (p._id)}
 							<th
 								scope="col"
-								class="sticky top-(--header-h) z-10 border-l border-line bg-ink-950 p-3 text-left font-normal"
+								class="sticky top-(--header-h) z-10 border-l border-line bg-bg p-3 text-left font-normal"
 							>
 								<div class="relative grid gap-2">
 									<button
@@ -152,10 +150,7 @@
 							</th>
 						{/each}
 						{#if products.length < COMPARE_MAX}
-							<th
-								scope="col"
-								class="sticky top-(--header-h) z-10 border-l border-line bg-ink-950 p-3"
-							>
+							<th scope="col" class="sticky top-(--header-h) z-10 border-l border-line bg-bg p-3">
 								<button
 									type="button"
 									onclick={() => palette.show()}

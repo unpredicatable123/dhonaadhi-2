@@ -54,7 +54,7 @@
 					class="h-11 min-w-0 flex-1 bg-transparent outline-none placeholder:text-fg-muted"
 				/>
 				<button
-					class="h-11 rounded-control bg-accent-fill px-4 text-sm font-medium text-on-accent hover:bg-accent-hover"
+					class="h-11 rounded-control bg-btn px-4 text-sm font-medium text-on-btn hover:bg-btn-hover"
 					>Search</button
 				>
 			</form>
@@ -75,7 +75,7 @@
 						alt=""
 					/>
 					<span
-						class="absolute bottom-1.5 left-2 font-mono text-[0.625rem] tracking-[0.08em] text-fg/70 uppercase"
+						class="absolute bottom-1.5 left-2 font-mono text-[0.625rem] tracking-[0.08em] text-mist-100/70 uppercase"
 						>CAM {String(i + 1).padStart(2, '0')}</span
 					>
 				</li>

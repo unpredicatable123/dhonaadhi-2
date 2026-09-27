@@ -12,7 +12,7 @@
 		{ label: 'Lens', value: '2.8', unit: 'mm' },
 		{ label: 'Light', value: 40, unit: 'm' }
 	];
-	const img = '/renders/styleguide-bullet.webp';
+	const img = '/fixtures/images/renders/bullet-white-hybrid-a.webp';
 </script>
 
 <Specimen title="Cards" note="Viewfinder (product), Lens (category), Technology, Stat.">
@@ -85,7 +85,7 @@
 				count={18}
 			>
 				{#snippet media()}<img
-						src="/renders/styleguide-scene.webp"
+						src="/fixtures/images/renders/bullet-white-ir-a.webp"
 						alt=""
 						class="h-full w-full object-cover"
 						loading="lazy"

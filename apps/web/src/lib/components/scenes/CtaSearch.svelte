@@ -57,7 +57,7 @@
 			/>
 			<button
 				type="submit"
-				class="flex h-12 items-center gap-2 rounded-control bg-accent-fill px-5 font-medium text-on-accent hover:bg-accent-hover"
+				class="flex h-12 items-center gap-2 rounded-control bg-btn px-5 font-medium text-on-btn hover:bg-btn-hover"
 			>
 				<span class="hidden sm:inline">Find products</span><ArrowRight
 					class="size-4"

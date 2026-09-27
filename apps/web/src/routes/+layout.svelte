@@ -10,6 +10,8 @@
 	import { setupPageTransitions } from '$lib/motion/transitions';
 	import { startLenis, stopLenis } from '$lib/motion/lenis';
 	import { motion } from '$lib/stores/motion.svelte';
+	import { page } from '$app/state';
+	import { themeFor } from '$lib/theme';
 
 	let { data, children } = $props();
 	let shutter: { api: ShutterApi } | undefined = $state();
@@ -20,6 +22,15 @@
 	setupPageTransitions(() => (transitions ? shutter?.api : undefined));
 
 	$effect(() => motion.init(data.motionPref));
+
+	// Mixed theme: light catalogue, dark cinematic pages.
+	$effect(() => {
+		const theme = themeFor(page.url.pathname);
+		document.documentElement.dataset.theme = theme;
+		document
+			.querySelector('meta[name="theme-color"]')
+			?.setAttribute('content', theme === 'light' ? '#f6f8fb' : '#07090d');
+	});
 
 	// Reduced motion: attribute for CSS + no smooth scroll.
 	$effect(() => {

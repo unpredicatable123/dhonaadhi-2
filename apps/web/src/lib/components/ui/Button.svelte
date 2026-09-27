@@ -12,7 +12,7 @@
 		],
 		variants: {
 			variant: {
-				primary: 'bg-accent-fill text-on-accent hover:bg-accent-hover',
+				primary: 'bg-btn text-on-btn hover:bg-btn-hover',
 				secondary:
 					'border border-control bg-transparent text-fg hover:border-accent hover:text-accent',
 				ghost: 'bg-transparent text-fg hover:bg-raised',

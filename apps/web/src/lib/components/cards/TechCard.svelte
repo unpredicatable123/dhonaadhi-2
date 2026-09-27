@@ -18,7 +18,10 @@
 <svelte:element
 	this={href ? 'a' : 'div'}
 	{href}
-	class={cn('tech group relative isolate grid gap-3 rounded-panel bg-surface p-6', className)}
+	class={cn(
+		'tech group relative isolate grid gap-3 rounded-panel bg-surface p-6 shadow-card',
+		className
+	)}
 >
 	{#if icon}<span class="text-accent" aria-hidden="true">{@render icon()}</span>{/if}
 	<svelte:element this={`h${headingLevel}`} class="font-display text-xl font-medium"

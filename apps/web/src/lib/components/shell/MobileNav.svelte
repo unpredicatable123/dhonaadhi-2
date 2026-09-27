@@ -19,7 +19,7 @@
 	} = $props();
 </script>
 
-<Dialog bind:open title="{brandName} menu" hideTitle placement="full" class="bg-ink-950">
+<Dialog bind:open title="{brandName} menu" hideTitle placement="full" class="bg-bg">
 	<nav aria-label="Mobile" class="stagger grid gap-2 pb-8">
 		{#each navigation?.items ?? [] as item, i (item._key)}
 			<div style:--i={i}>

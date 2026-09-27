@@ -22,7 +22,7 @@
 
 <nav
 	aria-label="On this page"
-	class="sticky top-0 z-30 border-y border-line bg-ink-950/92 backdrop-blur-xl print:hidden"
+	class="sticky top-0 z-30 border-y border-line bg-bg/92 backdrop-blur-xl print:hidden"
 >
 	<div class="container-site flex items-center gap-6 overflow-x-auto">
 		<span class="hidden shrink-0 font-mono text-sm text-accent md:block">{model}</span>

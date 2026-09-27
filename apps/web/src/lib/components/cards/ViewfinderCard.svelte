@@ -50,7 +50,7 @@
 <article
 	use:tilt
 	class={cn(
-		'viewfinder group relative isolate rounded-control bg-surface p-3 transition-colors duration-(--dur-base) hairline hover:border-steel-500',
+		'viewfinder group relative isolate rounded-control bg-surface p-3 shadow-card transition-colors duration-(--dur-base) hairline hover:border-steel-500',
 		layout === 'list'
 			? 'grid grid-cols-[8rem_1fr] gap-4 sm:grid-cols-[12rem_1fr_auto]'
 			: 'grid gap-4',

@@ -32,6 +32,7 @@
 
 <a
 	{href}
+	data-theme="dark"
 	class={cn(
 		'lens group relative isolate flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-panel bg-surface p-6 hairline',
 		className
