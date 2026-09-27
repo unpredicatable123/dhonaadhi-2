@@ -34,7 +34,7 @@ describe('GROQ queries against the seed dataset', () => {
 		const types = r?.sections?.map((s) => s._type);
 		expect(types).toContain('heroAperture');
 		const hero = r?.sections?.find((s) => s._type === 'heroAperture');
-		expect(hero && 'image' in hero && hero.image?.asset?.url).toMatch(/city-hero/);
+		expect(hero && 'image' in hero && hero.image?.asset?.url).toMatch(/hero-street/);
 		const rail = r?.sections?.find((s) => s._type === 'categoryRail');
 		expect(rail && 'categories' in rail && rail.categories?.length).toBe(7);
 	});

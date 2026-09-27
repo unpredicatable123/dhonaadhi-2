@@ -37,6 +37,18 @@
 						box: coverMap({ x: d.x!, y: d.y!, w: d.w!, h: d.h! }, { width, height }, image)
 					}))
 					.filter((d) => isVisible(d.box))
+					// A tag that would run into a neighbour's tag on the same line drops below its box.
+					.map((d, _, all) => {
+						const tagW = ((`${d.label} 0.00`.length * 8 + 24) / width) * 100;
+						const hits = all.some(
+							(o) =>
+								o !== d &&
+								Math.abs(o.box.y - d.box.y) < (28 / height) * 100 &&
+								o.box.x > d.box.x &&
+								o.box.x < d.box.x + tagW
+						);
+						return { ...d, below: hits };
+					})
 			: []
 	);
 </script>
@@ -60,7 +72,10 @@
 				class="c br"
 			></span>
 			<span
-				class="tag absolute -top-6 left-0 font-mono text-[0.6875rem] tracking-[0.08em] whitespace-nowrap"
+				class={[
+					'tag absolute left-0 font-mono text-[0.6875rem] tracking-[0.08em] whitespace-nowrap',
+					d.below ? '-bottom-6' : '-top-6'
+				]}
 			>
 				{d.label}
 				{d.confidence?.toFixed(2)}

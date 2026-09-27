@@ -213,9 +213,14 @@ for (const c of comingSoon) {
 }
 
 // ── Home page ──
-const detections = JSON.parse(
-	fs.readFileSync(path.join(dataDir, 'images/scenes/city-detections.json'), 'utf8')
-).hero as { label: 'PERSON' | 'VEHICLE'; x: number; y: number; w: number; h: number }[];
+// Hand-placed on the hero photo (percent of the full frame).
+const detections: { label: 'PERSON' | 'VEHICLE'; x: number; y: number; w: number; h: number }[] = [
+	{ label: 'PERSON', x: 59.4, y: 52, w: 12.9, h: 47 },
+	{ label: 'PERSON', x: 81.6, y: 57.6, w: 15, h: 41.4 },
+	{ label: 'VEHICLE', x: 47.6, y: 52, w: 4.6, h: 5.6 }
+];
+const credit = (key: keyof typeof photos) =>
+	`${photos[key].creator ?? photos[key].source} · ${photos[key].license.toUpperCase()} via Openverse`;
 const callouts = JSON.parse(
 	fs.readFileSync(path.join(dataDir, 'images/exploded-callouts.json'), 'utf8')
 ) as { frame: number; title: string; body: string; x: number; y: number }[];
@@ -227,7 +232,7 @@ const sections = [
 		lead: home.hero.lead,
 		primaryCta: link(home.hero.primary.label, home.hero.primary.to),
 		secondaryCta: link(home.hero.secondary.label, home.hero.secondary.to),
-		image: await img('images/scenes/city-hero.webp', home.hero.alt),
+		image: await img('images/photos/hero-street.webp', home.hero.alt, credit('hero-street')),
 		detections: detections.map((d, i) => ({
 			_type: 'detection',
 			_key: key('det', i),
@@ -251,9 +256,17 @@ const sections = [
 		title: home.dusk.title,
 		lead: home.dusk.lead,
 		technology: ref(ids.technology('lumanight')),
-		dayImage: await img('images/scenes/city-day.webp', home.dusk.dayAlt),
-		conventionalImage: await img('images/scenes/city-conventional.webp', home.dusk.convAlt),
-		enhancedImage: await img('images/scenes/city-luma.webp', home.dusk.lumaAlt),
+		dayImage: await img('images/scenes/street-dusk.webp', home.dusk.dayAlt, credit('night-street')),
+		conventionalImage: await img(
+			'images/scenes/street-conventional.webp',
+			home.dusk.convAlt,
+			credit('night-street')
+		),
+		enhancedImage: await img(
+			'images/scenes/street-luma.webp',
+			home.dusk.lumaAlt,
+			credit('night-street')
+		),
 		conventionalLabel: 'Conventional camera',
 		enhancedLabel: 'LumaNight'
 	},

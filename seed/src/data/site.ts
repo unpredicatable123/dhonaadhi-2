@@ -151,11 +151,11 @@ export const footer = {
 
 export const home = {
 	hero: {
-		headline: 'The night, in full colour.',
+		headline: 'Every detail, day and night.',
 		lead: 'Cameras, recorders and access systems that stay sharp and alert from dusk to dawn — with detection running on the device, not in the cloud.',
 		primary: { label: 'Explore products', to: '/products' },
 		secondary: { label: 'Talk to sales', to: 'section:contact' },
-		alt: 'A city street at night: a pedestrian on the pavement and a car driving away under streetlights',
+		alt: 'A sunlit street corner: two pedestrians wait to cross while a van drives towards them',
 		confidences: { PERSON: 0.98, VEHICLE: 0.95 }
 	},
 	trust: {
@@ -175,12 +175,12 @@ export const home = {
 	},
 	dusk: {
 		title: 'Dusk to night, still in colour',
-		lead: 'Most cameras switch to grainy black and white when the light goes. LumaNight keeps colour — the difference between “a car” and “a red hatchback”.',
-		dayAlt: 'The street in daylight: a red car and a pedestrian in a blue coat',
+		lead: 'Most cameras switch to grainy black and white when the light goes. LumaNight keeps colour — the difference between “a car” and “a yellow taxi”.',
+		dayAlt: 'A city street at dusk: taxis and cars heading in under the first streetlights',
 		convAlt:
-			'The same street at night through a conventional camera: grainy black and white, the car and pedestrian barely visible',
+			'The same street at night through a conventional camera: grainy black and white, the taxis hard to tell apart',
 		lumaAlt:
-			'The same street at night through a LumaNight camera: the red car and the blue coat are clearly visible in colour'
+			'The same street at night through a LumaNight camera: the yellow taxis and tail-lights clearly visible in colour'
 	},
 	exploded: {
 		title: 'Engineered from the glass in',

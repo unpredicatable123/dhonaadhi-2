@@ -758,19 +758,28 @@
 		"file": "images/scenes/city-hero.webp"
 	},
 	{
-		"_id": "image-31990dc60af49778bb9c7ada13fbbebbaeecb6e0-1600x1000-webp",
+		"_id": "image-e8a71c5722bd67ee1198e52b2f9474228670cc7c-1024x683-webp",
 		"_type": "sanity.imageAsset",
-		"file": "images/scenes/city-day.webp"
+		"file": "images/photos/hero-street.webp",
+		"creditLine": "rawpixel · CC0 via Openverse"
 	},
 	{
-		"_id": "image-576007c210cd5264eae097e29e5aabc95c8acdb5-1600x1000-webp",
+		"_id": "image-aa8c4df50697f6c6e911faef897b4b5dfcfe666b-1024x681-webp",
 		"_type": "sanity.imageAsset",
-		"file": "images/scenes/city-conventional.webp"
+		"file": "images/scenes/street-dusk.webp",
+		"creditLine": "rawpixel · CC0 via Openverse"
 	},
 	{
-		"_id": "image-23fe4b6538d2aabcfdc80a6d21222316a469d24e-1600x1000-webp",
+		"_id": "image-ddfa80b9d1e5d449150c189940bc09f718275923-1024x681-webp",
 		"_type": "sanity.imageAsset",
-		"file": "images/scenes/city-luma.webp"
+		"file": "images/scenes/street-conventional.webp",
+		"creditLine": "rawpixel · CC0 via Openverse"
+	},
+	{
+		"_id": "image-1d40f250046f23afc2deb76da9a4666fb4fc9bab-1024x681-webp",
+		"_type": "sanity.imageAsset",
+		"file": "images/scenes/street-luma.webp",
+		"creditLine": "rawpixel · CC0 via Openverse"
 	},
 	{
 		"_id": "image-bcb4da679eae91f39db06a7f8c3d75914fde4d65-1280x720-webp",
@@ -778,692 +787,692 @@
 		"file": "images/exploded-poster.webp"
 	},
 	{
-		"_id": "file-037292fa8776d0b63af632a50a1698a7e62b7392-pdf",
+		"_id": "file-6b1bebe93db5b533bc69334b7f33fb658a5d2cc3-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-2m-b28/nb-2m-b28-datasheet.pdf"
 	},
 	{
-		"_id": "file-3b445df4f888e6ae786e0605bc0b6849eab24730-pdf",
+		"_id": "file-4ffc643c9b495ad43305ed1f07e89aea0af0fb0c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-2m-b28/nb-2m-b28-quick-start.pdf"
 	},
 	{
-		"_id": "file-814748cd6032036310c4852cdb07b15e8cc62ed6-pdf",
+		"_id": "file-5a5108e2ecd959e13ca3b4bbdfed4d43be865b12-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-2m-b28/nb-2m-b28-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-8ed088c418623c8c0839d83b11fa0ad4b7c8e7c8-pdf",
+		"_id": "file-42c54f1bb40fa7e886be9e361e54e210c8ba7bfd-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b28l/nb-4m-b28l-datasheet.pdf"
 	},
 	{
-		"_id": "file-5b85e48d97c54fc605e10c4f6fae61f620302779-pdf",
+		"_id": "file-4de0a0349adaba524ed3381f43980b68ddf6b9a9-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b28l/nb-4m-b28l-quick-start.pdf"
 	},
 	{
-		"_id": "file-0e2c47df84595bbf2786f0ea7bae85a3757abfd8-pdf",
+		"_id": "file-c55cd4d7c738794d86326e460968857becf936a0-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b28l/nb-4m-b28l-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-65b2f779e93a04c5f0ab02bef40a57796e323603-pdf",
+		"_id": "file-da388e1725256f366df865adae00bb3288f071b2-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b40h/nb-4m-b40h-datasheet.pdf"
 	},
 	{
-		"_id": "file-3c6bc77e2ac961c840de849a1b54717d9d310a09-pdf",
+		"_id": "file-0b230a64bf4eb30df0936268f751e2ee47845c97-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b40h/nb-4m-b40h-quick-start.pdf"
 	},
 	{
-		"_id": "file-4b395001dddface961359141a587943c40ca7bfd-pdf",
+		"_id": "file-791f84d44e159557b159bcf32df52275714f7c79-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b40h/nb-4m-b40h-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-db9e584bb4d168bc15ad5753df4e1eb60854b493-pdf",
+		"_id": "file-92d43704eab23be767144138707f67d6c5e548e4-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-6m-v2812/nb-6m-v2812-datasheet.pdf"
 	},
 	{
-		"_id": "file-6f09ee70bdeecd7d46010f3d34dd6aad0c7d0c8b-pdf",
+		"_id": "file-378fdac9be36eb4c34d21589e8ea619813d00e52-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-6m-v2812/nb-6m-v2812-quick-start.pdf"
 	},
 	{
-		"_id": "file-06643a67c53838d345fe97c42a09f2acc2d6b6b3-pdf",
+		"_id": "file-1c0f49c5c88151e457376222457210833c217019-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-6m-v2812/nb-6m-v2812-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-6623f120c30ffd0c5e6c0fe70f6cbd4c6f4559f0-pdf",
+		"_id": "file-8d752be9ee34eab283c0b646137341a38c8c6a90-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-8m-b28l/nb-8m-b28l-datasheet.pdf"
 	},
 	{
-		"_id": "file-4395883b82904c148a0f22dad703fdb5c881a190-pdf",
+		"_id": "file-58236c1fc36033aef90b498e45be65fa340d8566-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-8m-b28l/nb-8m-b28l-quick-start.pdf"
 	},
 	{
-		"_id": "file-972baa6e573e53ea33ba961ef24560da113ddc58-pdf",
+		"_id": "file-76151b6ca02f888631cccb22b069fa6ccb4e2ba8-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-8m-b28l/nb-8m-b28l-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-c37a32719a86a01d9b6ad9ee71eaee752ef1b85a-pdf",
+		"_id": "file-87efb89b2dcf2d49feb6fd3a53d68534b056de85-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-8m-v2812a/nb-8m-v2812a-datasheet.pdf"
 	},
 	{
-		"_id": "file-c373556bf1df0e589a25b82e31b62a080b9d01a8-pdf",
+		"_id": "file-a736adcd3bb492d9e03bb300aa3426ea8ebc13ee-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-8m-v2812a/nb-8m-v2812a-quick-start.pdf"
 	},
 	{
-		"_id": "file-63a5e3b507f752a2d1c208d8c3d01eb91a0ae84c-pdf",
+		"_id": "file-b597fb7df6df690aa2c797106b0b3a09db35ad4a-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-8m-v2812a/nb-8m-v2812a-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-db7f302d618a8ee93d89e2e6c1f8a73af286197c-pdf",
+		"_id": "file-2c2697f13da85b30cb0e84d21351db766301b29e-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-12m-b40/nb-12m-b40-datasheet.pdf"
 	},
 	{
-		"_id": "file-68ba943a428e18fd7d02783b3f83ec511aa80bf7-pdf",
+		"_id": "file-ac6385679f08761cda85dd2a06b3e80a025abcf5-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-12m-b40/nb-12m-b40-quick-start.pdf"
 	},
 	{
-		"_id": "file-99a7f7ed7ac217321b12a4da66ef56dc9b01b8b4-pdf",
+		"_id": "file-474754a8a8b7140015f54560ef55ffcfe87aefb1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-12m-b40/nb-12m-b40-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-44982ca51f55073c2ffebe224683443d4747df0e-pdf",
+		"_id": "file-390df0c7b06f87dc3800dced5a2b582769bfefc9-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b28/nb-4m-b28-datasheet.pdf"
 	},
 	{
-		"_id": "file-aa4f0a94137c33a0fe03fd92d7bfc31c9a10fbfc-pdf",
+		"_id": "file-8dfd50d641eda9a46acc3813c8a07eac6154db2d-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b28/nb-4m-b28-quick-start.pdf"
 	},
 	{
-		"_id": "file-02a1f3641802b6edad450afcec8aa2c5e2f8b363-pdf",
+		"_id": "file-78d157e41b62844e0e25d2a9eeff755986cdc002-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-4m-b28/nb-4m-b28-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-1b27c142b8f42b7968d4d1590a616e7c68dd327a-pdf",
+		"_id": "file-f96c81a4a2675ca6d07ca43502e2dbd0d4ab3b79-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-2m-d28/nd-2m-d28-datasheet.pdf"
 	},
 	{
-		"_id": "file-7a0088b74ee64b47d9daf9e6cc36608243606a5a-pdf",
+		"_id": "file-8586461a4098946c6f924981278aec650b8d4f9c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-2m-d28/nd-2m-d28-quick-start.pdf"
 	},
 	{
-		"_id": "file-a1ad1cc2733ce00cfb86bd7c83fbf9a0a8918a0e-pdf",
+		"_id": "file-0e8fb4702c4d31fed8405ffe3b90e0a0cb08132c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-2m-d28/nd-2m-d28-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-23a5767f0a4a3b6ead5b177f83fbcac977fef96c-pdf",
+		"_id": "file-8c55a02f76c838db63427bf2cc2deaf20d5cdec1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-4m-d28l/nd-4m-d28l-datasheet.pdf"
 	},
 	{
-		"_id": "file-75e9a804491e5c95cf2a5c43a08b5b827b4cdade-pdf",
+		"_id": "file-3f892ac3bfcf6a033c5a5442384d03c7d496babb-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-4m-d28l/nd-4m-d28l-quick-start.pdf"
 	},
 	{
-		"_id": "file-c3dedecf6223d5402f89d79f594296e3d45033b9-pdf",
+		"_id": "file-8990ec5719b50233f6a4bb424c0bdc61bb2da174-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-4m-d28l/nd-4m-d28l-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-164c25af4796ca424d4f332b8ccdddd9b8b7bbc1-pdf",
+		"_id": "file-526a055ec06da43ec436968d368cfe3b17d7d39a-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-4m-t28/nt-4m-t28-datasheet.pdf"
 	},
 	{
-		"_id": "file-e2f51f048fd603ff25c7005eaa98764fde4fa49c-pdf",
+		"_id": "file-48cca7a0b4aef527a6ff07ef2e8284d36b1f0079-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-4m-t28/nt-4m-t28-quick-start.pdf"
 	},
 	{
-		"_id": "file-831ef1f66fb9c69e5559fec28280914aba4caeb1-pdf",
+		"_id": "file-75082bf1658347bf0bb59472b886cb74e673d4e1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-4m-t28/nt-4m-t28-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-cc4647379486e0d1313a81b257e47f0759699c8a-pdf",
+		"_id": "file-2cf30a0882f86513e1c1063c6c9f283cd611bc48-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-6m-t28l/nt-6m-t28l-datasheet.pdf"
 	},
 	{
-		"_id": "file-c5e49adfe8044c6e7655638c59795fb8b8a9f4d3-pdf",
+		"_id": "file-2d6a3aebebc3711c434676c0ab7c648e4fba5217-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-6m-t28l/nt-6m-t28l-quick-start.pdf"
 	},
 	{
-		"_id": "file-761d367c735c99e6a87709d4a6ad5b0fad10d351-pdf",
+		"_id": "file-b5cc0cc0f077f7f204653078c64d1e6175cd048d-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-6m-t28l/nt-6m-t28l-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-d0e67eefc17309248cac37e9129d4949d0ac1937-pdf",
+		"_id": "file-985048eddf56f39650b7daaa14b3dbc2238305ed-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-8m-t40a/nt-8m-t40a-datasheet.pdf"
 	},
 	{
-		"_id": "file-7c150b58c844096a0554e902b5245386191ab5d0-pdf",
+		"_id": "file-cb930ed30cbd0956be46537ea8de1b59a7f524f5-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-8m-t40a/nt-8m-t40a-quick-start.pdf"
 	},
 	{
-		"_id": "file-eb893ec740c7b3adf874c9f1c357bd06e4f5a8ae-pdf",
+		"_id": "file-e2109d06afee9dd693627c9b19d5c51a7a0b83ed-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nt-8m-t40a/nt-8m-t40a-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-57c0a8537946f8fed2aea07546b078677343e25c-pdf",
+		"_id": "file-1b44c908dfb051dd2d6bbcd5562a2d8f60600602-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-4k-d72/nx-4k-d72-datasheet.pdf"
 	},
 	{
-		"_id": "file-ddc667375228127ea93fd8abb747d6039420743f-pdf",
+		"_id": "file-bb4d2538a8823c5febc2760862aad036366bdce4-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-4k-d72/nx-4k-d72-quick-start.pdf"
 	},
 	{
-		"_id": "file-5223bfd0287f55a6b804fef40a67f74a0dc59614-pdf",
+		"_id": "file-d72bfedd93efd2bf05423ee853ce106971db8414-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-4k-d72/nx-4k-d72-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-93d995cdaab65cd68b01cc00c790f489184c4436-pdf",
+		"_id": "file-1b864db4a41ea0cc9b7ec45406a912362213b9a8-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-4m-d28/nd-4m-d28-datasheet.pdf"
 	},
 	{
-		"_id": "file-2b21f104313c0b2da53564a87a2c4fb801c7a604-pdf",
+		"_id": "file-d3273ca40374162995e4f4ce1dd4e4aa6e80b7bf-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-4m-d28/nd-4m-d28-quick-start.pdf"
 	},
 	{
-		"_id": "file-825248ebd6d2682b4e6ca47592d0784222e6ab0a-pdf",
+		"_id": "file-ab5aab82efa94d3b2ae6db60d653e3f04dbf011e-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nd-4m-d28/nd-4m-d28-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-278f872055fe1ca7b2f3d10b5465528af3adaf54-pdf",
+		"_id": "file-de570dd8fe6ace1ecf04db459ca452df766ef5bf-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nf-6m-f12/nf-6m-f12-datasheet.pdf"
 	},
 	{
-		"_id": "file-e047f205ccd7a711ab1405ef99cd68c515dd5b0e-pdf",
+		"_id": "file-530ee8ead31f17ffe5339a5cb29e2023789cbcaa-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nf-6m-f12/nf-6m-f12-quick-start.pdf"
 	},
 	{
-		"_id": "file-1a9c31dedd04465009f7b8f3bfbfe87a1335d291-pdf",
+		"_id": "file-4cd74268d85a561dbc03b34cb047e8b331501354-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nf-6m-f12/nf-6m-f12-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-e67647934ce961fd2c707612d0d158a1451aa35a-pdf",
+		"_id": "file-346faf4ab558f4e91b09f249e1a8eb4b5e5f4f38-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nf-12m-f16/nf-12m-f16-datasheet.pdf"
 	},
 	{
-		"_id": "file-eba370239ad847f95b7b13d320a86b2435c5bad7-pdf",
+		"_id": "file-e226fcdf8e957cdabd39edba24dff84a2be1260f-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nf-12m-f16/nf-12m-f16-quick-start.pdf"
 	},
 	{
-		"_id": "file-60370d8e4cc1eaf19c50d9adeb1a420fc1e19929-pdf",
+		"_id": "file-ad305d8f5a72f65bf12a7f134b101b4074dedcc1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nf-12m-f16/nf-12m-f16-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-8f4fa398c2ba8ab363017212b5dc4b7342bc2125-pdf",
+		"_id": "file-055405645f863c20b9f3b3a89f7a593c390f9829-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-16m-p4/nb-16m-p4-datasheet.pdf"
 	},
 	{
-		"_id": "file-2d3fa5e7d7eea0bae6582f37a1f6a4251ef79142-pdf",
+		"_id": "file-f485e7ae232459781e43e4c01cdecfddcec1c67e-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-16m-p4/nb-16m-p4-quick-start.pdf"
 	},
 	{
-		"_id": "file-55e641d63c1350369b284965657708b36a4a9f5c-pdf",
+		"_id": "file-c4196f11ced528e97e7a2075262d908f66f2cb23-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nb-16m-p4/nb-16m-p4-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-d00ebad99c1e794d8cb86ea3ec92f7002debbd29-pdf",
+		"_id": "file-4d8f09f52b4269124051327e597b042010cbf10c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-4m-bx/nx-4m-bx-datasheet.pdf"
 	},
 	{
-		"_id": "file-85fc8df75c4448e880029f5cb5650cdaa2051205-pdf",
+		"_id": "file-8cc39f0e4341c6eb0027d36adcd0a77a3229cebd-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-4m-bx/nx-4m-bx-quick-start.pdf"
 	},
 	{
-		"_id": "file-aeb837d8b037cd718b4e3ba5c1ca761fd2fd8485-pdf",
+		"_id": "file-5098f828945394869ef7d61e46c5770035a78437-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-4m-bx/nx-4m-bx-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-7a1e60db3ef8bc07ecc23f1613d3fe3c9103e9cd-pdf",
+		"_id": "file-46a544d6efeffe30677fed7353800de0bf656eb3-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-8m-bx/nx-8m-bx-datasheet.pdf"
 	},
 	{
-		"_id": "file-0a897a4796940fab792173f097671e66ccef7a2f-pdf",
+		"_id": "file-9cfc4edff6fac5967493c35aa207012faba8914b-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-8m-bx/nx-8m-bx-quick-start.pdf"
 	},
 	{
-		"_id": "file-cd11702ccf942af578c80933a7f27ac3606e7989-pdf",
+		"_id": "file-052cc8c6c526aed0f5fa172def54042aba247a0c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/nx-8m-bx/nx-8m-bx-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-251c4853dc28dc17857bf99178bdc9472123e789-pdf",
+		"_id": "file-3ca1ea29448f511567a4f7ae36c62f4549ec345c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ns-4m-s4g/ns-4m-s4g-datasheet.pdf"
 	},
 	{
-		"_id": "file-b4afc478658b9e3185350c3e44bc4b2a3225cbfc-pdf",
+		"_id": "file-e9ca583b5a6c80a593793bed234768fa0542d2f1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ns-4m-s4g/ns-4m-s4g-quick-start.pdf"
 	},
 	{
-		"_id": "file-1760895dde852955ed6a32e4e66555a32a63feb8-pdf",
+		"_id": "file-49c14cb4cda514658c2419386fff4f80a884aa69-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ns-4m-s4g/ns-4m-s4g-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-508e21f2393f22478c3a23efb08efa6331e9452e-pdf",
+		"_id": "file-95bac47bbb38f2413527f37a294302ea2905dc22-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ns-2m-s4g/ns-2m-s4g-datasheet.pdf"
 	},
 	{
-		"_id": "file-46ffedd065bdb17a19c2fa59b35076b591e41041-pdf",
+		"_id": "file-7b3178ab8f64e83f5d3fbcd7d28074daaa10fcac-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ns-2m-s4g/ns-2m-s4g-quick-start.pdf"
 	},
 	{
-		"_id": "file-736072cdaf99fc7358b6f5e5e65267ec04f661d4-pdf",
+		"_id": "file-8ccd1fdb984c380720480b21ea987dda879890fb-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ns-2m-s4g/ns-2m-s4g-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-48b6e46c441bb27963a0d0e8b81c9e68c64a53ee-pdf",
+		"_id": "file-3f234f41aabee48ae883d9be3fb59594f371c6a1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-2m-p25x/np-2m-p25x-datasheet.pdf"
 	},
 	{
-		"_id": "file-a71b51a70a7ea19ba5adacdc4778849b10d5b3dc-pdf",
+		"_id": "file-57fa322f8a941f8fe370b48af02c05156c10934a-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-2m-p25x/np-2m-p25x-quick-start.pdf"
 	},
 	{
-		"_id": "file-da38f2d481cbfe9a531977f473c90fbc4a00c228-pdf",
+		"_id": "file-1f592de64e2fe8ce98e980a0c103666179689ba0-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-2m-p25x/np-2m-p25x-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-09fd5458e53c91d22fecf361b0ce13be6ed44b9c-pdf",
+		"_id": "file-b4b83f458a9ca7fbf48d6a1772b9d5ef0646db28-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p32x/np-4m-p32x-datasheet.pdf"
 	},
 	{
-		"_id": "file-f574a9b3197eaa5bcb364e17f8c5d9fbe5393791-pdf",
+		"_id": "file-f1a37bf01713b22e49338f93cf752deabe5e3fcf-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p32x/np-4m-p32x-quick-start.pdf"
 	},
 	{
-		"_id": "file-d85ed2d1e38e3f701cc98853026075cf1d7cf7e4-pdf",
+		"_id": "file-4386b7620108d9d2cdf2feaa060af198ae0326cd-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p32x/np-4m-p32x-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-6f445737b0abb8178dd3237122c1b2c05326a2ea-pdf",
+		"_id": "file-1684c73e2dac0015e0888c4f38148c42b18fac00-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p45x/np-4m-p45x-datasheet.pdf"
 	},
 	{
-		"_id": "file-588f1ac95a007bd6ed12185c690d8d21e2cc6964-pdf",
+		"_id": "file-2812e2beb24705913d97ee4816b4e3f7bbb00881-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p45x/np-4m-p45x-quick-start.pdf"
 	},
 	{
-		"_id": "file-67e0b7e43a373ea3c3dfc88bb3f9b422552af567-pdf",
+		"_id": "file-56ce6094bb0a58bef9fad8d1496f363629e3f1b7-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p45x/np-4m-p45x-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-cd6d43e403cd95e1fe2544ec491b58d1fd62a269-pdf",
+		"_id": "file-a2949f1426585f237a1413edd8dc0b6ac65a1a40-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-2m-p15c/np-2m-p15c-datasheet.pdf"
 	},
 	{
-		"_id": "file-2f0d18b9f6686efbe3f4369fee4436c08a34916a-pdf",
+		"_id": "file-56a063060057ba326d77b1d6f7a6e63d36ac2a5e-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-2m-p15c/np-2m-p15c-quick-start.pdf"
 	},
 	{
-		"_id": "file-19d552577c4cb943b25c0cf38fab8725896a4c79-pdf",
+		"_id": "file-0d0e8de7919b473e985d6a6cfd0ba3e5d008294c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-2m-p15c/np-2m-p15c-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-392c512c08652887ae893d52d904043aa004d1fa-pdf",
+		"_id": "file-ebf2542aa7a2fbc2ad558dad6921ab81fb90d8c4-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p25c/np-4m-p25c-datasheet.pdf"
 	},
 	{
-		"_id": "file-d29dd7b97ab178accf0e7d6b16e14e0646652f1f-pdf",
+		"_id": "file-08334be0df7159fc00bf047ea07a6f2be50189c6-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p25c/np-4m-p25c-quick-start.pdf"
 	},
 	{
-		"_id": "file-ad00b3d74cc175b0906d84ed2056a46131c07f71-pdf",
+		"_id": "file-2151c629bf333d081583fa8d7361119ff8fa75e4-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/np-4m-p25c/np-4m-p25c-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-77bf52ea1a27d357048c317a596b0a5ef4fe6ecb-pdf",
+		"_id": "file-7df56b19a6989cdba742f9a9035541ddbe6d85ff-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b256-10/th-b256-10-datasheet.pdf"
 	},
 	{
-		"_id": "file-34a9384c79ec662d27e2a5773fc928e09bbd1f4a-pdf",
+		"_id": "file-1a040efc32e4b09fb2a16711bd80958dcb628ee3-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b256-10/th-b256-10-quick-start.pdf"
 	},
 	{
-		"_id": "file-d8afdd4a6cf856af111368ac50f95088944952d2-pdf",
+		"_id": "file-6a9109249daa4513ded3945a164db89e0459acce-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b256-10/th-b256-10-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-86066912ac78ca3a9a19424fcce6e6ff65b69527-pdf",
+		"_id": "file-a1e3819722089a99cafc31ad5cd3d596bdd8cb81-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b384-35/th-b384-35-datasheet.pdf"
 	},
 	{
-		"_id": "file-610c71114bb6fbad466298cb6d8f8131462071ca-pdf",
+		"_id": "file-c7aacaac3a676923d3ee00d58bd2efd07b4aa1f3-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b384-35/th-b384-35-quick-start.pdf"
 	},
 	{
-		"_id": "file-5f9d1fbd4a74aaf24e771f7067fccd8e482bd03c-pdf",
+		"_id": "file-18844732cf60a838a1d4c314ee37f14a05aa6dcb-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b384-35/th-b384-35-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-308f3e8b4af1afc77696392bd6155ee0b7426c7d-pdf",
+		"_id": "file-661141bcd1ccab7d61eda739ddd158c3d5a958e5-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b640-25/th-b640-25-datasheet.pdf"
 	},
 	{
-		"_id": "file-eb19d34066e1071638c3d2897be3ac3759738834-pdf",
+		"_id": "file-2f4b4ff57a079ab182b7ce9a8d1732495e21cce0-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b640-25/th-b640-25-quick-start.pdf"
 	},
 	{
-		"_id": "file-19831ece7a4ea69aabaef0b0be35d204819d5f31-pdf",
+		"_id": "file-4242670f57fb65c799e25596e48952d6680c54fd-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/th-b640-25/th-b640-25-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-0ec868a78a422aa3fd016ad59fa7f2e8ee5c207c-pdf",
+		"_id": "file-d5e902cc11f0cfb3051e704754e016f9fac5fb82-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-8c-1h/vr-8c-1h-datasheet.pdf"
 	},
 	{
-		"_id": "file-4a19afd6490f3dacab6669da317820e412c69565-pdf",
+		"_id": "file-caaca29348413379763bad47644b6a613e7654e5-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-8c-1h/vr-8c-1h-quick-start.pdf"
 	},
 	{
-		"_id": "file-87b2505824ea946cd412466a9055b6ed1cf8de89-pdf",
+		"_id": "file-8f531f568f3dc2677403ab4a13fc82f60322a557-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-8c-1h/vr-8c-1h-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-655775bd97292fd44153557584ad6048aa81dc4d-pdf",
+		"_id": "file-91a1607612f4de30913e0680a247964c3decf3c9-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-16c-2h/vr-16c-2h-datasheet.pdf"
 	},
 	{
-		"_id": "file-a9fa52036a149c740d4d1452d5924494cfed30a8-pdf",
+		"_id": "file-dda6b9399aab271b0830e072f4c608a0ef528d62-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-16c-2h/vr-16c-2h-quick-start.pdf"
 	},
 	{
-		"_id": "file-eac70f830ece9f1c84522b1497c8df2d61ea0291-pdf",
+		"_id": "file-7464a7b7783ee44391935e5445cff51fed576d40-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-16c-2h/vr-16c-2h-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-1387db36343318f4feacc4d777083b5295fdd77f-pdf",
+		"_id": "file-d4932ddbce9f0c03ee724f42336d8729af0b00d8-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-32c-4h/vr-32c-4h-datasheet.pdf"
 	},
 	{
-		"_id": "file-9404ebf70d7ff8625ade2958312837a3d3ae7564-pdf",
+		"_id": "file-eeeb404541c72450d2722a19d19bdd498a9c486a-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-32c-4h/vr-32c-4h-quick-start.pdf"
 	},
 	{
-		"_id": "file-6255e4998cc93566890cf5989c3393841c9996e1-pdf",
+		"_id": "file-05f31c15ed47fd96d47d82983a0ff60e80c4e95f-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-32c-4h/vr-32c-4h-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-66a01a7f4f26032c96a9b17d37c284638a1e6dc8-pdf",
+		"_id": "file-df12a8e424dffb155fcf3c9eb1b0b003019a7497-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-64c-8h/vr-64c-8h-datasheet.pdf"
 	},
 	{
-		"_id": "file-af33af7cfd7fe4994b82c30bd60ce4b5850df24d-pdf",
+		"_id": "file-aafa6163373c32fd46681b70020a08cd3928967d-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-64c-8h/vr-64c-8h-quick-start.pdf"
 	},
 	{
-		"_id": "file-d42a944c84b211508ef3f3f13fe7c2fc78c66b58-pdf",
+		"_id": "file-dd5f5221d077c87fdb0d4c47fe9492840f3f08de-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/vr-64c-8h/vr-64c-8h-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-b9ad3caf43c75e2b5edbebeb799088584e1b1b3e-pdf",
+		"_id": "file-94edfe8b2f358130604e532985121e0cfc906582-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/kt-4b-8c/kt-4b-8c-datasheet.pdf"
 	},
 	{
-		"_id": "file-dbe8658efef400c4ab1d182916d5b585124ef6c3-pdf",
+		"_id": "file-387493d9fa7f32fdfff607edf2ffbd0781b97829-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/kt-4b-8c/kt-4b-8c-quick-start.pdf"
 	},
 	{
-		"_id": "file-aa7f65c72d824505cabb27868001688921391e3b-pdf",
+		"_id": "file-cc368a1b485d273e31427c21a96b215803f9dcc5-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-ft7/ac-ft7-datasheet.pdf"
 	},
 	{
-		"_id": "file-ba864efa5664fd8b73a55af8ba89cf692f5c6325-pdf",
+		"_id": "file-fbdfda7f3ccb68aefed6d0c0b079fb2a2adf3a0c-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-ft7/ac-ft7-quick-start.pdf"
 	},
 	{
-		"_id": "file-5f9f05cd73bc5d4bfcb62d4f254dedd7e6c56c71-pdf",
+		"_id": "file-e4f471048ba4dd8fd6704867452a254b5e20b814-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-ft7/ac-ft7-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-f5a344e94d61ef73cc5132f0984730205ef13fdb-pdf",
+		"_id": "file-ae7f1e29bb5e5dc3cc442cb6100f526de57ca7c3-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-ft8p/ac-ft8p-datasheet.pdf"
 	},
 	{
-		"_id": "file-a305b8a73350c0aa6d62648be1f0bdd4632e5938-pdf",
+		"_id": "file-3bc0dbc0530201d82a3a8a8edee60340af8cd4c1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-ft8p/ac-ft8p-quick-start.pdf"
 	},
 	{
-		"_id": "file-ab8a9f61dc83c2a8a93e6776022fadbd2cbef1d4-pdf",
+		"_id": "file-2bc33ea39f2888287aac55ae437352b8ee6fa532-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-ft8p/ac-ft8p-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-7357e375113bc10ded82baf0372438a55272d6ab-pdf",
+		"_id": "file-d5c175b4236ccad15096531b456aa77aef39b935-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-rd-q/ac-rd-q-datasheet.pdf"
 	},
 	{
-		"_id": "file-d99595337e53762112cf1c5cd7a8fe6a3220cf41-pdf",
+		"_id": "file-7d346603e1ff5719da897484da22d32254401791-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-rd-q/ac-rd-q-quick-start.pdf"
 	},
 	{
-		"_id": "file-60d86582927a9f860157aa811f2c949140e17ec8-pdf",
+		"_id": "file-fd4154511dd2776a12f74ae0e19754eb933c5568-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-rd-q/ac-rd-q-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-f5c58edb1786815274eec2d78bfafe44fdee8065-pdf",
+		"_id": "file-1e1cddf78ae8bfff56e618272061138947a9b086-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-rd-k/ac-rd-k-datasheet.pdf"
 	},
 	{
-		"_id": "file-1868f48f104b73df8a83075e39982992610bfcb6-pdf",
+		"_id": "file-d0649206f6ede2809d43cc1fcef89a193494db8f-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-rd-k/ac-rd-k-quick-start.pdf"
 	},
 	{
-		"_id": "file-d07ce11d2dffca77c1598227c2d4b017b8524923-pdf",
+		"_id": "file-681d24b57fd2349e75e79a717bb9c94b6d034742-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ac-rd-k/ac-rd-k-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-acfa2f4a9a9b2117310808b702d01af2ce6a2543-pdf",
+		"_id": "file-315d3151d707a3ac731c909518d78e0773c36cf7-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-ds1/ic-ds1-datasheet.pdf"
 	},
 	{
-		"_id": "file-b0a1a15e436faecce23087355504ecb7d7f287e9-pdf",
+		"_id": "file-a369937dc8cb755c5b24a70baf2071bda2fa29a8-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-ds1/ic-ds1-quick-start.pdf"
 	},
 	{
-		"_id": "file-43217352e56f37dbf1628b6e810953643563c7ac-pdf",
+		"_id": "file-b38d3ec7e6fe5a9a639513d93420f5258febf127-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-ds1/ic-ds1-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-482958c13cd37abc4c4c723443f7e421adcb73b0-pdf",
+		"_id": "file-42ceb227c75ffd6a7d22797a165868326cbd8695-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-ds4m/ic-ds4m-datasheet.pdf"
 	},
 	{
-		"_id": "file-0ce628257932bf19efd7bddc6a7c3b0e2fe623bc-pdf",
+		"_id": "file-eeb938292ac60e6e00d96a0d15d74946e8ba19e1-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-ds4m/ic-ds4m-quick-start.pdf"
 	},
 	{
-		"_id": "file-1491f295d34cc4e554f9b600299327bf029ecbc5-pdf",
+		"_id": "file-6009c1445e15dd55c34cadc55ce6989523ee7a68-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-ds4m/ic-ds4m-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-8fff8ca9fddbddde586b213b87ee4569340da89c-pdf",
+		"_id": "file-0556f59e8884c667574b6f25edfcf3b72075a9b5-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-is7/ic-is7-datasheet.pdf"
 	},
 	{
-		"_id": "file-757892ce5e965856e8e1bfb8784301ef0459c6cb-pdf",
+		"_id": "file-ca778d117236ff0c86fe5a8466550a3b899c742a-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-is7/ic-is7-quick-start.pdf"
 	},
 	{
-		"_id": "file-1540b07a9c8e29c4dd824239bbdb912dece9a9a7-pdf",
+		"_id": "file-1e93892857eaa8653567499a5adaab07df60a306-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-is7/ic-is7-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-e5a1cc21e81d2e736c03ff874c9387ecad953fa1-pdf",
+		"_id": "file-7c88abad4e3d7f527641e2f59488756c60fe7823-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-is10/ic-is10-datasheet.pdf"
 	},
 	{
-		"_id": "file-8001d01296d20f14b8241c21c54df5bb413ce354-pdf",
+		"_id": "file-06aa62fe6ad292d5b5d1b064bb1dedc7976897ee-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-is10/ic-is10-quick-start.pdf"
 	},
 	{
-		"_id": "file-0ea839e84e1b4e5fb94d21c82926d2ef796a8009-pdf",
+		"_id": "file-655b79e0cba0fc87e3e56eca68f66b1a108e8b1f-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/ic-is10/ic-is10-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-a6930217c058c6a32263ba7eb0ff6f4a7ce74ac6-pdf",
+		"_id": "file-ee08149886ca81cd1be659286588d719ba68b73a-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/sw-8p-g/sw-8p-g-datasheet.pdf"
 	},
 	{
-		"_id": "file-1a7c8eabf06dc22256b48ad22c9628b4c7c01853-pdf",
+		"_id": "file-b1230a67762e7d2d5bb8e5b19d7f3c5652cbfbe9-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/sw-8p-g/sw-8p-g-quick-start.pdf"
 	},
 	{
-		"_id": "file-6f196d749ceb1e02f0d28060aa366b94b666c9ae-pdf",
+		"_id": "file-0b1515018b014013ec0d65dbef2f833008c01315-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/sw-24p-g/sw-24p-g-datasheet.pdf"
 	},
 	{
-		"_id": "file-f1bf814affa548655d8c90006d326cdd5d01248a-pdf",
+		"_id": "file-071324658377c6a3925d3d68925f432392f2ea17-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/sw-24p-g/sw-24p-g-quick-start.pdf"
 	},
 	{
-		"_id": "file-b58d171e0fd1b4ef1f407e8a0f663d68f2166209-pdf",
+		"_id": "file-98d62fd113a4c0e64039e82e7b49413918f767ca-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/wb-5k/wb-5k-datasheet.pdf"
 	},
 	{
-		"_id": "file-0975eaa28ac363c280f7eef111bec18d544a2b02-pdf",
+		"_id": "file-7315c828e2d53a09983c1877732a6b4bc7092128-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/wb-5k/wb-5k-quick-start.pdf"
 	},
 	{
-		"_id": "file-015af7149c954a745333ef113e774d3a0afc49d3-pdf",
+		"_id": "file-ee1943c4620c25d7a4440499f937fa4ba4fe436e-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/wb-5k/wb-5k-firmware-notes.pdf"
 	},
 	{
-		"_id": "file-e4db17ce175d8a62c9dd52a4ed65d8d1dd63d0a5-pdf",
+		"_id": "file-8ed65e8f5f813a3b62e5e9d262525aaddca5fa32-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/wb-1k/wb-1k-datasheet.pdf"
 	},
 	{
-		"_id": "file-86751b3093f552c19b7598eb8a72ff64b8364522-pdf",
+		"_id": "file-e8f85bff29eed27016fe359037fe4043318c478f-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/wb-1k/wb-1k-quick-start.pdf"
 	},
 	{
-		"_id": "file-1f6790565e4ee21d3b9335c786855141be4104c2-pdf",
+		"_id": "file-edc2ed9674e00b95af307b6e46e1ffe58ef6ea3b-pdf",
 		"_type": "sanity.fileAsset",
 		"file": "files/wb-1k/wb-1k-firmware-notes.pdf"
 	}

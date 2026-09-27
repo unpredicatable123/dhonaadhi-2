@@ -28,40 +28,45 @@
 <a
 	use:watch
 	href={paths.category(category.slug ?? '')}
-	class="rail-card group relative isolate flex h-[min(28rem,64svh)] w-[min(24rem,82vw)] shrink-0 snap-start flex-col overflow-hidden rounded-panel bg-surface transition-colors hairline hover:border-control md:h-[min(34rem,72svh)]"
+	class="rail-card group relative isolate flex h-[28rem] w-[min(22rem,82vw)] shrink-0 snap-start flex-col overflow-hidden rounded-panel bg-surface shadow-card transition-colors hairline hover:border-control md:aspect-[5/7] md:h-full md:max-h-[36rem] md:w-auto"
 	class:seen
 >
-	<SanityImage
-		image={category.image}
-		sizes="(min-width: 768px) 24rem, 82vw"
-		aspect={4 / 3}
-		class="aspect-4/3 w-full"
-		imgClass="transition-transform duration-(--dur-scene) ease-lens group-hover:scale-105"
-	/>
+	<!-- The image flexes; the copy below keeps its natural height, so the card always fits. -->
+	<div class="relative min-h-0 flex-1 overflow-hidden">
+		<SanityImage
+			image={category.image}
+			sizes="(min-width: 768px) 26rem, 82vw"
+			class="absolute inset-0 h-full w-full"
+			imgClass="transition-transform duration-(--dur-scene) ease-lens group-hover:scale-105"
+		/>
+		<div class="scan pointer-events-none absolute inset-0 scanlines" aria-hidden="true"></div>
+	</div>
 	<div
-		class="scan pointer-events-none absolute inset-x-0 top-0 aspect-4/3 scanlines"
-		aria-hidden="true"
-	></div>
-	<div class="flex flex-1 flex-col gap-3 p-6">
+		class="flex shrink-0 flex-col gap-3 p-6 [@media(max-height:720px)]:gap-2 [@media(max-height:720px)]:p-4"
+	>
 		<div class="flex items-start justify-between">
 			<CategoryIcon
 				name={category.icon ?? ''}
 				draw={seen}
 				strokeWidth={1.25}
-				class="size-12 text-accent"
+				class="size-10 text-accent"
 			/>
 			<span class="font-mono text-mono-sm text-fg-muted tabular-nums">
 				{category.count} models
 			</span>
 		</div>
-		<h3 class="mt-auto flex items-center gap-2 font-display text-h3 font-medium">
+		<h3 class="flex items-center gap-2 font-display text-h3 font-medium">
 			{category.title}
 			<ArrowUpRight
 				class="size-5 opacity-0 transition-opacity group-hover:opacity-100"
 				aria-hidden="true"
 			/>
 		</h3>
-		{#if category.tagline}<p class="text-sm text-fg-muted">{category.tagline}</p>{/if}
+		{#if category.tagline}<p
+				class="line-clamp-2 text-sm text-fg-muted [@media(max-height:720px)]:hidden"
+			>
+				{category.tagline}
+			</p>{/if}
 	</div>
 </a>
 

@@ -78,5 +78,25 @@
 		"source": "rawpixel",
 		"landing": "https://www.rawpixel.com/image/5950797/free-public-domain-cc0-photo",
 		"alt": "Large factory hall with production equipment along a central aisle"
+	},
+	"hero-street": {
+		"openverseId": "f275906e-484d-4952-93d5-3abaf5b681a1",
+		"url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxOTAxNTI3LXdpa2ltZWRpYS1pbWFnZS1rb3dqdWJrcS5qcGc.jpg",
+		"title": "Street photo shooting town",
+		"creator": null,
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/3290651/free-photo-image-architecture-asphalt-automobile",
+		"alt": "A sunlit street corner: two pedestrians wait to cross while a van drives towards them"
+	},
+	"night-street": {
+		"openverseId": "3014e777-75f5-4c7d-a67c-6fcf1b2fc438",
+		"url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYxODcwNDg3LXdpa2ltZWRpYS1pbWFnZS1rb3dkbG9lMC5qcGc.jpg",
+		"title": "Busy city highway night-time traffic",
+		"creator": null,
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/3285114/free-photo-image-city-night-asphalt-automobile",
+		"alt": "A city street at night with taxis and cars under streetlights"
 	}
 }

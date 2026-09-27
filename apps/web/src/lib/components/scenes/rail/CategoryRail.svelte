@@ -36,11 +36,14 @@
 </script>
 
 <section aria-labelledby="rail-title" id={section.anchor ?? undefined} class="relative">
+	<!-- ≥768px: exactly one viewport tall while pinned; the cards take whatever height the heading leaves. -->
 	<div
 		bind:this={pin}
-		class="rail-pin overflow-hidden py-24 md:flex md:min-h-svh md:flex-col md:justify-center"
+		class="rail-pin overflow-hidden py-24 md:flex md:h-svh md:flex-col md:pt-[calc(var(--header-h)+2rem)] md:pb-10"
 	>
-		<div class="container-site mb-10 flex flex-wrap items-end justify-between gap-6">
+		<div
+			class="container-site mb-10 flex shrink-0 flex-wrap items-end justify-between gap-6 md:mb-8"
+		>
 			<div class="grid max-w-[44rem] gap-4">
 				<h2 id="rail-title" class="text-h2">{section.title}</h2>
 				{#if section.lead}<p class="text-body-lg text-fg-muted">{section.lead}</p>{/if}
@@ -49,7 +52,7 @@
 		</div>
 		<div
 			bind:this={track}
-			class="rail-track flex snap-x snap-mandatory scroll-px-(--page-margin) gap-4 overflow-x-auto px-(--page-margin) pb-4 md:snap-none md:overflow-visible md:pb-0"
+			class="rail-track flex min-h-0 snap-x snap-mandatory scroll-px-(--page-margin) gap-4 overflow-x-auto px-(--page-margin) pb-4 md:flex-1 md:snap-none md:overflow-visible md:pb-0"
 			data-lenis-prevent-touch
 		>
 			{#each section.categories ?? [] as c (c._id)}
