@@ -21,16 +21,20 @@ export type ImageData = {
 
 const CDN = /^https:\/\/cdn\.sanity\.io\/images\/([^/]+)\/([^/]+)\//;
 
+/** Fixture mode: the local /fixtures route resizes on request (?w=), mirroring the CDN. */
+const FIXTURE = /^\/fixtures\/images\//;
+
 /** Widths offered in srcset; the browser picks via `sizes`. */
-export const WIDTHS = [320, 480, 640, 800, 1024, 1280, 1600, 1920, 2400];
+export const WIDTHS = [160, 320, 480, 640, 800, 1024, 1280, 1600, 1920, 2400];
 
 /**
  * URL for one width. Sanity CDN images get hotspot-aware crops and automatic
- * AVIF/WebP; fixture images (served locally) are returned as-is.
+ * AVIF/WebP; fixture images are resized by the local /fixtures route.
  */
 export function imageUrl(image: ImageData, width: number, height?: number): string | undefined {
 	const url = image?.asset?.url;
 	if (!url) return undefined;
+	if (FIXTURE.test(url)) return `${url}?w=${width}`;
 	const m = url.match(CDN);
 	if (!m) return url;
 	const b = createImageUrlBuilder({ projectId: m[1], dataset: m[2] })
@@ -48,7 +52,7 @@ export function imageUrl(image: ImageData, width: number, height?: number): stri
 
 export function srcset(image: ImageData, aspect?: number): string | undefined {
 	const url = image?.asset?.url;
-	if (!url || !CDN.test(url)) return undefined;
+	if (!url || !(CDN.test(url) || FIXTURE.test(url))) return undefined;
 	const max = image?.asset?.metadata?.dimensions?.width ?? 2400;
 	return WIDTHS.filter((w) => w <= max * 1.1)
 		.map((w) => `${imageUrl(image, w, aspect ? Math.round(w / aspect) : undefined)} ${w}w`)

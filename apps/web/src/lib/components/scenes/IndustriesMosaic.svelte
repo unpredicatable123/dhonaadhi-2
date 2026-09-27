@@ -8,6 +8,14 @@
 	let { section }: { section: Section<'industriesMosaic'> } = $props();
 
 	/** Bento layout: tile spans cycle so any count of 4–8 industries composes well. */
+	/** Ken Burns runs only while the mosaic is on screen (saves main thread and battery). */
+	let inView = $state(false);
+	function watch(node: HTMLElement) {
+		const io = new IntersectionObserver(([e]) => (inView = e.isIntersecting));
+		io.observe(node);
+		return { destroy: () => io.disconnect() };
+	}
+
 	const spans = [
 		'md:col-span-7 md:row-span-2',
 		'md:col-span-5',
@@ -26,7 +34,11 @@
 			<h2 id="industries-title" class="text-h2">{section.title}</h2>
 			{#if section.lead}<p class="text-body-lg text-fg-muted">{section.lead}</p>{/if}
 		</div>
-		<ul class="grid auto-rows-[15rem] gap-3 md:auto-rows-[17rem] md:grid-cols-12">
+		<ul
+			use:watch
+			class:playing={inView}
+			class="grid auto-rows-[15rem] gap-3 md:auto-rows-[17rem] md:grid-cols-12"
+		>
 			{#each section.industries ?? [] as ind, i (ind._id)}
 				<li class={cn(spans[i % spans.length])}>
 					<a
@@ -64,6 +76,10 @@
 	/* Slow Ken Burns drift; hover pulls focus (slight blur → sharp). */
 	.kb {
 		animation: var(--animate-kenburns);
+		animation-play-state: paused;
+	}
+	.playing .kb {
+		animation-play-state: running;
 	}
 	.tile :global(.focus-img) {
 		filter: blur(1.5px) saturate(0.85) brightness(0.85);

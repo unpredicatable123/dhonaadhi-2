@@ -1,56 +1,56 @@
 <script lang="ts">
 	/**
-	 * The brand aperture, full-screen. Six blades are half-planes whose inner edges form
-	 * a hexagonal opening (inradius 10.4 → side 12); seams run from each hexagon vertex
-	 * along the next edge, like a real iris. The assembly rotates open and scales out.
-	 * Pure SVG + CSS (nothing on the JS critical path); hidden under reduced motion.
+	 * The brand aperture, full-screen. Six blades are half-planes arranged around the
+	 * centre; each slides outward along its own normal while the whole assembly twists
+	 * open. Only `transform`/`opacity` animate, so every blade is a GPU-composited layer
+	 * (no per-frame repaint). Pure CSS: nothing on the JS critical path.
 	 */
-	const angles = Array.from({ length: 6 }, (_, i) => i * 60);
-	const BIG = 3000;
+	const blades = [0, 60, 120, 180, 240, 300];
 </script>
 
-<svg
-	class="iris pointer-events-none absolute inset-0 z-20 h-full w-full"
-	viewBox="-50 -50 100 100"
-	preserveAspectRatio="xMidYMid slice"
-	aria-hidden="true"
->
-	<g class="blades">
-		{#each angles as deg (deg)}
-			<path
-				class="blade"
-				transform="rotate({deg})"
-				d="M {-BIG} -10.4 L {BIG} -10.4 L {BIG} {-BIG} L {-BIG} {-BIG} Z"
-			/>
+<div class="iris pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
+	<div class="twist absolute top-1/2 left-1/2">
+		{#each blades as deg (deg)}
+			<div class="arm absolute top-0 left-0" style:transform="rotate({deg}deg)">
+				<div class="blade"></div>
+			</div>
 		{/each}
-		{#each angles as deg (deg)}
-			<path class="seam" transform="rotate({deg})" d="M 6 -10.4 L {BIG} -10.4" />
-		{/each}
-	</g>
-</svg>
+	</div>
+</div>
 
 <style>
-	.blade {
-		fill: var(--color-ink-950);
-	}
-	.seam {
-		stroke: color-mix(in oklab, var(--color-optic-400) 45%, transparent);
-		stroke-width: 0.12;
-		fill: none;
-	}
-	.blades {
-		transform-origin: 0 0;
-		animation: open var(--dur-scene) var(--ease-shutter) 250ms both;
-	}
 	.iris {
 		animation: fade 300ms linear calc(var(--dur-scene) + 150ms) both;
 	}
+	.twist {
+		animation: twist var(--dur-scene) var(--ease-shutter) 250ms both;
+	}
+	/* A blade: a huge slab whose lower edge is one side of the hexagonal opening. */
+	.blade {
+		position: absolute;
+		/* Just large enough to cover the viewport around the centre (half-diagonal < 75vmax). */
+		left: -80vmax;
+		bottom: 0;
+		width: 160vmax;
+		height: 80vmax;
+		background: var(--color-ink-950);
+		border-bottom: 1px solid color-mix(in oklab, var(--color-optic-400) 45%, transparent);
+		animation: open var(--dur-scene) var(--ease-shutter) 250ms both;
+	}
 	@keyframes open {
 		from {
-			transform: rotate(-70deg) scale(0.04);
+			transform: translateY(-1.2vmin);
 		}
 		to {
-			transform: rotate(0deg) scale(9);
+			transform: translateY(-90vmax);
+		}
+	}
+	@keyframes twist {
+		from {
+			transform: rotate(-60deg);
+		}
+		to {
+			transform: rotate(0deg);
 		}
 	}
 	@keyframes fade {

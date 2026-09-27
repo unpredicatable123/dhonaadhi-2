@@ -17,7 +17,8 @@ const motion: Handle = async ({ event, resolve }) => {
 			html
 				.replace('%dh.motion%', motionPref === 'reduced' ? 'reduced' : 'full')
 				.replace('%dh.theme%', themeFor(event.url.pathname)),
-		preload: ({ type }) => type === 'js' || type === 'css' || type === 'font'
+		// Fonts: only the two LCP faces are preloaded (app.html); the rest load on demand.
+		preload: ({ type }) => type === 'js' || type === 'css'
 	});
 };
 

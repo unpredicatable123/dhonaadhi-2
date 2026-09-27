@@ -16,3 +16,5 @@ screenshots/*.png
 dev.log
 e2e.log
 apps/web/playwright-report
+build.log
+preview.log

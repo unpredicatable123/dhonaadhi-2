@@ -8,7 +8,7 @@ test.describe('reduced motion', () => {
 		await page.goto('/');
 		await expect(page.locator('html')).toHaveAttribute('data-motion', 'reduced');
 		await expect(page.locator('html')).not.toHaveClass(/lenis/);
-		await expect(page.locator('svg.iris')).toBeHidden();
+		await expect(page.locator('main div.iris')).toBeHidden();
 		expect(await page.locator('.pin-spacer').count()).toBe(0);
 		// Exploded view falls back to a static frame with every callout as text.
 		await page.locator('#exploded-title').scrollIntoViewIfNeeded();

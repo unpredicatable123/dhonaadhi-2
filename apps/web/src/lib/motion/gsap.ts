@@ -26,25 +26,39 @@ function queueRefresh(g: GsapBundle) {
 
 const bezier = (p: readonly number[]) => `M0,0 C${p[0]},${p[1]} ${p[2]},${p[3]} 1,1`;
 
+/** Resolves after the window load event and an idle slot (max 1.5 s), so first paint wins. */
+function afterFirstPaint(): Promise<void> {
+	return new Promise((resolve) => {
+		const idle = () =>
+			'requestIdleCallback' in window
+				? requestIdleCallback(() => resolve(), { timeout: 1500 })
+				: setTimeout(resolve, 200);
+		if (document.readyState === 'complete') idle();
+		else window.addEventListener('load', idle, { once: true });
+	});
+}
+
 /**
- * Lazily loads GSAP + plugins once (kept off the critical path so LCP is never blocked
- * by animation code). Browser-only.
+ * Lazily loads GSAP + plugins once, after first paint, so LCP is never competing with
+ * animation code. Browser-only.
  */
 export function loadGsap(): Promise<GsapBundle> {
-	bundle ??= Promise.all([
-		import('gsap'),
-		import('gsap/ScrollTrigger'),
-		import('gsap/SplitText'),
-		import('gsap/Flip'),
-		import('gsap/CustomEase')
-	]).then(([{ gsap }, { ScrollTrigger }, { SplitText }, { Flip }, { CustomEase }]) => {
-		gsap.registerPlugin(ScrollTrigger, SplitText, Flip, CustomEase);
-		CustomEase.create('lens', bezier(ease.lens));
-		CustomEase.create('shutter', bezier(ease.shutter));
-		gsap.defaults({ ease: 'lens', duration: duration.slow });
-		ScrollTrigger.config({ ignoreMobileResize: true });
-		return { gsap, ScrollTrigger, SplitText, Flip };
-	});
+	bundle ??= afterFirstPaint().then(() =>
+		Promise.all([
+			import('gsap'),
+			import('gsap/ScrollTrigger'),
+			import('gsap/SplitText'),
+			import('gsap/Flip'),
+			import('gsap/CustomEase')
+		]).then(([{ gsap }, { ScrollTrigger }, { SplitText }, { Flip }, { CustomEase }]) => {
+			gsap.registerPlugin(ScrollTrigger, SplitText, Flip, CustomEase);
+			CustomEase.create('lens', bezier(ease.lens));
+			CustomEase.create('shutter', bezier(ease.shutter));
+			gsap.defaults({ ease: 'lens', duration: duration.slow });
+			ScrollTrigger.config({ ignoreMobileResize: true });
+			return { gsap, ScrollTrigger, SplitText, Flip };
+		})
+	);
 	return bundle;
 }
 

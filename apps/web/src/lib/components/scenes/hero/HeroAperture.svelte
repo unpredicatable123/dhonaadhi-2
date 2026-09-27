@@ -88,7 +88,8 @@
 			aria-hidden="true"
 		>
 			<span class="flex items-center gap-2">
-				<span class="size-1.5 animate-pulse rounded-full bg-alert-500"></span>
+				<span class="size-1.5 animate-pulse rounded-full bg-alert-500 [animation-iteration-count:4]"
+				></span>
 				Live · Cam 04 · LumaNight
 			</span>
 			<span class="hidden sm:inline">0.0005 lux</span>

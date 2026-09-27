@@ -34,7 +34,9 @@
 	// Reduced motion: attribute for CSS + no smooth scroll.
 	$effect(() => {
 		document.documentElement.dataset.motion = motion.reduced ? 'reduced' : 'full';
-		if (motion.reduced || !smooth) stopLenis();
+		// Smooth scroll only for mouse/trackpad: touch devices keep native momentum scrolling.
+		const fine = matchMedia('(pointer: fine)').matches;
+		if (motion.reduced || !smooth || !fine) stopLenis();
 		else startLenis();
 	});
 </script>

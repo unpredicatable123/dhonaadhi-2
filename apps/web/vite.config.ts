@@ -16,7 +16,9 @@ export default defineConfig({
 			adapter: process.env.E2E_BUILD ? undefined : adapter({ runtime: 'nodejs22.x' }),
 			// One .env at the monorepo root serves web, studio and seed.
 			env: { dir: '../..' },
-			alias: { $fixtures: '../../seed/data' }
+			alias: { $fixtures: '../../seed/data' },
+			// Inline small stylesheets: removes render-blocking round trips on slow mobile networks.
+			inlineStyleThreshold: 80_000
 		})
 	],
 	server: { fs: { allow: ['../../seed/data'] } },
