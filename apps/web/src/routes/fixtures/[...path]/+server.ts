@@ -15,6 +15,9 @@ const TYPES: Record<string, string> = {
 	'.pdf': 'application/pdf'
 };
 
+// Never keep source files open (on Windows that blocks re-rendering them).
+sharp.cache(false);
+
 /** Resized variants, kept in memory for the life of the dev/preview process. */
 const cache = new Map<string, Buffer>();
 
@@ -39,7 +42,7 @@ export const GET: RequestHandler = async ({ params, url, setHeaders }) => {
 		const key = `${file}@${w}`;
 		let body = cache.get(key);
 		if (!body) {
-			body = await sharp(file)
+			body = await sharp(fs.readFileSync(file))
 				.resize({ width: w, withoutEnlargement: true })
 				.webp({ quality: 72 })
 				.toBuffer();

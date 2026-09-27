@@ -19,7 +19,7 @@
 		background: linear-gradient(
 			90deg,
 			transparent,
-			color-mix(in oklab, var(--color-mist-100) 6%, transparent),
+			color-mix(in oklab, var(--color-ink) 5%, transparent),
 			transparent
 		);
 		animation: scan 1.6s var(--ease-lens) infinite;

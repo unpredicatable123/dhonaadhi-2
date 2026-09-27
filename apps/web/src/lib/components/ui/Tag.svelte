@@ -8,7 +8,7 @@
 			tone: {
 				neutral: 'hairline bg-surface text-fg-muted',
 				optic: 'border border-accent/40 bg-accent/10 text-accent',
-				thermal: 'bg-thermal-400 text-ink-950',
+				thermal: 'bg-thermal-400 text-ink',
 				info: 'border border-link/40 bg-link/10 text-link',
 				danger: 'border border-danger/40 bg-danger/10 text-danger'
 			}

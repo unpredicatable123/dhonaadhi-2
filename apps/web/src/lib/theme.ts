@@ -1,10 +1,9 @@
 export type Theme = 'dark' | 'light';
 
 /**
- * Mixed theme: the cinematic home and campaign pages stay dark ("Night Vision");
- * the catalogue (hub, listings, product detail, compare) is light for long reading
- * and spec comparison. Used by the server hook (first paint) and the layout (client nav).
+ * The site is light throughout (warm off-white, ink type, emerald accent). Kept as a
+ * function so a future campaign page can opt into another theme in one place.
  */
-export function themeFor(pathname: string): Theme {
-	return pathname === '/products' || pathname.startsWith('/products/') ? 'light' : 'dark';
+export function themeFor(_pathname: string): Theme {
+	return 'light';
 }

@@ -48,7 +48,7 @@
 
 {#if src}
 	<div
-		class={cn('relative overflow-hidden bg-ink-900', className)}
+		class={cn('relative overflow-hidden bg-raised', className)}
 		style:background-image={lqip && !loaded ? `url(${lqip})` : undefined}
 		style:background-size="cover"
 		style:background-position="center"

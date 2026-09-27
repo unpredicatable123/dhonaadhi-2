@@ -50,7 +50,7 @@
 <article
 	use:tilt
 	class={cn(
-		'viewfinder group relative isolate rounded-control bg-surface p-3 shadow-card transition-colors duration-(--dur-base) hairline hover:border-steel-500',
+		'viewfinder group relative isolate rounded-control bg-surface p-3 shadow-card transition-colors duration-(--dur-base) hairline hover:border-control',
 		layout === 'list'
 			? 'grid grid-cols-[8rem_1fr] gap-4 sm:grid-cols-[12rem_1fr_auto]'
 			: 'grid gap-4',
@@ -59,7 +59,7 @@
 	aria-labelledby="{id}-title"
 >
 	<div
-		class="media relative aspect-4/3 overflow-hidden rounded-[6px] bg-ink-900"
+		class="media relative aspect-4/3 overflow-hidden rounded-[6px] bg-raised"
 		style:view-transition-name={transitionName}
 	>
 		<div
@@ -147,7 +147,7 @@
 		position: absolute;
 		width: 14px;
 		height: 14px;
-		border-color: color-mix(in oklab, var(--color-mist-100) 55%, transparent);
+		border-color: color-mix(in oklab, var(--color-ink) 30%, transparent);
 		transition:
 			translate var(--dur-base) var(--ease-lens),
 			border-color var(--dur-base);
@@ -178,7 +178,7 @@
 	}
 	.viewfinder:hover .bracket,
 	.viewfinder:focus-within .bracket {
-		border-color: var(--color-optic-400);
+		border-color: var(--accent);
 	}
 	.viewfinder:hover .bracket-tl,
 	.viewfinder:focus-within .bracket-tl {

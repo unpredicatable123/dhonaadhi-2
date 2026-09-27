@@ -92,7 +92,7 @@
 			),
 			radial-gradient(
 				closest-side,
-				color-mix(in oklab, var(--color-signal-blue) 10%, transparent) 30%,
+				color-mix(in oklab, var(--color-thermal-400) 12%, transparent) 30%,
 				transparent 75%
 			);
 		transition:

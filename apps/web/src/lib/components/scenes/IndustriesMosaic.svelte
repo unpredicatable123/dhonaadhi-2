@@ -37,34 +37,38 @@
 		<ul
 			use:watch
 			class:playing={inView}
-			class="grid auto-rows-[15rem] gap-3 md:auto-rows-[17rem] md:grid-cols-12"
+			class="grid auto-rows-[20rem] gap-4 md:auto-rows-[22rem] md:grid-cols-12"
 		>
 			{#each section.industries ?? [] as ind, i (ind._id)}
 				<li class={cn(spans[i % spans.length])}>
 					<a
 						href={resolveLink({ kind: 'internal', ref: { _type: 'industry', slug: ind.slug } })}
-						class="tile group relative isolate flex h-full flex-col justify-end overflow-hidden rounded-panel p-5 hairline"
+						class="tile group flex h-full flex-col overflow-hidden rounded-panel bg-surface shadow-card hairline"
 					>
-						<div class="kb absolute inset-0 -z-10">
-							<SanityImage
-								image={ind.image}
-								sizes="(min-width: 768px) 50vw, 100vw"
-								class="h-full w-full"
-								imgClass="focus-img"
-							/>
+						<!-- Photo on top, copy on white below: no scrim needed, the tile stays light. -->
+						<div class="relative min-h-0 flex-1 overflow-hidden">
+							<div class="kb absolute inset-0">
+								<SanityImage
+									image={ind.image}
+									sizes="(min-width: 768px) 50vw, 100vw"
+									class="h-full w-full"
+									imgClass="focus-img"
+								/>
+							</div>
 						</div>
-						<div
-							class="absolute inset-0 -z-10 bg-gradient-to-t from-ink-950/95 via-ink-950/40 to-ink-950/10"
-						></div>
-						<h3 class="flex items-center gap-2 font-display text-2xl font-medium">
-							{ind.title}
-							<ArrowUpRight
-								class="size-5 opacity-0 transition-opacity group-hover:opacity-100"
-								aria-hidden="true"
-							/>
-						</h3>
-						{#if ind.summary}<p class="mt-1 max-w-[42ch] text-sm text-fg/75">{ind.summary}</p>{/if}
-						<span class="mt-3 eyebrow text-fg/60">Solution page coming soon</span>
+						<div class="px-5 pt-4 pb-5">
+							<h3 class="flex items-center gap-2 font-display text-xl font-medium">
+								{ind.title}
+								<ArrowUpRight
+									class="size-5 opacity-0 transition-opacity group-hover:opacity-100"
+									aria-hidden="true"
+								/>
+							</h3>
+							{#if ind.summary}<p class="mt-1 max-w-[46ch] text-sm text-fg-muted">
+									{ind.summary}
+								</p>{/if}
+							<span class="mt-3 block eyebrow text-accent">Solution page coming soon</span>
+						</div>
 					</a>
 				</li>
 			{/each}
@@ -73,7 +77,7 @@
 </section>
 
 <style>
-	/* Slow Ken Burns drift; hover pulls focus (slight blur → sharp). */
+	/* Slow Ken Burns drift; hover leans in slightly. */
 	.kb {
 		animation: var(--animate-kenburns);
 		animation-play-state: paused;
@@ -82,12 +86,11 @@
 		animation-play-state: running;
 	}
 	.tile :global(.focus-img) {
-		filter: blur(1.5px) saturate(0.85) brightness(0.85);
-		transition: filter var(--dur-slow) var(--ease-lens);
+		transition: scale var(--dur-slow) var(--ease-lens);
 	}
 	.tile:hover :global(.focus-img),
 	.tile:focus-visible :global(.focus-img) {
-		filter: none;
+		scale: 1.03;
 	}
 	:global([data-motion='reduced']) .kb {
 		animation: none;

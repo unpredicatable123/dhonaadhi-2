@@ -72,6 +72,7 @@
 <style>
 	.det {
 		--c: var(--color-optic-400);
+		--on-c: var(--color-ink);
 		animation: lock 700ms var(--ease-lens) var(--delay) both;
 	}
 	.c {
@@ -106,7 +107,7 @@
 		border-right: 1.5px solid;
 	}
 	.tag {
-		color: var(--color-ink-950);
+		color: var(--on-c);
 		background: var(--c);
 		padding: 2px 6px;
 		border-radius: 2px;

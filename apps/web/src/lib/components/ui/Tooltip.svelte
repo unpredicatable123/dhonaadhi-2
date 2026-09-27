@@ -28,7 +28,7 @@
 		{id}
 		role="tooltip"
 		class={cn(
-			'pointer-events-none absolute left-1/2 z-50 w-max max-w-60 -translate-x-1/2 rounded-chip bg-mist-100 px-2.5 py-1.5 text-caption text-ink-950 opacity-0 shadow-lg transition-opacity duration-(--dur-fast)',
+			'pointer-events-none absolute left-1/2 z-50 w-max max-w-60 -translate-x-1/2 rounded-chip bg-fg px-2.5 py-1.5 text-caption text-bg opacity-0 shadow-lg transition-opacity duration-(--dur-fast)',
 			side === 'top' ? 'bottom-full mb-2' : 'top-full mt-2',
 			!dismissed && 'group-focus-within/tip:opacity-100 group-hover/tip:opacity-100'
 		)}

@@ -7,7 +7,7 @@
 </script>
 
 <section
-	class="border-y border-line bg-ink-950 py-10"
+	class="border-y border-line bg-surface py-10"
 	aria-labelledby="trust-title"
 	id={section.anchor ?? undefined}
 >
@@ -22,7 +22,7 @@
 			class="grid grid-cols-2 gap-px overflow-hidden rounded-control bg-line sm:grid-cols-3 lg:grid-cols-6"
 		>
 			{#each section.items ?? [] as item (item._key)}
-				<li class="grid min-h-20 content-center gap-0.5 bg-ink-950 px-4 py-3">
+				<li class="grid min-h-20 content-center gap-0.5 bg-surface px-4 py-3">
 					{#if item.logo?.asset}
 						<SanityImage
 							image={item.logo}

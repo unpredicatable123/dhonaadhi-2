@@ -25,7 +25,7 @@
 	onmouseenter={onenter}
 	role="region"
 	aria-label="{item.link?.label} menu"
-	class="absolute inset-x-0 top-full border-b border-line bg-bg shadow-[0_40px_80px_-20px_rgb(0_0_0/0.7)]"
+	class="absolute inset-x-0 top-full border-b border-line bg-bg shadow-[0_40px_80px_-20px_rgb(20_20_19/0.14)]"
 >
 	<div class="container-site grid-site py-8">
 		{#if item.mega === 'catalogue'}
@@ -91,7 +91,7 @@
 			{#if featured}
 				<a
 					href={paths.product(featured)}
-					class="group col-span-3 grid content-start gap-3 rounded-panel p-3 transition-colors hairline hover:border-steel-500"
+					class="group col-span-3 grid content-start gap-3 rounded-panel p-3 transition-colors hairline hover:border-control"
 				>
 					<SanityImage
 						image={featured.image}

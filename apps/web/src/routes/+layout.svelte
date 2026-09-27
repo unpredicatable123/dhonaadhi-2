@@ -28,7 +28,7 @@
 		document.documentElement.dataset.theme = theme;
 		document
 			.querySelector('meta[name="theme-color"]')
-			?.setAttribute('content', theme === 'light' ? '#f6f8fb' : '#07090d');
+			?.setAttribute('content', theme === 'light' ? '#fafaf8' : '#07090d');
 	});
 
 	// Reduced motion: attribute for CSS + no smooth scroll.

@@ -72,7 +72,7 @@
 
 <Specimen
 	title="Form controls"
-	note="Control borders use steel-500 (≥ 3:1). Errors are text, never colour alone."
+	note="Control borders use stone-500 (≥ 3:1). Errors are text, never colour alone."
 >
 	<div class="grid max-w-xl gap-6">
 		<Input label="Search models" placeholder="e.g. NX-4K-D72" bind:value={query}>

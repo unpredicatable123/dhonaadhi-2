@@ -65,8 +65,8 @@ export async function renderOg(p: {
 		{
 			width: 1200,
 			height: 630,
-			background: '#07090d',
-			color: '#e8edf4',
+			background: '#fafaf8',
+			color: '#141413',
 			fontFamily: 'Geist',
 			position: 'relative'
 		},
@@ -97,7 +97,7 @@ export async function renderOg(p: {
 				top: 0,
 				width: 700,
 				height: 630,
-				background: 'linear-gradient(90deg, #07090d 55%, rgba(7,9,13,0))'
+				background: 'linear-gradient(90deg, #fafaf8 55%, rgba(250,250,248,0))'
 			}),
 			h(
 				'div',
@@ -111,7 +111,7 @@ export async function renderOg(p: {
 				[
 					h('div', { fontFamily: 'Clash', fontSize: 34, letterSpacing: -1 }, p.brand),
 					h('div', { flexDirection: 'column', gap: 16 }, [
-						h('div', { fontFamily: 'Mono', fontSize: 30, color: '#2fe6c8' }, p.model),
+						h('div', { fontFamily: 'Mono', fontSize: 30, color: '#0b6b4f' }, p.model),
 						h(
 							'div',
 							{ fontFamily: 'Clash', fontSize: 58, lineHeight: 1.05, letterSpacing: -1.5 },
@@ -124,19 +124,19 @@ export async function renderOg(p: {
 								h(
 									'div',
 									{
-										border: '1px solid #1f2733',
+										border: '1px solid #e5e4df',
 										borderRadius: 6,
 										padding: '8px 14px',
 										fontFamily: 'Mono',
 										fontSize: 20,
-										color: '#8a95a8'
+										color: '#5f5e59'
 									},
 									s
 								)
 							)
 						)
 					]),
-					h('div', { width: 120, height: 3, background: '#2fe6c8' })
+					h('div', { width: 120, height: 3, background: '#0b6b4f' })
 				]
 			)
 		]

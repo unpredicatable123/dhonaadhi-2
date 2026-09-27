@@ -15,11 +15,7 @@
 	];
 </script>
 
-<footer
-	data-theme="dark"
-	class="relative mt-32 border-t border-line bg-ink-950 print:hidden"
-	data-print="hide"
->
+<footer class="relative mt-32 border-t border-line bg-surface print:hidden" data-print="hide">
 	<div class="container-site grid gap-12 py-16 lg:grid-cols-12">
 		<div class="grid content-start gap-5 lg:col-span-4">
 			<a href="/" aria-label="{settings.brandName} home" class="w-fit">

@@ -195,7 +195,7 @@
 
 {#if open}
 	<div
-		class="fixed inset-0 z-40 bg-ink-950/60 backdrop-blur-[2px] transition-opacity"
+		class="fixed inset-0 z-40 bg-ink/15 backdrop-blur-[2px] transition-opacity"
 		aria-hidden="true"
 	></div>
 {/if}

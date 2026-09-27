@@ -33,8 +33,8 @@
 		bottom: 0;
 		width: 160vmax;
 		height: 80vmax;
-		background: var(--color-ink-950);
-		border-bottom: 1px solid color-mix(in oklab, var(--color-optic-400) 45%, transparent);
+		background: var(--raised);
+		border-bottom: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
 		animation: open var(--dur-scene) var(--ease-shutter) 250ms both;
 	}
 	@keyframes open {

@@ -57,15 +57,15 @@
 <div class="pointer-events-none fixed inset-0 z-[95]" class:invisible={!active} aria-hidden="true">
 	<div
 		bind:this={top}
-		class="absolute inset-x-0 top-0 h-1/2 origin-top scale-y-0 border-b border-ink-700 bg-ink-950"
+		class="absolute inset-x-0 top-0 h-1/2 origin-top scale-y-0 border-b border-line bg-bg"
 	></div>
 	<div
 		bind:this={bottom}
-		class="absolute inset-x-0 bottom-0 h-1/2 origin-bottom scale-y-0 border-t border-ink-700 bg-ink-950"
+		class="absolute inset-x-0 bottom-0 h-1/2 origin-bottom scale-y-0 border-t border-line bg-bg"
 	></div>
 	<div bind:this={seam} class="absolute inset-0 grid place-items-center opacity-0">
 		<div
-			class="h-px w-full bg-gradient-to-r from-transparent via-optic-400/60 to-transparent"
+			class="h-px w-full bg-gradient-to-r from-transparent via-optic-700/50 to-transparent"
 		></div>
 	</div>
 </div>

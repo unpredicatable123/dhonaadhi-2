@@ -32,7 +32,6 @@
 
 <a
 	{href}
-	data-theme="dark"
 	class={cn(
 		'lens group relative isolate flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-panel bg-surface p-6 hairline',
 		className
@@ -44,7 +43,7 @@
 		>
 			{@render media()}
 		</div>
-		<div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent"></div>
+		<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/70 to-transparent"></div>
 	</div>
 	<div class="flex items-start justify-between gap-4">
 		{#if icon}<span class="text-accent" aria-hidden="true">{@render icon()}</span>{/if}

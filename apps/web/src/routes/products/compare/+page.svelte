@@ -122,7 +122,7 @@
 									<button
 										type="button"
 										onclick={() => remove(p.slug ?? '')}
-										class="absolute -top-1 -right-1 z-10 grid tap place-items-center rounded-control bg-ink-950/80 text-fg-muted hover:text-fg"
+										class="absolute -top-1 -right-1 z-10 grid tap place-items-center rounded-control bg-surface/85 text-fg-muted hover:text-fg"
 									>
 										<X class="size-4" aria-hidden="true" /><span class="sr-only"
 											>Remove {p.modelNumber}</span

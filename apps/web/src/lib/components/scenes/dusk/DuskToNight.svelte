@@ -50,13 +50,13 @@
 					class="mt-2 grid grid-cols-2 gap-px overflow-hidden rounded-control bg-line"
 					aria-hidden="true"
 				>
-					<div class="bg-ink-950 p-4">
+					<div class="bg-surface p-4">
 						<dt class="eyebrow">Scene light</dt>
 						<dd class="mt-1 font-mono text-2xl text-highlight tabular-nums">
 							{lux}<span class="text-sm text-fg-muted"> lux</span>
 						</dd>
 					</div>
-					<div class="bg-ink-950 p-4">
+					<div class="bg-surface p-4">
 						<dt class="eyebrow">LumaNight view</dt>
 						<dd class="mt-1 font-mono text-2xl text-accent tabular-nums">
 							{Math.round(split)}<span class="text-sm text-fg-muted">%</span>
@@ -99,18 +99,18 @@
 						aria-hidden="true"
 					>
 						<span
-							class="absolute top-1/2 left-1/2 grid size-10 -translate-1/2 place-items-center rounded-full border border-optic-400 bg-ink-950/80 font-mono text-xs text-accent"
+							class="absolute top-1/2 left-1/2 grid size-10 -translate-1/2 place-items-center rounded-full border border-optic-400 bg-surface font-mono text-xs text-accent"
 							>⇆</span
 						>
 					</div>
 					<span
-						class="absolute top-4 left-4 rounded-chip bg-ink-950/70 px-2 py-1 font-mono text-mono-sm tracking-[0.08em] text-accent uppercase backdrop-blur"
+						class="absolute top-4 left-4 rounded-chip bg-surface/90 px-2 py-1 font-mono text-mono-sm tracking-[0.08em] text-accent uppercase backdrop-blur"
 						style:opacity={1 - phase.day}
 					>
 						{section.enhancedLabel}
 					</span>
 					<span
-						class="absolute top-4 right-4 rounded-chip bg-ink-950/70 px-2 py-1 font-mono text-mono-sm tracking-[0.08em] text-fg-muted uppercase backdrop-blur"
+						class="absolute top-4 right-4 rounded-chip bg-surface/90 px-2 py-1 font-mono text-mono-sm tracking-[0.08em] text-fg-muted uppercase backdrop-blur"
 						style:opacity={1 - phase.day}
 					>
 						{section.conventionalLabel}

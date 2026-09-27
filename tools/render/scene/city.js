@@ -23,7 +23,7 @@ function windowsTexture(rand, lit) {
 	c.width = 256;
 	c.height = 512;
 	const x = c.getContext('2d');
-	x.fillStyle = lit ? '#0d1016' : '#a39d92';
+	x.fillStyle = lit ? '#0d1016' : '#ebe5d9';
 	x.fillRect(0, 0, 256, 512);
 	for (let r = 0; r < 24; r++) {
 		for (let k = 0; k < 8; k++) {
@@ -35,7 +35,7 @@ function windowsTexture(rand, lit) {
 					: `hsl(200 40% ${60 + rand() * 20}%)`
 				: lit
 					? '#141922'
-					: '#3d4a57';
+					: `hsl(40 6% ${52 + rand() * 12}%)`;
 			x.fillRect(8 + k * 31, 8 + r * 21, 22, 13);
 		}
 	}
@@ -45,7 +45,8 @@ function windowsTexture(rand, lit) {
 }
 
 function buildStreet(mode) {
-	const night = mode !== 'day';
+	// The hero is a calm daylight street (the site is light); night modes are for the dusk comparison.
+	const night = mode !== 'day' && mode !== 'hero';
 	const rand = rng(7);
 	const scene = new THREE.Scene();
 	const sky = document.createElement('canvas');
@@ -58,20 +59,20 @@ function buildStreet(mode) {
 		sg.addColorStop(0.7, '#0b1422');
 		sg.addColorStop(1, '#1b2432');
 	} else {
-		sg.addColorStop(0, '#6d9cc9');
-		sg.addColorStop(1, '#d6e2ec');
+		sg.addColorStop(0, '#d9d7cf');
+		sg.addColorStop(1, '#f4f2ec');
 	}
 	sx.fillStyle = sg;
 	sx.fillRect(0, 0, 4, 256);
 	scene.background = new THREE.CanvasTexture(sky);
 	scene.background.colorSpace = THREE.SRGBColorSpace;
-	scene.fog = new THREE.FogExp2(night ? 0x0a111c : 0xc9d6e2, night ? 0.01 : 0.008);
+	scene.fog = new THREE.FogExp2(night ? 0x0a111c : 0xeeebe4, night ? 0.01 : 0.0035);
 
 	// LumaNight: same night scene, but the sensor 'sees' it — lifted ambient keeps full colour.
-	const luma = mode === 'luma' || mode === 'hero';
+	const luma = mode === 'luma';
 	scene.add(
 		new THREE.HemisphereLight(
-			luma ? 0x9fb6d8 : night ? 0x2a3b55 : 0xdbe8ff,
+			luma ? 0x9fb6d8 : night ? 0x2a3b55 : 0xf3efe6,
 			night ? 0x1a1712 : 0x5a5248,
 			luma ? 1.5 : night ? 0.35 : 1.6
 		)
@@ -87,7 +88,7 @@ function buildStreet(mode) {
 	scene.add(sun);
 
 	const asphalt = new THREE.MeshPhysicalMaterial({
-		color: 0x1a1d22,
+		color: night ? 0x1a1d22 : 0x5c5c5a,
 		roughness: night ? 0.32 : 0.8,
 		metalness: 0.05,
 		clearcoat: night ? 0.6 : 0
@@ -97,7 +98,7 @@ function buildStreet(mode) {
 	road.receiveShadow = true;
 	scene.add(road);
 	const walkMat = new THREE.MeshStandardMaterial({
-		color: night ? 0x2a2e35 : 0x9a9a96,
+		color: night ? 0x2a2e35 : 0xd6d1c6,
 		roughness: 0.85
 	});
 	for (const side of [-1, 1]) {
@@ -123,7 +124,7 @@ function buildStreet(mode) {
 			tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
 			tex.repeat.set(w / 7, h / 10);
 			const mat = new THREE.MeshStandardMaterial({
-				color: night ? 0x3a414c : 0xb8bcc2,
+				color: night ? 0x3a414c : 0xf4f0e8,
 				map: tex,
 				emissive: night ? 0xffffff : 0x000000,
 				emissiveMap: night ? tex : null,
@@ -233,7 +234,7 @@ function buildStreet(mode) {
 	scene.add(car);
 
 	const person = new THREE.Group();
-	const cloth = new THREE.MeshStandardMaterial({ color: 0x2b3a52, roughness: 0.8 });
+	const cloth = new THREE.MeshStandardMaterial({ color: 0x3a3632, roughness: 0.8 });
 	const skin = new THREE.MeshStandardMaterial({ color: 0xa87858, roughness: 0.7 });
 	person.add(new THREE.Mesh(new THREE.CapsuleGeometry(0.28, 0.9, 8, 16), cloth).translateY(1.1));
 	person.add(new THREE.Mesh(new THREE.SphereGeometry(0.16, 24, 16), skin).translateY(1.82));
@@ -281,6 +282,8 @@ function screenBox(obj, camera, pad = 0.12) {
 	};
 }
 
+const isNight = (mode) => mode === 'night' || mode === 'luma';
+
 /** mode: 'day' | 'night' | 'luma' | 'hero'. Conventional mono/grain is applied by the orchestrator. */
 window.city = ({ mode, width, height }) => {
 	renderer.setPixelRatio(1);
@@ -296,10 +299,10 @@ window.city = ({ mode, width, height }) => {
 		camera.lookAt(0, 2.2, -30);
 	}
 	camera.updateMatrixWorld();
-	renderer.toneMappingExposure = { day: 1.0, night: 0.9, luma: 1.35, hero: 1.15 }[mode];
+	renderer.toneMappingExposure = { day: 1.0, night: 0.9, luma: 1.35, hero: 1.0 }[mode];
 	const composer = new EffectComposer(renderer);
 	composer.addPass(new RenderPass(scene, camera));
-	if (mode !== 'day')
+	if (isNight(mode))
 		composer.addPass(
 			new UnrealBloomPass(
 				new THREE.Vector2(width, height),

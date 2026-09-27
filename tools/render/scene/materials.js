@@ -53,7 +53,7 @@ export function createMaterials() {
 }
 
 /** Soft studio: environment reflections + key/fill/rim, plus a contact shadow disc. */
-export function createStudio(renderer, { rim = 0xd6e6ff } = {}) {
+export function createStudio(renderer, { rim = 0xffffff } = {}) {
 	const scene = new THREE.Scene();
 	const pmrem = new THREE.PMREMGenerator(renderer);
 	scene.environment = pmrem.fromScene(new RoomEnvironmentLite(), 0.04).texture;
@@ -69,7 +69,7 @@ export function createStudio(renderer, { rim = 0xd6e6ff } = {}) {
 	key.shadow.bias = -0.0004;
 	scene.add(key);
 
-	const fill = new THREE.DirectionalLight(0xbcd4ff, 0.6);
+	const fill = new THREE.DirectionalLight(0xf4f1ea, 0.6);
 	fill.position.set(22, 8, 14);
 	scene.add(fill);
 
@@ -79,7 +79,7 @@ export function createStudio(renderer, { rim = 0xd6e6ff } = {}) {
 
 	const floor = new THREE.Mesh(
 		new THREE.PlaneGeometry(400, 400),
-		new THREE.ShadowMaterial({ opacity: 0.38 })
+		new THREE.ShadowMaterial({ opacity: 0.22 })
 	);
 	floor.rotation.x = -Math.PI / 2;
 	floor.receiveShadow = true;
@@ -93,7 +93,7 @@ class RoomEnvironmentLite extends THREE.Scene {
 		super();
 		const room = new THREE.Mesh(
 			new THREE.BoxGeometry(40, 20, 40),
-			new THREE.MeshBasicMaterial({ color: 0x151a22, side: THREE.BackSide })
+			new THREE.MeshBasicMaterial({ color: 0x2a2a28, side: THREE.BackSide })
 		);
 		this.add(room);
 		const panel = (w, h, x, y, z, ry, intensity, color = 0xffffff) => {
@@ -107,7 +107,7 @@ class RoomEnvironmentLite extends THREE.Scene {
 			this.add(m);
 		};
 		panel(14, 6, -12, 8, 10, 0, 6);
-		panel(10, 4, 14, 4, 6, 0, 2.5, 0xcfe0ff);
+		panel(10, 4, 14, 4, 6, 0, 2.5, 0xf4f1ea);
 		panel(20, 2, 0, 9.5, -12, 0, 3);
 		panel(6, 6, 0, -9, 0, 0, 0.6);
 	}

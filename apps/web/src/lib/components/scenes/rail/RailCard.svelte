@@ -28,7 +28,7 @@
 <a
 	use:watch
 	href={paths.category(category.slug ?? '')}
-	class="rail-card group relative isolate flex h-[min(28rem,64svh)] w-[min(24rem,82vw)] shrink-0 snap-start flex-col overflow-hidden rounded-panel bg-surface transition-colors hairline hover:border-steel-500 md:h-[min(34rem,72svh)]"
+	class="rail-card group relative isolate flex h-[min(28rem,64svh)] w-[min(24rem,82vw)] shrink-0 snap-start flex-col overflow-hidden rounded-panel bg-surface transition-colors hairline hover:border-control md:h-[min(34rem,72svh)]"
 	class:seen
 >
 	<SanityImage

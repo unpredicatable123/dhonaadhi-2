@@ -20,7 +20,7 @@
 			duration: motion.reduced ? 120 : 420,
 			opacity: motion.reduced ? 0 : 1
 		}}
-		class="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-3xl rounded-panel border border-line bg-surface/95 p-3 shadow-[0_24px_60px_-12px_rgb(0_0_0/0.7)] backdrop-blur-xl print:hidden"
+		class="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-3xl rounded-panel border border-line bg-surface/95 p-3 shadow-[0_24px_60px_-12px_rgb(20_20_19/0.18)] backdrop-blur-xl print:hidden"
 		aria-label="Compare selection"
 	>
 		<div class="flex items-center gap-3">
@@ -32,7 +32,7 @@
 					>
 						<a
 							href={item.href}
-							class="block h-14 w-18 overflow-hidden rounded-control bg-ink-800 hairline"
+							class="block h-14 w-18 overflow-hidden rounded-control bg-raised hairline"
 							title="{item.modelNumber} {item.name}"
 						>
 							{#if item.image}<img

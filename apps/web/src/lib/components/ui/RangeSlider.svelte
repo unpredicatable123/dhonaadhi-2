@@ -50,7 +50,7 @@
 		>
 	</legend>
 	<div class="range relative h-11">
-		<div class="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-steel-500/50"></div>
+		<div class="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-line"></div>
 		<div
 			class="absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-accent-fill"
 			style:left="{pct(value[0])}%"
@@ -96,7 +96,7 @@
 		width: 22px;
 		height: 22px;
 		border-radius: 50%;
-		background: var(--color-ink-950);
+		background: var(--surface);
 		border: 2px solid var(--accent-fill);
 		cursor: grab;
 		box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent-fill) 12%, transparent);
@@ -106,7 +106,7 @@
 		width: 18px;
 		height: 18px;
 		border-radius: 50%;
-		background: var(--color-ink-950);
+		background: var(--surface);
 		border: 2px solid var(--accent-fill);
 		cursor: grab;
 	}

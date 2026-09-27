@@ -67,7 +67,7 @@
 		height="600"
 	/>
 	<span
-		class="pointer-events-none absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-ink-950/80 px-3 py-1.5 font-mono text-mono-sm text-fg-muted backdrop-blur"
+		class="pointer-events-none absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-surface/85 px-3 py-1.5 font-mono text-mono-sm text-fg-muted backdrop-blur"
 	>
 		<RotateCw class="size-3.5" aria-hidden="true" /> 360° · {Math.round(
 			(index / frames.length) * 360

@@ -23,7 +23,7 @@ function screenTexture(kind) {
 	x.fillStyle = grd;
 	x.fillRect(0, 0, c.width, c.height);
 	if (kind === 'portrait') {
-		x.strokeStyle = '#2fe6c8';
+		x.strokeStyle = '#3bd49a';
 		x.lineWidth = 4;
 		const s = 220;
 		const cx = 256;

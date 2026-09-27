@@ -41,9 +41,9 @@ function backdrop(w, h) {
 	c.height = h;
 	const x = c.getContext('2d');
 	const g = x.createRadialGradient(w * 0.5, h * 0.42, 0, w * 0.5, h * 0.5, Math.max(w, h) * 0.75);
-	g.addColorStop(0, '#1d2632');
-	g.addColorStop(0.55, '#10151d');
-	g.addColorStop(1, '#0a0d12');
+	g.addColorStop(0, '#ffffff');
+	g.addColorStop(0.6, '#f5f5f2');
+	g.addColorStop(1, '#e9e9e4');
 	x.fillStyle = g;
 	x.fillRect(0, 0, w, h);
 	const t = new THREE.CanvasTexture(c);

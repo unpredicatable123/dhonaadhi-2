@@ -59,7 +59,7 @@
 				aria-hidden="true"
 			></li>
 			<li
-				class="card absolute w-[min(17rem,24vw)] rounded-control border border-line bg-ink-950/85 p-4 backdrop-blur"
+				class="card absolute w-[min(17rem,24vw)] rounded-control border border-line bg-surface/92 p-4 shadow-card backdrop-blur"
 				class:shown={c.shown}
 				style:left={c.slot.align === 'left' ? `${c.slot.x}%` : undefined}
 				style:right={c.slot.align === 'right' ? `${100 - c.slot.x}%` : undefined}
@@ -87,15 +87,15 @@
 
 <style>
 	.leader {
-		stroke: var(--color-optic-400);
+		stroke: var(--accent);
 		stroke-width: 1;
 		stroke-dasharray: 4 3;
 		opacity: 0;
 		transition: opacity var(--dur-base) var(--ease-lens);
 	}
 	.dot {
-		background: var(--color-optic-400);
-		box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-optic-400) 25%, transparent);
+		background: var(--accent);
+		box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 22%, transparent);
 		opacity: 0;
 		transform: translate(-50%, -50%) scale(0.4);
 		transition:

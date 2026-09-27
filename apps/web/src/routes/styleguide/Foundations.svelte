@@ -27,19 +27,13 @@
 	note="Wordmark is outlined Clash Display 600; the monogram iris doubles as loader."
 >
 	<div class="grid gap-6 sm:grid-cols-2">
-		<div
-			class="grid place-items-center gap-6 rounded-panel bg-ink-950 p-10 hairline"
-			data-theme="dark"
-		>
-			<Logo label="Dhonaadhi" class="h-10 text-mist-100" />
-			<Logo label="Dhonaadhi" variant="monogram" class="size-20 text-mist-100" animated />
+		<div class="grid place-items-center gap-6 rounded-panel bg-surface p-10 shadow-card hairline">
+			<Logo label="Dhonaadhi" class="h-10 text-ink" />
+			<Logo label="Dhonaadhi" variant="monogram" class="size-20 text-accent" animated />
 		</div>
-		<div
-			class="grid place-items-center gap-6 rounded-panel bg-paper-50 p-10 hairline"
-			data-theme="light"
-		>
-			<Logo label="Dhonaadhi" class="h-10 text-ink-950" />
-			<Logo label="Dhonaadhi" variant="monogram" class="size-20 text-ink-950" />
+		<div class="grid place-items-center gap-6 rounded-panel bg-raised p-10 hairline">
+			<Logo label="Dhonaadhi" class="h-10 text-ink" />
+			<Logo label="Dhonaadhi" variant="monogram" class="size-20 text-ink" />
 		</div>
 	</div>
 </Specimen>

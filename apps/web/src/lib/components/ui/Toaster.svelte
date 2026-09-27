@@ -25,7 +25,7 @@
 					'size-2 shrink-0 rounded-full',
 					t.tone === 'success' && 'bg-accent-fill',
 					t.tone === 'error' && 'bg-danger',
-					t.tone === 'neutral' && 'bg-steel-400'
+					t.tone === 'neutral' && 'bg-fg-muted'
 				)}
 				aria-hidden="true"
 			></span>

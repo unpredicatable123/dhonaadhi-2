@@ -75,7 +75,7 @@
 						alt=""
 					/>
 					<span
-						class="absolute bottom-1.5 left-2 font-mono text-[0.625rem] tracking-[0.08em] text-mist-100/70 uppercase"
+						class="absolute bottom-1.5 left-2 font-mono text-[0.625rem] tracking-[0.08em] text-fg-muted uppercase"
 						>CAM {String(i + 1).padStart(2, '0')}</span
 					>
 				</li>

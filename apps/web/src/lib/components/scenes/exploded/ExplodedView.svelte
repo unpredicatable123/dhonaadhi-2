@@ -89,15 +89,19 @@
 <section
 	aria-labelledby="exploded-title"
 	id={section.anchor ?? undefined}
-	class="bg-[radial-gradient(ellipse_at_60%_45%,#1d2632,var(--color-ink-950)_70%)]"
+	class="bg-[radial-gradient(ellipse_at_60%_45%,var(--surface),var(--bg)_70%)]"
 >
-	<div bind:this={pin} class="flex min-h-svh flex-col justify-center gap-8 py-16">
-		<div class="container-site grid gap-4">
+	<!-- Exactly one viewport tall while pinned: the frame takes whatever height the copy leaves. -->
+	<div
+		bind:this={pin}
+		class="flex h-svh flex-col gap-6 pt-[calc(var(--header-h)+1.5rem)] pb-8 md:gap-8"
+	>
+		<div class="container-site grid shrink-0 gap-3">
 			<h2 id="exploded-title" class="max-w-[22ch] text-h2">{section.title}</h2>
 			{#if section.lead}<p class="max-w-[60ch] text-body-lg text-fg-muted">{section.lead}</p>{/if}
 		</div>
-		<div class="container-site">
-			<div class="relative mx-auto aspect-video w-full max-w-[1280px]">
+		<div class="stage container-site min-h-0 flex-1">
+			<div class="frame relative mx-auto aspect-video">
 				<!-- The render backdrop feathers into the section so the frame edge disappears. -->
 				<div class="feather absolute inset-0">
 					{#if motion.reduced || !active}
@@ -122,16 +126,25 @@
 				</div>
 				<Callouts callouts={section.callouts ?? []} frame={motion.reduced ? count : frame} />
 			</div>
-			<Callouts
-				callouts={section.callouts ?? []}
-				frame={motion.reduced ? count : frame}
-				variant="list"
-			/>
 		</div>
+	</div>
+	<div class="container-site pb-8 md:hidden">
+		<Callouts
+			callouts={section.callouts ?? []}
+			frame={motion.reduced ? count : frame}
+			variant="list"
+		/>
 	</div>
 </section>
 
 <style>
+	/* Largest 16:9 box that fits the remaining space (both width and height). */
+	.stage {
+		container-type: size;
+	}
+	.frame {
+		width: min(100cqw, 100cqh * 16 / 9, 1280px);
+	}
 	.feather {
 		mask-image: radial-gradient(ellipse 58% 62% at 50% 50%, #000 62%, transparent 100%);
 	}

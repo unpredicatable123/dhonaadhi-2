@@ -4,7 +4,7 @@
 	const panel = tv({
 		base: [
 			'fixed m-0 max-h-none max-w-none bg-surface p-0 text-fg hairline',
-			'backdrop:bg-ink-950/70 backdrop:backdrop-blur-sm',
+			'backdrop:bg-ink/30 backdrop:backdrop-blur-sm',
 			'open:flex open:flex-col'
 		],
 		variants: {

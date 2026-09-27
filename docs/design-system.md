@@ -132,11 +132,13 @@ Prose is capped at `max-w-[68ch]`.
 - **Wordmark:** "Dhonaadhi" set in Clash Display 600, with custom kerning of the double "aa" (tightened −30 units). It is converted to outlined SVG paths so the logo never depends on font loading.
 - **Versions:** `logo-dark.svg` (mist-100 wordmark + optic-400 iris) and `logo-light.svg` (ink-950 wordmark + optic-700 iris), plus monogram-only versions and `favicon.svg` with `prefers-color-scheme` inside the SVG.
 
-## 8. Mixed theme (decided 2026-09-27)
+## 8. All-light theme (decided 2026-09-27, supersedes "Mixed")
 
-The home page and campaign/coming-soon pages stay **dark**, with the cinematic "Night Vision" scenes. The **catalogue is light**: `/products`, category and subcategory listings, product detail and compare. It's white paper for long reading and spec comparison.
+The whole site is **light and quiet**: warm paper (`paper-50` #FAFAF8), white surfaces, warm stone neutrals, and ink type (#141413). There are **no dark sections and no blue**. The one accent is **emerald** (`optic-700` #0B6B4F for text and fills, `optic-400` #3BD49A for detection graphics on imagery).
 
-- The theme is chosen per route by `themeFor()` (`src/lib/theme.ts`). The server renders `data-theme` on `<html>` (no flash), and the layout keeps it in sync on client navigation.
-- **Primary buttons use the `btn` token:** teal with ink text on dark, **ink with white text on light** (19.9:1). Teal stays the accent for focus, active chips, checkboxes and sliders (`optic-700` with white text, 6.52:1).
-- **Deliberate dark islands on light pages:** the footer, the Lens (category) cards, and product image wells. The renders are studio shots on a dark backdrop, framed like a viewfinder.
-- Cards on light pages get a soft two-layer shadow (`shadow-card`); on dark pages the token is `none`.
+- `themeFor()` (`src/lib/theme.ts`) always returns `light`. `[data-theme='dark']` still exists only as an opt-in for a future campaign; no Stage 1 page uses it.
+- **Primary buttons are ink with white text** (`btn` token). Emerald is used for focus, links, active chips, checkboxes and sliders.
+- Imagery is lit for light: product renders sit on a white-to-stone studio sweep, the hero is a daylight street framed like a monitor tile (the iris opens on the frame, not on the page), and the exploded view sits on a paper radial.
+- The dusk-to-night comparison keeps its night footage, because it _is_ the product demo. It's framed as an image on a light section.
+- Text over photos (industry tiles) uses a local black scrim and explicit white text. That's an image treatment, not a theme.
+- Cards get a soft two-layer warm shadow (`shadow-card`).

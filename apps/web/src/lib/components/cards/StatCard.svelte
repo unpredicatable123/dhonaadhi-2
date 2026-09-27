@@ -57,7 +57,7 @@
 				d={path}
 				pathLength="1"
 				fill="none"
-				stroke="var(--color-thermal-400)"
+				stroke="var(--highlight)"
 				stroke-width="1.5"
 				class="spark"
 				class:drawn={drawn || motion.reduced}
@@ -67,9 +67,6 @@
 </div>
 
 <style>
-	.stat {
-		text-shadow: 0 0 36px color-mix(in oklab, var(--color-thermal-400) 35%, transparent);
-	}
 	.spark {
 		stroke-dasharray: 1;
 		stroke-dashoffset: 1;

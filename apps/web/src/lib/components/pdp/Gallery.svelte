@@ -27,7 +27,7 @@
 </script>
 
 <div class="grid gap-3">
-	<div class="relative aspect-4/3 overflow-hidden rounded-panel bg-ink-900 hairline">
+	<div class="relative aspect-4/3 overflow-hidden rounded-panel bg-raised hairline">
 		{#if active === 'spin'}
 			<SpinViewer frames={spin} label={product.modelNumber ?? 'Product'} />
 		{:else if current}
@@ -57,7 +57,7 @@
 			</button>
 		{/if}
 		<span
-			class="pointer-events-none absolute top-3 right-3 grid size-9 place-items-center rounded-control bg-ink-950/70 text-fg-muted backdrop-blur"
+			class="pointer-events-none absolute top-3 right-3 grid size-9 place-items-center rounded-control bg-surface/85 text-fg-muted backdrop-blur"
 			aria-hidden="true"
 		>
 			<Maximize2 class="size-4" />
@@ -73,7 +73,7 @@
 					aria-current={active === i}
 					class={cn(
 						'block h-16 w-20 overflow-hidden rounded-control border transition-colors',
-						active === i ? 'border-accent' : 'border-line hover:border-steel-500'
+						active === i ? 'border-accent' : 'border-line hover:border-control'
 					)}
 				>
 					<SanityImage
@@ -96,7 +96,7 @@
 						'grid h-16 w-20 place-items-center gap-0.5 rounded-control border font-mono text-mono-sm',
 						active === 'spin'
 							? 'border-accent text-accent'
-							: 'border-line text-fg-muted hover:border-steel-500'
+							: 'border-line text-fg-muted hover:border-control'
 					)}
 				>
 					<RotateCw class="size-4" aria-hidden="true" /> 360°
@@ -106,12 +106,7 @@
 	</ul>
 </div>
 
-<Dialog
-	bind:open={zoomOpen}
-	title="{product.modelNumber} image"
-	placement="full"
-	class="bg-ink-950"
->
+<Dialog bind:open={zoomOpen} title="{product.modelNumber} image" placement="full" class="bg-bg">
 	{#if current}
 		<img
 			src={imageUrl(current, 2400) ?? ''}
