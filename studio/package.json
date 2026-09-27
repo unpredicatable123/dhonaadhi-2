@@ -8,7 +8,9 @@
 		"build": "sanity build",
 		"deploy": "sanity deploy",
 		"check": "tsc --noEmit",
-		"typegen": "sanity schema extract --path ./schema.json && sanity typegen generate"
+		"typegen": "sanity schema extract --path ./schema.json && sanity typegen generate",
+		"lint": "prettier --check .",
+		"format": "prettier --write ."
 	},
 	"dependencies": {
 		"@sanity/icons": "^5.2.2",
@@ -20,6 +22,7 @@
 		"styled-components": "^6.5.3"
 	},
 	"devDependencies": {
+		"@types/node": "^26.6.3",
 		"@types/react": "^19.3.0",
 		"typescript": "^7.0.2"
 	}
