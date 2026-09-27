@@ -1,0 +1,30 @@
+{
+	"name": "dhonaadhi",
+	"private": true,
+	"type": "module",
+	"packageManager": "pnpm@12.6.0",
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"dev": "pnpm --filter web dev",
+		"dev:studio": "pnpm --filter studio dev",
+		"build": "pnpm --filter web build",
+		"check": "pnpm -r --if-present check",
+		"lint": "pnpm -r --if-present lint",
+		"format": "pnpm -r --if-present format",
+		"test": "pnpm -r --if-present test",
+		"test:e2e": "pnpm --filter web test:e2e",
+		"typegen": "pnpm --filter studio typegen",
+		"seed": "pnpm --filter seed seed",
+		"render": "pnpm --filter render render",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"husky": "^9.1.7",
+		"lint-staged": "^17.5.1",
+		"prettier": "^3.9.9",
+		"prettier-plugin-svelte": "^4.1.1",
+		"prettier-plugin-tailwindcss": "^0.8.1"
+	}
+}

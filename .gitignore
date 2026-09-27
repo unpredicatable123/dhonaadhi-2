@@ -1,0 +1,15 @@
+node_modules
+.DS_Store
+.env
+.env.*
+!.env.example
+.vercel
+.svelte-kit
+build
+dist
+.sanity
+test-results
+playwright-report
+screenshots/*.png
+!screenshots/.gitkeep
+*.log

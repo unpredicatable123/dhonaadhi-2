@@ -1,0 +1,8 @@
+{
+	"mcpServers": {
+		"svelte": { "type": "http", "url": "https://mcp.svelte.dev/mcp" },
+		"sanity": { "type": "http", "url": "https://mcp.sanity.io" },
+		"context7": { "type": "http", "url": "https://mcp.context7.com/mcp" },
+		"playwright": { "command": "npx", "args": ["-y", "@playwright/mcp@latest"] }
+	}
+}
