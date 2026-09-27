@@ -3055,6 +3055,20 @@ export type SearchQueryResult = Array<{
 }>;
 
 // Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: brandQuery
+// Query: *[_id == "siteSettings"][0]{ companyName, brandName }
+export type BrandQueryResult =
+	| {
+			companyName: null;
+			brandName: null;
+	  }
+	| {
+			companyName: string | null;
+			brandName: string | null;
+	  }
+	| null;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
 // Variable: comingSoonQuery
 // Query: *[_type == "comingSoonPage" && section == $section][0]{	section, title, lead, eta, links[] { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } }}
 export type ComingSoonQueryResult = {

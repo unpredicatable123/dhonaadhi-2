@@ -4,6 +4,7 @@
 	import Header from '$lib/components/shell/Header.svelte';
 	import Footer from '$lib/components/shell/Footer.svelte';
 	import CommandPalette from '$lib/components/shell/CommandPalette.svelte';
+	import CompareTray from '$lib/components/products/CompareTray.svelte';
 	import Toaster from '$lib/components/ui/Toaster.svelte';
 	import Shutter, { type ShutterApi } from '$lib/motion/Shutter.svelte';
 	import { setupPageTransitions } from '$lib/motion/transitions';
@@ -43,6 +44,7 @@
 </main>
 <Footer settings={data.settings} footer={data.footer} />
 <CommandPalette categories={data.categories} />
+<CompareTray />
 <Toaster />
 <Shutter bind:this={shutter} />
 {#if data.settings.motion?.grain !== false}<div class="grain" aria-hidden="true"></div>{/if}

@@ -232,6 +232,8 @@ export const searchQuery = defineQuery(
 	`*[_type == "product" && (modelNumber match $q || name match $q)] | order(status == "discontinued" asc, releaseDate desc) [0...8] ${PRODUCT_CARD}`
 );
 
+export const brandQuery = defineQuery(`*[_id == "siteSettings"][0]{ companyName, brandName }`);
+
 export const comingSoonQuery = defineQuery(`*[_type == "comingSoonPage" && section == $section][0]{
 	section, title, lead, eta, links[] ${LINK}
 }`);
