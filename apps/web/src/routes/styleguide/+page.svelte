@@ -2,6 +2,7 @@
 	import Foundations from './Foundations.svelte';
 	import Controls from './Controls.svelte';
 	import Patterns from './Patterns.svelte';
+	import Cards from './Cards.svelte';
 </script>
 
 <svelte:head>
@@ -21,4 +22,5 @@
 	<Foundations />
 	<Controls />
 	<Patterns />
+	<Cards />
 </div>

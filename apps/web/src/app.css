@@ -345,20 +345,6 @@
 	animation-duration: 360ms;
 	animation-timing-function: var(--ease-lens);
 }
-html[data-vt='shutter']::view-transition-old(root) {
-	animation: none;
-}
-html[data-vt='shutter']::view-transition-new(root) {
-	animation: shutter-open 600ms var(--ease-shutter) both;
-}
-@keyframes shutter-open {
-	from {
-		clip-path: inset(50% 0 50% 0);
-	}
-	to {
-		clip-path: inset(0 0 0 0);
-	}
-}
 ::view-transition-group(*) {
 	animation-duration: 520ms;
 	animation-timing-function: var(--ease-lens);
