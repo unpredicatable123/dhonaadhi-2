@@ -88,17 +88,28 @@ test('a tilted carousel card opens its product page at the top', async ({ page }
 	await page.setViewportSize({ width: 1440, height: 900 });
 	await page.goto(routes.home);
 	const slide = page.locator('section[aria-labelledby="featured-title"] [data-slide]').nth(1);
-	// Bring the side card on screen (lazy pins above it change the page height as they load).
+	const href = await slide.locator('a').first().getAttribute('href');
+	// Bring the side card on screen and wait until it is still (lazy pins above it change the
+	// page height as they load, and smooth scrolling settles over a few frames), then make sure
+	// the point we will click really hits the card's link.
+	let point = { x: 0, y: 0 };
 	await expect(async () => {
 		await slide.evaluate((el) => window.scrollBy(0, el.getBoundingClientRect().top - 200));
-		const top = (await slide.boundingBox())?.y ?? Infinity;
-		expect(Math.abs(top - 200)).toBeLessThan(60);
+		await page.waitForTimeout(400);
+		const a = (await slide.boundingBox())!;
+		await page.waitForTimeout(300);
+		const b = (await slide.boundingBox())!;
+		expect(Math.abs(b.y - 200)).toBeLessThan(80);
+		expect(Math.abs(b.y - a.y)).toBeLessThan(1);
+		point = { x: b.x + b.width / 2, y: b.y + b.height * 0.35 };
+		const hit = await page.evaluate(
+			({ x, y }) => document.elementFromPoint(x, y)?.closest('a')?.getAttribute('href'),
+			point
+		);
+		expect(hit).toBe(href);
 	}).toPass({ timeout: 30_000 });
-	await page.waitForTimeout(500);
-	const box = (await slide.boundingBox())!;
-	const href = await slide.locator('a').first().getAttribute('href');
 	// Click the card itself (not via locator.click, which would scroll natively and bypass the 3D hit-test).
-	await page.mouse.click(box.x + box.width / 2, box.y + box.height * 0.35);
+	await page.mouse.click(point.x, point.y);
 	await expect(page).toHaveURL(href!);
 	await expect(page.locator('h1')).toBeVisible();
 	await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
