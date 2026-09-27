@@ -169,7 +169,8 @@ export type Link = {
 		| 'newsroom'
 		| 'about'
 		| 'contact'
-		| 'downloads';
+		| 'downloads'
+		| 'legal';
 };
 
 export type SanityImageAssetReference = {
@@ -489,7 +490,8 @@ export type ComingSoonPage = {
 		| 'newsroom'
 		| 'about'
 		| 'contact'
-		| 'downloads';
+		| 'downloads'
+		| 'legal';
 	title?: string;
 	lead?: string;
 	eta?: string;
@@ -972,3 +974,2276 @@ export type AllSanitySchemaTypes =
 	| SanityAssetSourceData
 	| SanityImageAsset
 	| Geopoint;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: layoutQuery
+// Query: {	"settings": *[_id == "siteSettings"][0]{		companyName, brandName, siteUrl, email, phone, address,		social[]{ platform, url },		seo{ title, description, "image": image { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } } },		motion	},	"navigation": *[_id == "navigation"][0]{		items[]{ _key, "link": link { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } }, mega, columns[]{ _key, heading, links[] { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } } }, "featured": featured-> {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating} },		utility[] { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } },		"cta": cta { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } }	},	"footer": *[_id == "footer"][0]{		statement, newsletterText,		columns[]{ _key, heading, links[] { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } } },		legal[] { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } }	},	"categories": *[_type == "productCategory"] | order(orderRank) {		_id, title, "slug": slug.current, icon, tagline,		"count": count(*[_type == "product" && category._ref == ^._id]),		"subcategories": *[_type == "productSubcategory" && category._ref == ^._id] | order(orderRank) {			_id, title, "slug": slug.current,			"count": count(*[_type == "product" && subcategory._ref == ^._id])		}	}}
+export type LayoutQueryResult = {
+	settings:
+		| {
+				companyName: null;
+				brandName: null;
+				siteUrl: null;
+				email: null;
+				phone: null;
+				address: null;
+				social: null;
+				seo: null;
+				motion: null;
+		  }
+		| {
+				companyName: null;
+				brandName: null;
+				siteUrl: null;
+				email: null;
+				phone: null;
+				address: null;
+				social: null;
+				seo: {
+					title: string | null;
+					description: string | null;
+					image: {
+						alt: string | null;
+						decorative: boolean | null;
+						hotspot: SanityImageHotspot | null;
+						crop: SanityImageCrop | null;
+						asset: {
+							_id: string;
+							url: string | null;
+							metadata: {
+								lqip: string | null;
+								dimensions: {
+									width: number | null;
+									height: number | null;
+									aspectRatio: number | null;
+								} | null;
+							} | null;
+						} | null;
+					} | null;
+				} | null;
+				motion: null;
+		  }
+		| {
+				companyName: string | null;
+				brandName: string | null;
+				siteUrl: string | null;
+				email: string | null;
+				phone: string | null;
+				address: string | null;
+				social: Array<{
+					platform: 'facebook' | 'instagram' | 'linkedin' | 'x' | 'youtube' | null;
+					url: string | null;
+				}> | null;
+				seo: {
+					title: string | null;
+					description: string | null;
+					image: {
+						alt: string | null;
+						decorative: boolean | null;
+						hotspot: SanityImageHotspot | null;
+						crop: SanityImageCrop | null;
+						asset: {
+							_id: string;
+							url: string | null;
+							metadata: {
+								lqip: string | null;
+								dimensions: {
+									width: number | null;
+									height: number | null;
+									aspectRatio: number | null;
+								} | null;
+							} | null;
+						} | null;
+					} | null;
+				} | null;
+				motion: {
+					smoothScroll?: boolean;
+					pageTransitions?: boolean;
+					grain?: boolean;
+				} | null;
+		  }
+		| null;
+	navigation:
+		| {
+				items: null;
+				utility: null;
+				cta: null;
+		  }
+		| {
+				items: Array<{
+					_key: string;
+					link: {
+						_key: null;
+						label: string | null;
+						kind: 'external' | 'internal' | null;
+						href: string | null;
+						section:
+							| 'about'
+							| 'contact'
+							| 'downloads'
+							| 'legal'
+							| 'newsroom'
+							| 'partners'
+							| 'solutions'
+							| 'support'
+							| 'technologies'
+							| null;
+						ref:
+							| {
+									_type: 'comingSoonPage';
+									slug: null;
+									category: null;
+									subcategory: null;
+									section:
+										| 'about'
+										| 'contact'
+										| 'downloads'
+										| 'legal'
+										| 'newsroom'
+										| 'partners'
+										| 'solutions'
+										| 'support'
+										| 'technologies'
+										| null;
+							  }
+							| {
+									_type: 'homePage';
+									slug: null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'industry';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'product';
+									slug: string | null;
+									category: string | null;
+									subcategory: string | null;
+									section: null;
+							  }
+							| {
+									_type: 'productCategory';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'productSeries';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'productSubcategory';
+									slug: string | null;
+									category: string | null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'solution';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'technology';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| null;
+					} | null;
+					mega: 'catalogue' | 'columns' | 'none' | null;
+					columns: Array<{
+						_key: string;
+						heading: string | null;
+						links: Array<{
+							_key: string;
+							label: string | null;
+							kind: 'external' | 'internal' | null;
+							href: string | null;
+							section:
+								| 'about'
+								| 'contact'
+								| 'downloads'
+								| 'legal'
+								| 'newsroom'
+								| 'partners'
+								| 'solutions'
+								| 'support'
+								| 'technologies'
+								| null;
+							ref:
+								| {
+										_type: 'comingSoonPage';
+										slug: null;
+										category: null;
+										subcategory: null;
+										section:
+											| 'about'
+											| 'contact'
+											| 'downloads'
+											| 'legal'
+											| 'newsroom'
+											| 'partners'
+											| 'solutions'
+											| 'support'
+											| 'technologies'
+											| null;
+								  }
+								| {
+										_type: 'homePage';
+										slug: null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'industry';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'product';
+										slug: string | null;
+										category: string | null;
+										subcategory: string | null;
+										section: null;
+								  }
+								| {
+										_type: 'productCategory';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'productSeries';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'productSubcategory';
+										slug: string | null;
+										category: string | null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'solution';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'technology';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| null;
+						}> | null;
+					}> | null;
+					featured: {
+						_id: string;
+						modelNumber: string | null;
+						name: string | null;
+						slug: string | null;
+						status: 'active' | 'discontinued' | 'new' | null;
+						releaseDate: string | null;
+						category: string | null;
+						subcategory: string | null;
+						image: {
+							alt: string | null;
+							decorative: boolean | null;
+							hotspot: SanityImageHotspot | null;
+							crop: SanityImageCrop | null;
+							asset: {
+								_id: string;
+								url: string | null;
+								metadata: {
+									lqip: string | null;
+									dimensions: {
+										width: number | null;
+										height: number | null;
+										aspectRatio: number | null;
+									} | null;
+								} | null;
+							} | null;
+						} | null;
+						cardSpecs: Array<{
+							label: string | null;
+							value: string | null;
+							unit: string | null;
+						}> | null;
+						resolutionMp: number | null;
+						lensMm: number | null;
+						lensMmMax: number | null;
+						irDistanceM: number | null;
+						ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+					} | null;
+				}> | null;
+				utility: Array<{
+					_key: string;
+					label: string | null;
+					kind: 'external' | 'internal' | null;
+					href: string | null;
+					section:
+						| 'about'
+						| 'contact'
+						| 'downloads'
+						| 'legal'
+						| 'newsroom'
+						| 'partners'
+						| 'solutions'
+						| 'support'
+						| 'technologies'
+						| null;
+					ref:
+						| {
+								_type: 'comingSoonPage';
+								slug: null;
+								category: null;
+								subcategory: null;
+								section:
+									| 'about'
+									| 'contact'
+									| 'downloads'
+									| 'legal'
+									| 'newsroom'
+									| 'partners'
+									| 'solutions'
+									| 'support'
+									| 'technologies'
+									| null;
+						  }
+						| {
+								_type: 'homePage';
+								slug: null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'industry';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'product';
+								slug: string | null;
+								category: string | null;
+								subcategory: string | null;
+								section: null;
+						  }
+						| {
+								_type: 'productCategory';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'productSeries';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'productSubcategory';
+								slug: string | null;
+								category: string | null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'solution';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'technology';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| null;
+				}> | null;
+				cta: {
+					_key: null;
+					label: string | null;
+					kind: 'external' | 'internal' | null;
+					href: string | null;
+					section:
+						| 'about'
+						| 'contact'
+						| 'downloads'
+						| 'legal'
+						| 'newsroom'
+						| 'partners'
+						| 'solutions'
+						| 'support'
+						| 'technologies'
+						| null;
+					ref:
+						| {
+								_type: 'comingSoonPage';
+								slug: null;
+								category: null;
+								subcategory: null;
+								section:
+									| 'about'
+									| 'contact'
+									| 'downloads'
+									| 'legal'
+									| 'newsroom'
+									| 'partners'
+									| 'solutions'
+									| 'support'
+									| 'technologies'
+									| null;
+						  }
+						| {
+								_type: 'homePage';
+								slug: null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'industry';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'product';
+								slug: string | null;
+								category: string | null;
+								subcategory: string | null;
+								section: null;
+						  }
+						| {
+								_type: 'productCategory';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'productSeries';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'productSubcategory';
+								slug: string | null;
+								category: string | null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'solution';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'technology';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| null;
+				} | null;
+		  }
+		| null;
+	footer:
+		| {
+				statement: null;
+				newsletterText: null;
+				columns: null;
+				legal: null;
+		  }
+		| {
+				statement: string | null;
+				newsletterText: string | null;
+				columns: Array<{
+					_key: string;
+					heading: string | null;
+					links: Array<{
+						_key: string;
+						label: string | null;
+						kind: 'external' | 'internal' | null;
+						href: string | null;
+						section:
+							| 'about'
+							| 'contact'
+							| 'downloads'
+							| 'legal'
+							| 'newsroom'
+							| 'partners'
+							| 'solutions'
+							| 'support'
+							| 'technologies'
+							| null;
+						ref:
+							| {
+									_type: 'comingSoonPage';
+									slug: null;
+									category: null;
+									subcategory: null;
+									section:
+										| 'about'
+										| 'contact'
+										| 'downloads'
+										| 'legal'
+										| 'newsroom'
+										| 'partners'
+										| 'solutions'
+										| 'support'
+										| 'technologies'
+										| null;
+							  }
+							| {
+									_type: 'homePage';
+									slug: null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'industry';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'product';
+									slug: string | null;
+									category: string | null;
+									subcategory: string | null;
+									section: null;
+							  }
+							| {
+									_type: 'productCategory';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'productSeries';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'productSubcategory';
+									slug: string | null;
+									category: string | null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'solution';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| {
+									_type: 'technology';
+									slug: string | null;
+									category: null;
+									subcategory: null;
+									section: null;
+							  }
+							| null;
+					}> | null;
+				}> | null;
+				legal: Array<{
+					_key: string;
+					label: string | null;
+					kind: 'external' | 'internal' | null;
+					href: string | null;
+					section:
+						| 'about'
+						| 'contact'
+						| 'downloads'
+						| 'legal'
+						| 'newsroom'
+						| 'partners'
+						| 'solutions'
+						| 'support'
+						| 'technologies'
+						| null;
+					ref:
+						| {
+								_type: 'comingSoonPage';
+								slug: null;
+								category: null;
+								subcategory: null;
+								section:
+									| 'about'
+									| 'contact'
+									| 'downloads'
+									| 'legal'
+									| 'newsroom'
+									| 'partners'
+									| 'solutions'
+									| 'support'
+									| 'technologies'
+									| null;
+						  }
+						| {
+								_type: 'homePage';
+								slug: null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'industry';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'product';
+								slug: string | null;
+								category: string | null;
+								subcategory: string | null;
+								section: null;
+						  }
+						| {
+								_type: 'productCategory';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'productSeries';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'productSubcategory';
+								slug: string | null;
+								category: string | null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'solution';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| {
+								_type: 'technology';
+								slug: string | null;
+								category: null;
+								subcategory: null;
+								section: null;
+						  }
+						| null;
+				}> | null;
+		  }
+		| null;
+	categories: Array<{
+		_id: string;
+		title: string | null;
+		slug: string | null;
+		icon:
+			| 'access'
+			| 'alarm'
+			| 'camera-network'
+			| 'camera-ptz'
+			| 'display'
+			| 'intercom'
+			| 'network-switch'
+			| 'recorder'
+			| 'software'
+			| 'thermal'
+			| 'traffic'
+			| null;
+		tagline: string | null;
+		count: number;
+		subcategories: Array<{
+			_id: string;
+			title: string | null;
+			slug: string | null;
+			count: number;
+		}>;
+	}>;
+};
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: homeQuery
+// Query: *[_id == "homePage"][0]{	seo,	sections[]{		_key,		_type,		anchor,		_type == "heroAperture" => {			headline, lead,			"primaryCta": primaryCta { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } },			"secondaryCta": secondaryCta { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } },			"image": image { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },			"video": video.asset->url,			detections[]{ _key, label, confidence, x, y, w, h },			show3d		},		_type == "duskToNight" => {			title, lead, conventionalLabel, enhancedLabel,			"technology": technology->{ title, "slug": slug.current, proofPoint },			"dayImage": dayImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },			"conventionalImage": conventionalImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },			"enhancedImage": enhancedImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } }		},		_type == "categoryRail" => {			title, lead,			"categories": select(				count(categories) > 0 => categories[]-> {	_id,	title,	"slug": slug.current,	icon,	tagline,	description,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	"count": count(*[_type == "product" && category._ref == ^._id])},				*[_type == "productCategory"] | order(orderRank) {	_id,	title,	"slug": slug.current,	icon,	tagline,	description,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	"count": count(*[_type == "product" && category._ref == ^._id])}			)		},		_type == "explodedView" => {			title, lead, framesBaseUrl, frameCount,			"frames": frames[].asset->url,			"poster": poster { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },			callouts[]{ _key, frame, title, body, x, y }		},		_type == "statsBand" => { title, lead, stats[]{ _key, value, suffix, label, trend } },		_type == "industriesMosaic" => {			title, lead,			"industries": industries[]->{ _id, title, "slug": slug.current, summary, "image": image { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } } }		},		_type == "featuredProducts" => {			title, lead,			"products": select(				count(products) > 0 => products[]-> {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating},				*[_type == "product" && status != "discontinued"] | order(releaseDate desc) [0...8] {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating}			)		},		_type == "ctaSearch" => { title, lead, placeholder, suggestions },		_type == "logoCloud" => { title, items[]{ _key, name, detail, "logo": logo { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } } } },		_type == "richTextSection" => { title, body }	}}
+export type HomeQueryResult =
+	| {
+			seo: null;
+			sections: null;
+	  }
+	| {
+			seo: Seo | null;
+			sections: null;
+	  }
+	| {
+			seo: Seo | null;
+			sections: Array<
+				| {
+						_key: string;
+						_type: 'categoryRail';
+						anchor: string | null;
+						title: string | null;
+						lead: string | null;
+						categories: Array<{
+							_id: string;
+							title: string | null;
+							slug: string | null;
+							icon:
+								| 'access'
+								| 'alarm'
+								| 'camera-network'
+								| 'camera-ptz'
+								| 'display'
+								| 'intercom'
+								| 'network-switch'
+								| 'recorder'
+								| 'software'
+								| 'thermal'
+								| 'traffic'
+								| null;
+							tagline: string | null;
+							description: string | null;
+							image: {
+								alt: string | null;
+								decorative: boolean | null;
+								hotspot: SanityImageHotspot | null;
+								crop: SanityImageCrop | null;
+								asset: {
+									_id: string;
+									url: string | null;
+									metadata: {
+										lqip: string | null;
+										dimensions: {
+											width: number | null;
+											height: number | null;
+											aspectRatio: number | null;
+										} | null;
+									} | null;
+								} | null;
+							} | null;
+							count: number;
+						}> | null;
+				  }
+				| {
+						_key: string;
+						_type: 'ctaSearch';
+						anchor: string | null;
+						title: string | null;
+						lead: string | null;
+						placeholder: string | null;
+						suggestions: Array<string> | null;
+				  }
+				| {
+						_key: string;
+						_type: 'duskToNight';
+						anchor: string | null;
+						title: string | null;
+						lead: string | null;
+						conventionalLabel: string | null;
+						enhancedLabel: string | null;
+						technology: {
+							title: string | null;
+							slug: string | null;
+							proofPoint: string | null;
+						} | null;
+						dayImage: {
+							alt: string | null;
+							decorative: boolean | null;
+							hotspot: SanityImageHotspot | null;
+							crop: SanityImageCrop | null;
+							asset: {
+								_id: string;
+								url: string | null;
+								metadata: {
+									lqip: string | null;
+									dimensions: {
+										width: number | null;
+										height: number | null;
+										aspectRatio: number | null;
+									} | null;
+								} | null;
+							} | null;
+						} | null;
+						conventionalImage: {
+							alt: string | null;
+							decorative: boolean | null;
+							hotspot: SanityImageHotspot | null;
+							crop: SanityImageCrop | null;
+							asset: {
+								_id: string;
+								url: string | null;
+								metadata: {
+									lqip: string | null;
+									dimensions: {
+										width: number | null;
+										height: number | null;
+										aspectRatio: number | null;
+									} | null;
+								} | null;
+							} | null;
+						} | null;
+						enhancedImage: {
+							alt: string | null;
+							decorative: boolean | null;
+							hotspot: SanityImageHotspot | null;
+							crop: SanityImageCrop | null;
+							asset: {
+								_id: string;
+								url: string | null;
+								metadata: {
+									lqip: string | null;
+									dimensions: {
+										width: number | null;
+										height: number | null;
+										aspectRatio: number | null;
+									} | null;
+								} | null;
+							} | null;
+						} | null;
+				  }
+				| {
+						_key: string;
+						_type: 'explodedView';
+						anchor: string | null;
+						title: string | null;
+						lead: string | null;
+						framesBaseUrl: string | null;
+						frameCount: number | null;
+						frames: Array<string | null> | null;
+						poster: {
+							alt: string | null;
+							decorative: boolean | null;
+							hotspot: SanityImageHotspot | null;
+							crop: SanityImageCrop | null;
+							asset: {
+								_id: string;
+								url: string | null;
+								metadata: {
+									lqip: string | null;
+									dimensions: {
+										width: number | null;
+										height: number | null;
+										aspectRatio: number | null;
+									} | null;
+								} | null;
+							} | null;
+						} | null;
+						callouts: Array<{
+							_key: string;
+							frame: number | null;
+							title: string | null;
+							body: string | null;
+							x: number | null;
+							y: number | null;
+						}> | null;
+				  }
+				| {
+						_key: string;
+						_type: 'featuredProducts';
+						anchor: string | null;
+						title: string | null;
+						lead: string | null;
+						products: Array<{
+							_id: string;
+							modelNumber: string | null;
+							name: string | null;
+							slug: string | null;
+							status: 'active' | 'discontinued' | 'new' | null;
+							releaseDate: string | null;
+							category: string | null;
+							subcategory: string | null;
+							image: {
+								alt: string | null;
+								decorative: boolean | null;
+								hotspot: SanityImageHotspot | null;
+								crop: SanityImageCrop | null;
+								asset: {
+									_id: string;
+									url: string | null;
+									metadata: {
+										lqip: string | null;
+										dimensions: {
+											width: number | null;
+											height: number | null;
+											aspectRatio: number | null;
+										} | null;
+									} | null;
+								} | null;
+							} | null;
+							cardSpecs: Array<{
+								label: string | null;
+								value: string | null;
+								unit: string | null;
+							}> | null;
+							resolutionMp: number | null;
+							lensMm: number | null;
+							lensMmMax: number | null;
+							irDistanceM: number | null;
+							ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+						}> | null;
+				  }
+				| {
+						_key: string;
+						_type: 'heroAperture';
+						anchor: string | null;
+						headline: string | null;
+						lead: string | null;
+						primaryCta: {
+							_key: null;
+							label: string | null;
+							kind: 'external' | 'internal' | null;
+							href: string | null;
+							section:
+								| 'about'
+								| 'contact'
+								| 'downloads'
+								| 'legal'
+								| 'newsroom'
+								| 'partners'
+								| 'solutions'
+								| 'support'
+								| 'technologies'
+								| null;
+							ref:
+								| {
+										_type: 'comingSoonPage';
+										slug: null;
+										category: null;
+										subcategory: null;
+										section:
+											| 'about'
+											| 'contact'
+											| 'downloads'
+											| 'legal'
+											| 'newsroom'
+											| 'partners'
+											| 'solutions'
+											| 'support'
+											| 'technologies'
+											| null;
+								  }
+								| {
+										_type: 'homePage';
+										slug: null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'industry';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'product';
+										slug: string | null;
+										category: string | null;
+										subcategory: string | null;
+										section: null;
+								  }
+								| {
+										_type: 'productCategory';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'productSeries';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'productSubcategory';
+										slug: string | null;
+										category: string | null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'solution';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'technology';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| null;
+						} | null;
+						secondaryCta: {
+							_key: null;
+							label: string | null;
+							kind: 'external' | 'internal' | null;
+							href: string | null;
+							section:
+								| 'about'
+								| 'contact'
+								| 'downloads'
+								| 'legal'
+								| 'newsroom'
+								| 'partners'
+								| 'solutions'
+								| 'support'
+								| 'technologies'
+								| null;
+							ref:
+								| {
+										_type: 'comingSoonPage';
+										slug: null;
+										category: null;
+										subcategory: null;
+										section:
+											| 'about'
+											| 'contact'
+											| 'downloads'
+											| 'legal'
+											| 'newsroom'
+											| 'partners'
+											| 'solutions'
+											| 'support'
+											| 'technologies'
+											| null;
+								  }
+								| {
+										_type: 'homePage';
+										slug: null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'industry';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'product';
+										slug: string | null;
+										category: string | null;
+										subcategory: string | null;
+										section: null;
+								  }
+								| {
+										_type: 'productCategory';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'productSeries';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'productSubcategory';
+										slug: string | null;
+										category: string | null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'solution';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| {
+										_type: 'technology';
+										slug: string | null;
+										category: null;
+										subcategory: null;
+										section: null;
+								  }
+								| null;
+						} | null;
+						image: {
+							alt: string | null;
+							decorative: boolean | null;
+							hotspot: SanityImageHotspot | null;
+							crop: SanityImageCrop | null;
+							asset: {
+								_id: string;
+								url: string | null;
+								metadata: {
+									lqip: string | null;
+									dimensions: {
+										width: number | null;
+										height: number | null;
+										aspectRatio: number | null;
+									} | null;
+								} | null;
+							} | null;
+						} | null;
+						video: string | null;
+						detections: Array<{
+							_key: string;
+							label: 'BICYCLE' | 'FACE' | 'PERSON' | 'PLATE' | 'VEHICLE' | null;
+							confidence: number | null;
+							x: number | null;
+							y: number | null;
+							w: number | null;
+							h: number | null;
+						}> | null;
+						show3d: boolean | null;
+				  }
+				| {
+						_key: string;
+						_type: 'industriesMosaic';
+						anchor: string | null;
+						title: string | null;
+						lead: string | null;
+						industries: Array<{
+							_id: string;
+							title: string | null;
+							slug: string | null;
+							summary: string | null;
+							image: {
+								alt: string | null;
+								decorative: boolean | null;
+								hotspot: SanityImageHotspot | null;
+								crop: SanityImageCrop | null;
+								asset: {
+									_id: string;
+									url: string | null;
+									metadata: {
+										lqip: string | null;
+										dimensions: {
+											width: number | null;
+											height: number | null;
+											aspectRatio: number | null;
+										} | null;
+									} | null;
+								} | null;
+							} | null;
+						}> | null;
+				  }
+				| {
+						_key: string;
+						_type: 'logoCloud';
+						anchor: string | null;
+						title: string | null;
+						items: Array<{
+							_key: string;
+							name: string | null;
+							detail: string | null;
+							logo: {
+								alt: string | null;
+								decorative: boolean | null;
+								hotspot: SanityImageHotspot | null;
+								crop: SanityImageCrop | null;
+								asset: {
+									_id: string;
+									url: string | null;
+									metadata: {
+										lqip: string | null;
+										dimensions: {
+											width: number | null;
+											height: number | null;
+											aspectRatio: number | null;
+										} | null;
+									} | null;
+								} | null;
+							} | null;
+						}> | null;
+				  }
+				| {
+						_key: string;
+						_type: 'richTextSection';
+						anchor: string | null;
+						title: string | null;
+						body: Array<{
+							children?: Array<{
+								marks?: Array<string>;
+								text?: string;
+								_type: 'span';
+								_key: string;
+							}>;
+							style?: 'blockquote' | 'h3' | 'normal';
+							listItem?: 'bullet' | 'number';
+							markDefs?: Array<
+								{
+									_key: string;
+								} & Link
+							>;
+							level?: number;
+							_type: 'block';
+							_key: string;
+						}> | null;
+				  }
+				| {
+						_key: string;
+						_type: 'statsBand';
+						anchor: string | null;
+						title: string | null;
+						lead: string | null;
+						stats: Array<{
+							_key: string;
+							value: number | null;
+							suffix: string | null;
+							label: string | null;
+							trend: Array<number> | null;
+						}> | null;
+				  }
+			> | null;
+	  }
+	| null;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: productsHubQuery
+// Query: {	"categories": *[_type == "productCategory"] | order(orderRank) {	_id,	title,	"slug": slug.current,	icon,	tagline,	description,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	"count": count(*[_type == "product" && category._ref == ^._id])},	"latest": *[_type == "product" && status == "new"] | order(releaseDate desc) [0...8] {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating},	"technologies": *[_type == "technology"] | order(title asc) { _id, title, "slug": slug.current, icon, summary, proofPoint }}
+export type ProductsHubQueryResult = {
+	categories: Array<{
+		_id: string;
+		title: string | null;
+		slug: string | null;
+		icon:
+			| 'access'
+			| 'alarm'
+			| 'camera-network'
+			| 'camera-ptz'
+			| 'display'
+			| 'intercom'
+			| 'network-switch'
+			| 'recorder'
+			| 'software'
+			| 'thermal'
+			| 'traffic'
+			| null;
+		tagline: string | null;
+		description: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		count: number;
+	}>;
+	latest: Array<{
+		_id: string;
+		modelNumber: string | null;
+		name: string | null;
+		slug: string | null;
+		status: 'new';
+		releaseDate: string | null;
+		category: string | null;
+		subcategory: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		cardSpecs: Array<{
+			label: string | null;
+			value: string | null;
+			unit: string | null;
+		}> | null;
+		resolutionMp: number | null;
+		lensMm: number | null;
+		lensMmMax: number | null;
+		irDistanceM: number | null;
+		ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	}>;
+	technologies: Array<{
+		_id: string;
+		title: string | null;
+		slug: string | null;
+		icon: string | null;
+		summary: string | null;
+		proofPoint: string | null;
+	}>;
+};
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: categoryQuery
+// Query: *[_type == "productCategory" && slug.current == $category][0]{	_id, title, "slug": slug.current, icon, tagline, description, seo,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	"count": count(*[_type == "product" && category._ref == ^._id]),	"subcategories": *[_type == "productSubcategory" && category._ref == ^._id] | order(orderRank) {		_id, title, "slug": slug.current, description,		"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },		"count": count(*[_type == "product" && subcategory._ref == ^._id])	}}
+export type CategoryQueryResult = {
+	_id: string;
+	title: string | null;
+	slug: string | null;
+	icon:
+		| 'access'
+		| 'alarm'
+		| 'camera-network'
+		| 'camera-ptz'
+		| 'display'
+		| 'intercom'
+		| 'network-switch'
+		| 'recorder'
+		| 'software'
+		| 'thermal'
+		| 'traffic'
+		| null;
+	tagline: string | null;
+	description: string | null;
+	seo: Seo | null;
+	image: {
+		alt: string | null;
+		decorative: boolean | null;
+		hotspot: SanityImageHotspot | null;
+		crop: SanityImageCrop | null;
+		asset: {
+			_id: string;
+			url: string | null;
+			metadata: {
+				lqip: string | null;
+				dimensions: {
+					width: number | null;
+					height: number | null;
+					aspectRatio: number | null;
+				} | null;
+			} | null;
+		} | null;
+	} | null;
+	count: number;
+	subcategories: Array<{
+		_id: string;
+		title: string | null;
+		slug: string | null;
+		description: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		count: number;
+	}>;
+} | null;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: subcategoryQuery
+// Query: *[_type == "productSubcategory" && slug.current == $subcategory && category->slug.current == $category][0]{	_id, title, "slug": slug.current, description, seo,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	"category": category->{ title, "slug": slug.current },	filterConfig[]{ _key, attribute, ui, label, collapsed },	"siblings": *[_type == "productSubcategory" && category._ref == ^.category._ref && _id != ^._id] | order(orderRank) { title, "slug": slug.current }}
+export type SubcategoryQueryResult = {
+	_id: string;
+	title: string | null;
+	slug: string | null;
+	description: string | null;
+	seo: Seo | null;
+	image: {
+		alt: string | null;
+		decorative: boolean | null;
+		hotspot: SanityImageHotspot | null;
+		crop: SanityImageCrop | null;
+		asset: {
+			_id: string;
+			url: string | null;
+			metadata: {
+				lqip: string | null;
+				dimensions: {
+					width: number | null;
+					height: number | null;
+					aspectRatio: number | null;
+				} | null;
+			} | null;
+		} | null;
+	} | null;
+	category: {
+		title: string | null;
+		slug: string | null;
+	} | null;
+	filterConfig: Array<{
+		_key: string;
+		attribute:
+			| 'aiFunctions'
+			| 'audio'
+			| 'channels'
+			| 'deterrence'
+			| 'formFactor'
+			| 'ikRating'
+			| 'ipRating'
+			| 'lensType'
+			| 'lightType'
+			| 'poe'
+			| 'power'
+			| 'resolutionMp'
+			| 'series'
+			| null;
+		ui: 'checkbox' | 'range' | 'toggle' | null;
+		label: string | null;
+		collapsed: boolean | null;
+	}> | null;
+	siblings: Array<{
+		title: string | null;
+		slug: string | null;
+	}>;
+} | null;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: facetSourceQuery
+// Query: *[_type == "product" && category->slug.current == $category && ($subcategory == null || subcategory->slug.current == $subcategory)]{	"series": series->{ "value": slug.current, title },	"formFactor": formFactor->{ "value": slug.current, title },	resolutionMp, lensType, lightType, ipRating, ikRating, poe, audio, deterrence, power, channels,	"aiFunctions": aiFunctions[]->{ "value": slug.current, title }}
+export type FacetSourceQueryResult = Array<{
+	series: {
+		value: string | null;
+		title: string | null;
+	} | null;
+	formFactor: {
+		value: string | null;
+		title: string | null;
+	} | null;
+	resolutionMp: number | null;
+	lensType: 'fixed' | 'manual-varifocal' | 'motorized-varifocal' | 'multi-lens' | null;
+	lightType: 'hybrid' | 'ir' | 'none' | 'white' | null;
+	ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	ikRating: 'IK08' | 'IK10' | null;
+	poe: boolean | null;
+	audio: Array<string> | null;
+	deterrence: Array<string> | null;
+	power: Array<string> | null;
+	channels: number | null;
+	aiFunctions: Array<{
+		value: string | null;
+		title: string | null;
+	}> | null;
+}>;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: listingNewestQuery
+// Query: {	"total": count(*[_type == "product"	&& category->slug.current == $category	&& ($subcategory == null || subcategory->slug.current == $subcategory)	&& (count($series) == 0 || series->slug.current in $series)	&& (count($formFactor) == 0 || formFactor->slug.current in $formFactor)	&& ($mpMin == null || resolutionMp >= $mpMin)	&& ($mpMax == null || resolutionMp <= $mpMax)	&& (count($lensType) == 0 || lensType in $lensType)	&& (count($lightType) == 0 || lightType in $lightType)	&& (count($aiFunctions) == 0 || count((aiFunctions[]->slug.current)[@ in $aiFunctions]) == count($aiFunctions))	&& (count($ipRating) == 0 || ipRating in $ipRating)	&& (count($ikRating) == 0 || ikRating in $ikRating)	&& ($poe == null || poe == $poe)	&& (count($audio) == 0 || count(audio[@ in $audio]) == count($audio))	&& (count($deterrence) == 0 || count(deterrence[@ in $deterrence]) == count($deterrence))	&& (count($power) == 0 || count(power[@ in $power]) > 0)	&& ($chMin == null || channels >= $chMin)	&& ($chMax == null || channels <= $chMax)	&& ($q == null || modelNumber match $q || name match $q || shortDescription match $q)]),	"items": *[_type == "product"	&& category->slug.current == $category	&& ($subcategory == null || subcategory->slug.current == $subcategory)	&& (count($series) == 0 || series->slug.current in $series)	&& (count($formFactor) == 0 || formFactor->slug.current in $formFactor)	&& ($mpMin == null || resolutionMp >= $mpMin)	&& ($mpMax == null || resolutionMp <= $mpMax)	&& (count($lensType) == 0 || lensType in $lensType)	&& (count($lightType) == 0 || lightType in $lightType)	&& (count($aiFunctions) == 0 || count((aiFunctions[]->slug.current)[@ in $aiFunctions]) == count($aiFunctions))	&& (count($ipRating) == 0 || ipRating in $ipRating)	&& (count($ikRating) == 0 || ikRating in $ikRating)	&& ($poe == null || poe == $poe)	&& (count($audio) == 0 || count(audio[@ in $audio]) == count($audio))	&& (count($deterrence) == 0 || count(deterrence[@ in $deterrence]) == count($deterrence))	&& (count($power) == 0 || count(power[@ in $power]) > 0)	&& ($chMin == null || channels >= $chMin)	&& ($chMax == null || channels <= $chMax)	&& ($q == null || modelNumber match $q || name match $q || shortDescription match $q)] | order(releaseDate desc, modelNumber asc) [$start...$end] {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating}}
+export type ListingNewestQueryResult = {
+	total: number;
+	items: Array<{
+		_id: string;
+		modelNumber: string | null;
+		name: string | null;
+		slug: string | null;
+		status: 'active' | 'discontinued' | 'new' | null;
+		releaseDate: string | null;
+		category: string | null;
+		subcategory: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		cardSpecs: Array<{
+			label: string | null;
+			value: string | null;
+			unit: string | null;
+		}> | null;
+		resolutionMp: number | null;
+		lensMm: number | null;
+		lensMmMax: number | null;
+		irDistanceM: number | null;
+		ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	}>;
+};
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: listingResolutionQuery
+// Query: {	"total": count(*[_type == "product"	&& category->slug.current == $category	&& ($subcategory == null || subcategory->slug.current == $subcategory)	&& (count($series) == 0 || series->slug.current in $series)	&& (count($formFactor) == 0 || formFactor->slug.current in $formFactor)	&& ($mpMin == null || resolutionMp >= $mpMin)	&& ($mpMax == null || resolutionMp <= $mpMax)	&& (count($lensType) == 0 || lensType in $lensType)	&& (count($lightType) == 0 || lightType in $lightType)	&& (count($aiFunctions) == 0 || count((aiFunctions[]->slug.current)[@ in $aiFunctions]) == count($aiFunctions))	&& (count($ipRating) == 0 || ipRating in $ipRating)	&& (count($ikRating) == 0 || ikRating in $ikRating)	&& ($poe == null || poe == $poe)	&& (count($audio) == 0 || count(audio[@ in $audio]) == count($audio))	&& (count($deterrence) == 0 || count(deterrence[@ in $deterrence]) == count($deterrence))	&& (count($power) == 0 || count(power[@ in $power]) > 0)	&& ($chMin == null || channels >= $chMin)	&& ($chMax == null || channels <= $chMax)	&& ($q == null || modelNumber match $q || name match $q || shortDescription match $q)]),	"items": *[_type == "product"	&& category->slug.current == $category	&& ($subcategory == null || subcategory->slug.current == $subcategory)	&& (count($series) == 0 || series->slug.current in $series)	&& (count($formFactor) == 0 || formFactor->slug.current in $formFactor)	&& ($mpMin == null || resolutionMp >= $mpMin)	&& ($mpMax == null || resolutionMp <= $mpMax)	&& (count($lensType) == 0 || lensType in $lensType)	&& (count($lightType) == 0 || lightType in $lightType)	&& (count($aiFunctions) == 0 || count((aiFunctions[]->slug.current)[@ in $aiFunctions]) == count($aiFunctions))	&& (count($ipRating) == 0 || ipRating in $ipRating)	&& (count($ikRating) == 0 || ikRating in $ikRating)	&& ($poe == null || poe == $poe)	&& (count($audio) == 0 || count(audio[@ in $audio]) == count($audio))	&& (count($deterrence) == 0 || count(deterrence[@ in $deterrence]) == count($deterrence))	&& (count($power) == 0 || count(power[@ in $power]) > 0)	&& ($chMin == null || channels >= $chMin)	&& ($chMax == null || channels <= $chMax)	&& ($q == null || modelNumber match $q || name match $q || shortDescription match $q)] | order(coalesce(resolutionMp, 0) desc, modelNumber asc) [$start...$end] {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating}}
+export type ListingResolutionQueryResult = {
+	total: number;
+	items: Array<{
+		_id: string;
+		modelNumber: string | null;
+		name: string | null;
+		slug: string | null;
+		status: 'active' | 'discontinued' | 'new' | null;
+		releaseDate: string | null;
+		category: string | null;
+		subcategory: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		cardSpecs: Array<{
+			label: string | null;
+			value: string | null;
+			unit: string | null;
+		}> | null;
+		resolutionMp: number | null;
+		lensMm: number | null;
+		lensMmMax: number | null;
+		irDistanceM: number | null;
+		ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	}>;
+};
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: listingNameQuery
+// Query: {	"total": count(*[_type == "product"	&& category->slug.current == $category	&& ($subcategory == null || subcategory->slug.current == $subcategory)	&& (count($series) == 0 || series->slug.current in $series)	&& (count($formFactor) == 0 || formFactor->slug.current in $formFactor)	&& ($mpMin == null || resolutionMp >= $mpMin)	&& ($mpMax == null || resolutionMp <= $mpMax)	&& (count($lensType) == 0 || lensType in $lensType)	&& (count($lightType) == 0 || lightType in $lightType)	&& (count($aiFunctions) == 0 || count((aiFunctions[]->slug.current)[@ in $aiFunctions]) == count($aiFunctions))	&& (count($ipRating) == 0 || ipRating in $ipRating)	&& (count($ikRating) == 0 || ikRating in $ikRating)	&& ($poe == null || poe == $poe)	&& (count($audio) == 0 || count(audio[@ in $audio]) == count($audio))	&& (count($deterrence) == 0 || count(deterrence[@ in $deterrence]) == count($deterrence))	&& (count($power) == 0 || count(power[@ in $power]) > 0)	&& ($chMin == null || channels >= $chMin)	&& ($chMax == null || channels <= $chMax)	&& ($q == null || modelNumber match $q || name match $q || shortDescription match $q)]),	"items": *[_type == "product"	&& category->slug.current == $category	&& ($subcategory == null || subcategory->slug.current == $subcategory)	&& (count($series) == 0 || series->slug.current in $series)	&& (count($formFactor) == 0 || formFactor->slug.current in $formFactor)	&& ($mpMin == null || resolutionMp >= $mpMin)	&& ($mpMax == null || resolutionMp <= $mpMax)	&& (count($lensType) == 0 || lensType in $lensType)	&& (count($lightType) == 0 || lightType in $lightType)	&& (count($aiFunctions) == 0 || count((aiFunctions[]->slug.current)[@ in $aiFunctions]) == count($aiFunctions))	&& (count($ipRating) == 0 || ipRating in $ipRating)	&& (count($ikRating) == 0 || ikRating in $ikRating)	&& ($poe == null || poe == $poe)	&& (count($audio) == 0 || count(audio[@ in $audio]) == count($audio))	&& (count($deterrence) == 0 || count(deterrence[@ in $deterrence]) == count($deterrence))	&& (count($power) == 0 || count(power[@ in $power]) > 0)	&& ($chMin == null || channels >= $chMin)	&& ($chMax == null || channels <= $chMax)	&& ($q == null || modelNumber match $q || name match $q || shortDescription match $q)] | order(modelNumber asc) [$start...$end] {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating}}
+export type ListingNameQueryResult = {
+	total: number;
+	items: Array<{
+		_id: string;
+		modelNumber: string | null;
+		name: string | null;
+		slug: string | null;
+		status: 'active' | 'discontinued' | 'new' | null;
+		releaseDate: string | null;
+		category: string | null;
+		subcategory: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		cardSpecs: Array<{
+			label: string | null;
+			value: string | null;
+			unit: string | null;
+		}> | null;
+		resolutionMp: number | null;
+		lensMm: number | null;
+		lensMmMax: number | null;
+		irDistanceM: number | null;
+		ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	}>;
+};
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: productQuery
+// Query: *[_type == "product" && slug.current == $slug && category->slug.current == $category && subcategory->slug.current == $subcategory][0]{	...{	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating},	shortDescription, highlights, sensor, lensType, opticalZoom, lightType, ikRating, poe, audio, deterrence, power,	channels, storage, operatingTemp, seo, _updatedAt,	dori{ detect, observe, recognize, identify },	"categoryTitle": category->title,	"subcategoryTitle": subcategory->title,	"series": series->{ title, "slug": slug.current, tier, tagline },	"formFactor": formFactor->{ title, "slug": slug.current },	"gallery": gallery[] { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	"spinFrames": spinFrames[].asset->url,	"technologies": technologies[]->{ _id, title, "slug": slug.current, icon, summary, proofPoint },	"aiFunctions": aiFunctions[]->{ _id, title, "slug": slug.current, icon, summary },	variants[]{ _key, suffix, lensMm, status },	fullSpecs[]{ _key, group, rows[]{ _key, key, value } },	downloads[]{		_key, title, kind, version, date, language,		"url": coalesce(file.asset->url, externalUrl),		"size": coalesce(file.asset->size, sizeBytes),		"ext": coalesce(file.asset->extension, "link")	},	"bundle": bundleItems[]{ _key, quantity, "product": product-> {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating} },	"related": relatedProducts[]-> {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating},	"comparedWith": comparedWith[]-> {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating}}
+export type ProductQueryResult = {
+	_id: string;
+	modelNumber: string | null;
+	name: string | null;
+	slug: string | null;
+	status: 'active' | 'discontinued' | 'new' | null;
+	releaseDate: string | null;
+	category: string | null;
+	subcategory: string | null;
+	image: {
+		alt: string | null;
+		decorative: boolean | null;
+		hotspot: SanityImageHotspot | null;
+		crop: SanityImageCrop | null;
+		asset: {
+			_id: string;
+			url: string | null;
+			metadata: {
+				lqip: string | null;
+				dimensions: {
+					width: number | null;
+					height: number | null;
+					aspectRatio: number | null;
+				} | null;
+			} | null;
+		} | null;
+	} | null;
+	cardSpecs: Array<{
+		label: string | null;
+		value: string | null;
+		unit: string | null;
+	}> | null;
+	resolutionMp: number | null;
+	lensMm: number | null;
+	lensMmMax: number | null;
+	irDistanceM: number | null;
+	ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	shortDescription: string | null;
+	highlights: Array<string> | null;
+	sensor: string | null;
+	lensType: 'fixed' | 'manual-varifocal' | 'motorized-varifocal' | 'multi-lens' | null;
+	opticalZoom: number | null;
+	lightType: 'hybrid' | 'ir' | 'none' | 'white' | null;
+	ikRating: 'IK08' | 'IK10' | null;
+	poe: boolean | null;
+	audio: Array<string> | null;
+	deterrence: Array<string> | null;
+	power: Array<string> | null;
+	channels: number | null;
+	storage: string | null;
+	operatingTemp: string | null;
+	seo: Seo | null;
+	_updatedAt: string;
+	dori: {
+		detect: number | null;
+		observe: number | null;
+		recognize: number | null;
+		identify: number | null;
+	} | null;
+	categoryTitle: string | null;
+	subcategoryTitle: string | null;
+	series: {
+		title: string | null;
+		slug: string | null;
+		tier: 'ai' | 'panoramic' | 'pro' | 'special' | 'ultra' | 'value' | null;
+		tagline: string | null;
+	} | null;
+	formFactor: {
+		title: string | null;
+		slug: string | null;
+	} | null;
+	gallery: Array<{
+		alt: string | null;
+		decorative: boolean | null;
+		hotspot: SanityImageHotspot | null;
+		crop: SanityImageCrop | null;
+		asset: {
+			_id: string;
+			url: string | null;
+			metadata: {
+				lqip: string | null;
+				dimensions: {
+					width: number | null;
+					height: number | null;
+					aspectRatio: number | null;
+				} | null;
+			} | null;
+		} | null;
+	}> | null;
+	spinFrames: Array<string | null> | null;
+	technologies: Array<{
+		_id: string;
+		title: string | null;
+		slug: string | null;
+		icon: string | null;
+		summary: string | null;
+		proofPoint: string | null;
+	}> | null;
+	aiFunctions: Array<{
+		_id: string;
+		title: string | null;
+		slug: string | null;
+		icon: string | null;
+		summary: string | null;
+	}> | null;
+	variants: Array<{
+		_key: string;
+		suffix: string | null;
+		lensMm: number | null;
+		status: 'active' | 'discontinued' | 'new' | null;
+	}> | null;
+	fullSpecs: Array<{
+		_key: string;
+		group:
+			| 'Approval'
+			| 'Audio'
+			| 'Camera'
+			| 'Deep-learning function'
+			| 'Event'
+			| 'General'
+			| 'Illuminator'
+			| 'Image'
+			| 'Interface'
+			| 'Lens'
+			| 'Network'
+			| 'Pixel density (DORI)'
+			| 'Video'
+			| null;
+		rows: Array<{
+			_key: string;
+			key: string | null;
+			value: string | null;
+		}> | null;
+	}> | null;
+	downloads: Array<{
+		_key: string;
+		title: string | null;
+		kind: 'cad' | 'certificate' | 'datasheet' | 'firmware' | 'manual' | null;
+		version: string | null;
+		date: string | null;
+		language: string | null;
+		url: string | null;
+		size: number | null;
+		ext: string | 'link';
+	}> | null;
+	bundle: Array<{
+		_key: string;
+		quantity: number | null;
+		product: {
+			_id: string;
+			modelNumber: string | null;
+			name: string | null;
+			slug: string | null;
+			status: 'active' | 'discontinued' | 'new' | null;
+			releaseDate: string | null;
+			category: string | null;
+			subcategory: string | null;
+			image: {
+				alt: string | null;
+				decorative: boolean | null;
+				hotspot: SanityImageHotspot | null;
+				crop: SanityImageCrop | null;
+				asset: {
+					_id: string;
+					url: string | null;
+					metadata: {
+						lqip: string | null;
+						dimensions: {
+							width: number | null;
+							height: number | null;
+							aspectRatio: number | null;
+						} | null;
+					} | null;
+				} | null;
+			} | null;
+			cardSpecs: Array<{
+				label: string | null;
+				value: string | null;
+				unit: string | null;
+			}> | null;
+			resolutionMp: number | null;
+			lensMm: number | null;
+			lensMmMax: number | null;
+			irDistanceM: number | null;
+			ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+		} | null;
+	}> | null;
+	related: Array<{
+		_id: string;
+		modelNumber: string | null;
+		name: string | null;
+		slug: string | null;
+		status: 'active' | 'discontinued' | 'new' | null;
+		releaseDate: string | null;
+		category: string | null;
+		subcategory: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		cardSpecs: Array<{
+			label: string | null;
+			value: string | null;
+			unit: string | null;
+		}> | null;
+		resolutionMp: number | null;
+		lensMm: number | null;
+		lensMmMax: number | null;
+		irDistanceM: number | null;
+		ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	}> | null;
+	comparedWith: Array<{
+		_id: string;
+		modelNumber: string | null;
+		name: string | null;
+		slug: string | null;
+		status: 'active' | 'discontinued' | 'new' | null;
+		releaseDate: string | null;
+		category: string | null;
+		subcategory: string | null;
+		image: {
+			alt: string | null;
+			decorative: boolean | null;
+			hotspot: SanityImageHotspot | null;
+			crop: SanityImageCrop | null;
+			asset: {
+				_id: string;
+				url: string | null;
+				metadata: {
+					lqip: string | null;
+					dimensions: {
+						width: number | null;
+						height: number | null;
+						aspectRatio: number | null;
+					} | null;
+				} | null;
+			} | null;
+		} | null;
+		cardSpecs: Array<{
+			label: string | null;
+			value: string | null;
+			unit: string | null;
+		}> | null;
+		resolutionMp: number | null;
+		lensMm: number | null;
+		lensMmMax: number | null;
+		irDistanceM: number | null;
+		ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	}> | null;
+} | null;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: compareQuery
+// Query: *[_type == "product" && slug.current in $slugs]{	...{	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating},	sensor, lensType, opticalZoom, lightType, ikRating, poe, audio, deterrence, power, channels, storage, operatingTemp,	dori{ detect, observe, recognize, identify },	"series": series->title,	"formFactor": formFactor->title,	"technologies": technologies[]->title,	"aiFunctions": aiFunctions[]->title,	"datasheet": downloads[kind == "datasheet"][0]{ "url": coalesce(file.asset->url, externalUrl) }}
+export type CompareQueryResult = Array<{
+	_id: string;
+	modelNumber: string | null;
+	name: string | null;
+	slug: string | null;
+	status: 'active' | 'discontinued' | 'new' | null;
+	releaseDate: string | null;
+	category: string | null;
+	subcategory: string | null;
+	image: {
+		alt: string | null;
+		decorative: boolean | null;
+		hotspot: SanityImageHotspot | null;
+		crop: SanityImageCrop | null;
+		asset: {
+			_id: string;
+			url: string | null;
+			metadata: {
+				lqip: string | null;
+				dimensions: {
+					width: number | null;
+					height: number | null;
+					aspectRatio: number | null;
+				} | null;
+			} | null;
+		} | null;
+	} | null;
+	cardSpecs: Array<{
+		label: string | null;
+		value: string | null;
+		unit: string | null;
+	}> | null;
+	resolutionMp: number | null;
+	lensMm: number | null;
+	lensMmMax: number | null;
+	irDistanceM: number | null;
+	ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+	sensor: string | null;
+	lensType: 'fixed' | 'manual-varifocal' | 'motorized-varifocal' | 'multi-lens' | null;
+	opticalZoom: number | null;
+	lightType: 'hybrid' | 'ir' | 'none' | 'white' | null;
+	ikRating: 'IK08' | 'IK10' | null;
+	poe: boolean | null;
+	audio: Array<string> | null;
+	deterrence: Array<string> | null;
+	power: Array<string> | null;
+	channels: number | null;
+	storage: string | null;
+	operatingTemp: string | null;
+	dori: {
+		detect: number | null;
+		observe: number | null;
+		recognize: number | null;
+		identify: number | null;
+	} | null;
+	series: string | null;
+	formFactor: string | null;
+	technologies: Array<string | null> | null;
+	aiFunctions: Array<string | null> | null;
+	datasheet: {
+		url: string | null;
+	} | null;
+}>;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: searchQuery
+// Query: *[_type == "product" && (modelNumber match $q || name match $q)] | order(status == "discontinued" asc, releaseDate desc) [0...8] {	_id,	modelNumber,	name,	"slug": slug.current,	status,	releaseDate,	"category": category->slug.current,	"subcategory": subcategory->slug.current,	"image": heroImage { alt, decorative, hotspot, crop, "asset": asset->{ _id, url, metadata { lqip, dimensions { width, height, aspectRatio } } } },	cardSpecs[]{ label, value, unit },	resolutionMp,	lensMm,	lensMmMax,	irDistanceM,	ipRating}
+export type SearchQueryResult = Array<{
+	_id: string;
+	modelNumber: string | null;
+	name: string | null;
+	slug: string | null;
+	status: 'active' | 'discontinued' | 'new' | null;
+	releaseDate: string | null;
+	category: string | null;
+	subcategory: string | null;
+	image: {
+		alt: string | null;
+		decorative: boolean | null;
+		hotspot: SanityImageHotspot | null;
+		crop: SanityImageCrop | null;
+		asset: {
+			_id: string;
+			url: string | null;
+			metadata: {
+				lqip: string | null;
+				dimensions: {
+					width: number | null;
+					height: number | null;
+					aspectRatio: number | null;
+				} | null;
+			} | null;
+		} | null;
+	} | null;
+	cardSpecs: Array<{
+		label: string | null;
+		value: string | null;
+		unit: string | null;
+	}> | null;
+	resolutionMp: number | null;
+	lensMm: number | null;
+	lensMmMax: number | null;
+	irDistanceM: number | null;
+	ipRating: 'IP54' | 'IP66' | 'IP67' | 'IP68' | null;
+}>;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: comingSoonQuery
+// Query: *[_type == "comingSoonPage" && section == $section][0]{	section, title, lead, eta, links[] { _key, label, kind, href, section, "ref": reference->{ _type, "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, section } }}
+export type ComingSoonQueryResult = {
+	section:
+		| 'about'
+		| 'contact'
+		| 'downloads'
+		| 'legal'
+		| 'newsroom'
+		| 'partners'
+		| 'solutions'
+		| 'support'
+		| 'technologies'
+		| null;
+	title: string | null;
+	lead: string | null;
+	eta: string | null;
+	links: Array<{
+		_key: string;
+		label: string | null;
+		kind: 'external' | 'internal' | null;
+		href: string | null;
+		section:
+			| 'about'
+			| 'contact'
+			| 'downloads'
+			| 'legal'
+			| 'newsroom'
+			| 'partners'
+			| 'solutions'
+			| 'support'
+			| 'technologies'
+			| null;
+		ref:
+			| {
+					_type: 'comingSoonPage';
+					slug: null;
+					category: null;
+					subcategory: null;
+					section:
+						| 'about'
+						| 'contact'
+						| 'downloads'
+						| 'legal'
+						| 'newsroom'
+						| 'partners'
+						| 'solutions'
+						| 'support'
+						| 'technologies'
+						| null;
+			  }
+			| {
+					_type: 'homePage';
+					slug: null;
+					category: null;
+					subcategory: null;
+					section: null;
+			  }
+			| {
+					_type: 'industry';
+					slug: string | null;
+					category: null;
+					subcategory: null;
+					section: null;
+			  }
+			| {
+					_type: 'product';
+					slug: string | null;
+					category: string | null;
+					subcategory: string | null;
+					section: null;
+			  }
+			| {
+					_type: 'productCategory';
+					slug: string | null;
+					category: null;
+					subcategory: null;
+					section: null;
+			  }
+			| {
+					_type: 'productSeries';
+					slug: string | null;
+					category: null;
+					subcategory: null;
+					section: null;
+			  }
+			| {
+					_type: 'productSubcategory';
+					slug: string | null;
+					category: string | null;
+					subcategory: null;
+					section: null;
+			  }
+			| {
+					_type: 'solution';
+					slug: string | null;
+					category: null;
+					subcategory: null;
+					section: null;
+			  }
+			| {
+					_type: 'technology';
+					slug: string | null;
+					category: null;
+					subcategory: null;
+					section: null;
+			  }
+			| null;
+	}> | null;
+} | null;
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: sitemapQuery
+// Query: {	"categories": *[_type == "productCategory"]{ "slug": slug.current, _updatedAt },	"subcategories": *[_type == "productSubcategory"]{ "slug": slug.current, "category": category->slug.current, _updatedAt },	"products": *[_type == "product"]{ "slug": slug.current, "category": category->slug.current, "subcategory": subcategory->slug.current, _updatedAt }}
+export type SitemapQueryResult = {
+	categories: Array<{
+		slug: string | null;
+		_updatedAt: string;
+	}>;
+	subcategories: Array<{
+		slug: string | null;
+		category: string | null;
+		_updatedAt: string;
+	}>;
+	products: Array<{
+		slug: string | null;
+		category: string | null;
+		subcategory: string | null;
+		_updatedAt: string;
+	}>;
+};
+
+// Source: ../apps/web/src/lib/sanity/queries.ts
+// Variable: pathsForDocumentQuery
+// Query: *[_id == $id][0]{	_type,	"slug": slug.current,	"category": coalesce(category->slug.current, slug.current),	"subcategory": subcategory->slug.current}
+export type PathsForDocumentQueryResult =
+	| {
+			_type: 'aiFunction';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'comingSoonPage';
+			slug: null;
+			category: null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'footer';
+			slug: null;
+			category: null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'formFactor';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'homePage';
+			slug: null;
+			category: null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'industry';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'navigation';
+			slug: null;
+			category: null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'product';
+			slug: string | null;
+			category: string | null;
+			subcategory: string | null;
+	  }
+	| {
+			_type: 'productCategory';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'productSeries';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'productSubcategory';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'sanity.fileAsset';
+			slug: null;
+			category: null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'sanity.imageAsset';
+			slug: null;
+			category: null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'siteSettings';
+			slug: null;
+			category: null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'solution';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| {
+			_type: 'technology';
+			slug: string | null;
+			category: string | null;
+			subcategory: null;
+	  }
+	| null;

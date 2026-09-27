@@ -7,24 +7,31 @@ import { z } from 'zod';
  * - `sanity`: live Content Lake (requires project id + dataset)
  * - `fixtures`: the seed dataset evaluated locally with groq-js (dev/CI without a Sanity project)
  */
-const schema = z
-	.object({
-		PUBLIC_SANITY_PROJECT_ID: z
-			.string()
-			.regex(/^[a-z0-9-]+$/)
-			.optional(),
-		PUBLIC_SANITY_DATASET: z.string().min(1).default('production'),
-		PUBLIC_SANITY_API_VERSION: z.string().default('2026-09-01'),
-		PUBLIC_SANITY_STUDIO_URL: z.url().default('http://localhost:3333'),
-		PUBLIC_SITE_URL: z.url().default('http://localhost:5173'),
-		SANITY_API_READ_TOKEN: z.string().min(1).optional(),
-		SANITY_REVALIDATE_SECRET: z.string().min(16).optional()
-	})
-	.transform(
-		(e) => ({ ...e, dataSource: e.PUBLIC_SANITY_PROJECT_ID ? 'sanity' : 'fixtures' }) as const
-	);
+const base = z.object({
+	PUBLIC_SANITY_DATASET: z.string().min(1).default('production'),
+	PUBLIC_SANITY_API_VERSION: z.string().default('2026-09-01'),
+	PUBLIC_SANITY_STUDIO_URL: z.url().default('http://localhost:3333'),
+	PUBLIC_SITE_URL: z.url().default('http://localhost:5173'),
+	SANITY_API_READ_TOKEN: z.string().min(1).optional(),
+	/** Webhook signing secret and Vercel ISR bypass token (Vercel requires ≥ 32 chars). */
+	SANITY_REVALIDATE_SECRET: z.string().min(32).optional()
+});
 
-const parsed = schema.safeParse({ ...pub, ...priv });
+const schema = z.union([
+	base.extend({
+		PUBLIC_SANITY_PROJECT_ID: z.string().regex(/^[a-z0-9-]+$/),
+		dataSource: z.literal('sanity').default('sanity')
+	}),
+	base.extend({
+		PUBLIC_SANITY_PROJECT_ID: z.undefined(),
+		dataSource: z.literal('fixtures').default('fixtures')
+	})
+]);
+
+const input = Object.fromEntries(
+	Object.entries({ ...pub, ...priv }).filter(([, v]) => v !== '' && v !== undefined)
+);
+const parsed = schema.safeParse(input);
 if (!parsed.success) {
 	throw new Error(`Invalid environment:\n${z.prettifyError(parsed.error)}`);
 }
