@@ -1,9 +1,11 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
+import type { MotionPref } from '$lib/stores/motion.svelte';
+
 declare global {
 	namespace App {
+		interface Locals {
+			motionPref: MotionPref;
+		}
 		// interface Error {}
-		// interface Locals {}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}

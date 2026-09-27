@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Dhonaadhi">
+		<path fill="#07090D" fill-rule="evenodd" d="M2.5 3H15.5C22.68 3 28.5 8.82 28.5 16S22.68 29 15.5 29H2.5ZM7.5 16a8 8 0 1 0 16 0a8 8 0 1 0 -16 0Z"/>
+		<path fill="#0A7A69" fill-rule="evenodd" d="M7.5 16a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM17.05 13.32L18.6 16L17.05 18.68L13.95 18.68L12.4 16L13.95 13.32Z"/>
+		<path stroke="#F6F8FB" stroke-width=".7" stroke-linecap="round" fill="none" d="M17.05 13.32L23.04 13.32M18.6 16L21.59 21.18M17.05 18.68L14.06 23.87M13.95 18.68L7.96 18.68M12.4 16L9.41 10.82M13.95 13.32L16.94 8.13"/>
+</svg>

@@ -1,0 +1,134 @@
+// Generates the Dhonaadhi logo set from geometry + the Clash Display outlines.
+// Output: apps/web/static/brand/*.svg, apps/web/static/favicon.svg and
+// apps/web/src/lib/components/brand/paths.ts (inline paths for <Logo>).
+import fs from 'node:fs';
+import path from 'node:path';
+import opentype from 'opentype.js';
+
+const root = path.resolve(import.meta.dirname, '../..');
+const web = path.join(root, 'apps/web');
+const ttf = fs.readFileSync(path.join(web, 'src/lib/server/og/fonts/clash-display-600.ttf'));
+const font = opentype.parse(ttf.buffer.slice(ttf.byteOffset, ttf.byteOffset + ttf.byteLength));
+
+const f = (n) => +n.toFixed(2);
+
+// ── Monogram: a "D" whose bowl is a six-blade aperture ────────────────
+// 32-unit grid. Outer D, a circular counter, and inside it the iris: six
+// blades leaving a hexagonal opening. Blade seams are tangential lines.
+const cx = 15.5;
+const cy = 16;
+const R = 8; // counter radius
+const r = 3.1; // hexagon opening radius
+const rot = -Math.PI / 2 + Math.PI / 6;
+const hex = [...Array(6)].map((_, i) => {
+	const a = rot + (i * Math.PI) / 3;
+	return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+});
+const dOuter = 'M2.5 3H15.5C22.68 3 28.5 8.82 28.5 16S22.68 29 15.5 29H2.5Z';
+const counter = `M${f(cx - R)} ${cy}a${R} ${R} 0 1 0 ${2 * R} 0a${R} ${R} 0 1 0 ${-2 * R} 0Z`;
+const hexPath = 'M' + hex.map(([x, y]) => `${f(x)} ${f(y)}`).join('L') + 'Z';
+
+// Blade seams: from each hex vertex continue along the previous edge to the circle.
+const seams = hex.map(([x, y], i) => {
+	const [px, py] = hex[(i + 5) % 6];
+	const dx = x - px;
+	const dy = y - py;
+	const len = Math.hypot(dx, dy);
+	const ux = dx / len;
+	const uy = dy / len;
+	// solve |p + t*u - c| = R for t > 0
+	const ox = x - cx;
+	const oy = y - cy;
+	const b = ox * ux + oy * uy;
+	const t = -b + Math.sqrt(b * b - (ox * ox + oy * oy - R * R));
+	return `M${f(x)} ${f(y)}L${f(x + ux * t)} ${f(y + uy * t)}`;
+});
+const seamPath = seams.join('');
+
+// ── Wordmark ───────────────────────────────────────────────────────────
+const text = 'Dhonaadhi';
+const size = 100;
+const scale = size / font.unitsPerEm;
+let x = 0;
+const parts = [];
+const glyphs = font.stringToGlyphs(text);
+glyphs.forEach((g, i) => {
+	const p = g.getPath(x, 0, size);
+	parts.push(p.toPathData(2));
+	let adv = g.advanceWidth * scale;
+	const next = glyphs[i + 1];
+	if (next) adv += font.getKerningValue(g, next) * scale;
+	// optical tuning: tighten the "aa" pair, open "D h" slightly, overall −0.02em tracking
+	if (text[i] === 'a' && text[i + 1] === 'a') adv -= 30 * scale;
+	adv -= 0.02 * size;
+	x += adv;
+});
+const word = font.getPath(text, 0, 0, size);
+const bb = word.getBoundingBox();
+const capH = font.tables.os2.sCapHeight * scale;
+const wordWidth = x + 0.02 * size;
+
+// Lock-up: monogram height = cap height; gap = 0.42 cap height.
+const mScale = capH / 26; // D spans y 3..29 = 26 units
+const gap = capH * 0.42;
+const mW = 28.5 * mScale - 2.5 * mScale;
+const lockW = f(mW + gap + wordWidth);
+const lockH = f(capH - bb.y1 > 0 ? bb.y2 - bb.y1 : capH); // descender-free word
+const top = -capH;
+
+const monogramG = (ink, optic, bg) => `
+		<path fill="${ink}" fill-rule="evenodd" d="${dOuter}${counter}"/>
+		<path fill="${optic}" fill-rule="evenodd" d="${counter}${hexPath}"/>
+		<path stroke="${bg}" stroke-width=".7" stroke-linecap="round" fill="none" d="${seamPath}"/>`;
+
+const lockup = (ink, optic, bg) =>
+	`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 ${f(top)} ${lockW} ${f(capH)}" role="img" aria-label="Dhonaadhi">
+	<g transform="translate(${f(-2.5 * mScale)} ${f(top - 3 * mScale)}) scale(${f(mScale)})">${monogramG(ink, optic, bg)}
+	</g>
+	<path fill="${ink}" transform="translate(${f(mW + gap)} 0)" d="${parts.join('')}"/>
+</svg>
+`;
+
+const mono = (ink, optic, bg) =>
+	`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Dhonaadhi">${monogramG(ink, optic, bg)}
+</svg>
+`;
+
+// Favicon: simplified (no seams: they alias below 24px) and theme-aware.
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+	<style>.i{fill:#07090d}.o{fill:#0a7a69}@media (prefers-color-scheme:dark){.i{fill:#e8edf4}.o{fill:#2fe6c8}}</style>
+	<path class="i" fill-rule="evenodd" d="${dOuter}${counter}"/>
+	<path class="o" fill-rule="evenodd" d="${counter}${hexPath}"/>
+</svg>
+`;
+
+const INK = '#E8EDF4';
+const INK_L = '#07090D';
+const out = path.join(web, 'static/brand');
+fs.mkdirSync(out, { recursive: true });
+fs.writeFileSync(path.join(out, 'logo-dark.svg'), lockup(INK, '#2FE6C8', '#07090D'));
+fs.writeFileSync(path.join(out, 'logo-light.svg'), lockup(INK_L, '#0A7A69', '#F6F8FB'));
+fs.writeFileSync(path.join(out, 'monogram-dark.svg'), mono(INK, '#2FE6C8', '#07090D'));
+fs.writeFileSync(path.join(out, 'monogram-light.svg'), mono(INK_L, '#0A7A69', '#F6F8FB'));
+fs.writeFileSync(path.join(web, 'static/favicon.svg'), favicon);
+
+const ts = `// Generated by tools/render/brand.mjs — do not edit by hand.
+export const monogram = {
+	outer: '${dOuter}${counter}',
+	iris: '${counter}${hexPath}',
+	seams: '${seamPath}'
+} as const;
+
+export const wordmark = {
+	d: '${parts.join('')}',
+	offsetX: ${f(mW + gap)},
+	monogramScale: ${f(mScale)},
+	monogramX: ${f(-2.5 * mScale)},
+	monogramY: ${f(top - 3 * mScale)},
+	viewBox: '0 ${f(top)} ${lockW} ${f(capH)}'
+} as const;
+`;
+const tsDir = path.join(web, 'src/lib/components/brand');
+fs.mkdirSync(tsDir, { recursive: true });
+fs.writeFileSync(path.join(tsDir, 'paths.ts'), ts);
+console.log('brand assets written', { lockW, capH: f(capH), lockH });

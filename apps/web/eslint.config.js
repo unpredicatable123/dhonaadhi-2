@@ -34,8 +34,12 @@ export default defineConfig(
 		}
 	},
 	{
-		// Override or add rule settings here, such as:
-		// 'svelte/button-has-type': 'error'
-		rules: {}
+		// No base path is configured and every internal href is produced by resolveLink()
+		// (src/lib/links.ts) or passed in as a prop, so resolve() wrapping adds nothing.
+		rules: {
+			'svelte/no-navigation-without-resolve': 'off',
+			'@typescript-eslint/no-explicit-any': 'error',
+			'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
+		}
 	}
 );

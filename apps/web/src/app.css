@@ -1,1 +1,393 @@
 @import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
+@custom-variant reduced (&:where([data-motion='reduced'], [data-motion='reduced'] *));
+
+/* ── Fonts ─────────────────────────────────────────────────────────── */
+@font-face {
+	font-family: 'Clash Display';
+	src: url('/fonts/clash-display-500.woff2') format('woff2');
+	font-weight: 500;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Clash Display';
+	src: url('/fonts/clash-display-600.woff2') format('woff2');
+	font-weight: 600;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Geist';
+	src: url('/fonts/geist-latin-400-normal.woff2') format('woff2');
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Geist';
+	src: url('/fonts/geist-latin-500-normal.woff2') format('woff2');
+	font-weight: 500;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Geist';
+	src: url('/fonts/geist-latin-600-normal.woff2') format('woff2');
+	font-weight: 600;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');
+	font-weight: 500;
+	font-display: swap;
+}
+/* Metric-matched fallbacks keep CLS near zero while webfonts swap in. */
+@font-face {
+	font-family: 'Clash Fallback';
+	src: local('Arial');
+	size-adjust: 96%;
+	ascent-override: 92%;
+	descent-override: 22%;
+}
+@font-face {
+	font-family: 'Geist Fallback';
+	src: local('Arial');
+	size-adjust: 104%;
+	ascent-override: 94%;
+	descent-override: 24%;
+}
+
+/* ── Tokens ────────────────────────────────────────────────────────── */
+@theme {
+	/* Raw palette (docs/design-system.md §2) */
+	--color-ink-950: #07090d;
+	--color-ink-900: #0c1017;
+	--color-ink-800: #141a23;
+	--color-ink-700: #1f2733;
+	--color-steel-400: #8a95a8;
+	--color-steel-500: #6b7689;
+	--color-steel-600: #566173;
+	--color-mist-100: #e8edf4;
+	--color-paper-50: #f6f8fb;
+	--color-optic-400: #2fe6c8;
+	--color-optic-600: #12b89e;
+	--color-optic-700: #0a7a69;
+	--color-thermal-400: #ffb547;
+	--color-thermal-700: #8a5200;
+	--color-signal-blue: #4c8dff;
+	--color-signal-blue-600: #2a5fc4;
+	--color-alert-500: #ff5a5f;
+	--color-alert-600: #c4282e;
+
+	--font-display: 'Clash Display', 'Clash Fallback', system-ui, sans-serif;
+	--font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', monospace;
+
+	/* Fluid scale: 375px → 1440px viewport */
+	--text-display-2xl: clamp(4.5rem, 3.2676rem + 5.2582vw, 8rem);
+	--text-display-2xl--line-height: 1.02;
+	--text-display-2xl--letter-spacing: -0.03em;
+	--text-display-xl: clamp(3.5rem, 2.7958rem + 3.0047vw, 5.5rem);
+	--text-display-xl--line-height: 1.05;
+	--text-display-xl--letter-spacing: -0.02em;
+	--text-h1: clamp(2.5rem, 1.9718rem + 2.2535vw, 4rem);
+	--text-h1--line-height: 1.05;
+	--text-h1--letter-spacing: -0.02em;
+	--text-h2: clamp(2rem, 1.6479rem + 1.5023vw, 3rem);
+	--text-h2--line-height: 1.1;
+	--text-h2--letter-spacing: -0.02em;
+	--text-h3: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+	--text-h3--line-height: 1.15;
+	--text-h3--letter-spacing: -0.01em;
+	--text-body-lg: clamp(1.125rem, 1.081rem + 0.1878vw, 1.25rem);
+	--text-body-lg--line-height: 1.6;
+	--text-body: 1rem;
+	--text-body--line-height: 1.6;
+	--text-caption: 0.8125rem;
+	--text-caption--line-height: 1.45;
+	--text-mono-sm: 0.75rem;
+	--text-mono-sm--line-height: 1.4;
+	--text-mono-sm--letter-spacing: 0.08em;
+
+	--radius-chip: 4px;
+	--radius-control: 10px;
+	--radius-panel: 20px;
+	--radius-scene: 32px;
+
+	--ease-lens: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-shutter: cubic-bezier(0.83, 0, 0.17, 1);
+
+	--breakpoint-3xl: 120rem;
+
+	--animate-sweep: sweep 3.2s linear infinite;
+	--animate-kenburns: kenburns 24s var(--ease-lens) infinite alternate;
+	--animate-spin-slow: spin 1.6s var(--ease-shutter) infinite;
+
+	@keyframes sweep {
+		to {
+			--sweep-angle: 360deg;
+		}
+	}
+	@keyframes kenburns {
+		from {
+			transform: scale(1.02) translate3d(0, 0, 0);
+		}
+		to {
+			transform: scale(1.12) translate3d(-2%, -1.5%, 0);
+		}
+	}
+}
+
+/* Semantic tokens: components use these so the light theme is a variable swap. */
+@theme inline {
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-raised: var(--raised);
+	--color-line: var(--line);
+	--color-control: var(--control);
+	--color-fg: var(--fg);
+	--color-fg-muted: var(--fg-muted);
+	--color-accent: var(--accent);
+	--color-accent-fill: var(--accent-fill);
+	--color-accent-hover: var(--accent-hover);
+	--color-on-accent: var(--on-accent);
+	--color-highlight: var(--highlight);
+	--color-link: var(--link);
+	--color-danger: var(--danger);
+	--color-focus: var(--focus);
+}
+
+@property --sweep-angle {
+	syntax: '<angle>';
+	inherits: false;
+	initial-value: 0deg;
+}
+
+:root,
+[data-theme='dark'] {
+	color-scheme: dark;
+	--bg: var(--color-ink-950);
+	--surface: var(--color-ink-900);
+	--raised: var(--color-ink-800);
+	--line: var(--color-ink-700);
+	--control: var(--color-steel-500);
+	--fg: var(--color-mist-100);
+	--fg-muted: var(--color-steel-400);
+	--accent: var(--color-optic-400);
+	--accent-fill: var(--color-optic-400);
+	--accent-hover: var(--color-optic-600);
+	--on-accent: var(--color-ink-950);
+	--highlight: var(--color-thermal-400);
+	--link: var(--color-signal-blue);
+	--danger: var(--color-alert-500);
+	--focus: var(--color-optic-400);
+
+	--dur-fast: 180ms;
+	--dur-base: 320ms;
+	--dur-slow: 700ms;
+	--dur-scene: 1200ms;
+	--gutter: 1rem;
+	--page-margin: clamp(1rem, 4vw, 4rem);
+	--header-h: 4.5rem;
+}
+
+[data-theme='light'] {
+	color-scheme: light;
+	--bg: var(--color-paper-50);
+	--surface: #ffffff;
+	--raised: #eef2f7;
+	--line: #d8dee7;
+	--control: var(--color-steel-500);
+	--fg: var(--color-ink-950);
+	--fg-muted: var(--color-steel-600);
+	--accent: var(--color-optic-700);
+	--accent-fill: var(--color-optic-400);
+	--accent-hover: var(--color-optic-600);
+	--on-accent: var(--color-ink-950);
+	--highlight: var(--color-thermal-700);
+	--link: var(--color-signal-blue-600);
+	--danger: var(--color-alert-600);
+	--focus: var(--color-optic-700);
+}
+
+@media (min-width: 768px) {
+	:root {
+		--gutter: 1.5rem;
+	}
+}
+
+[data-motion='reduced'] {
+	--dur-fast: 0ms;
+	--dur-base: 120ms;
+	--dur-slow: 200ms;
+	--dur-scene: 200ms;
+}
+
+/* ── Utilities ─────────────────────────────────────────────────────── */
+@utility container-site {
+	width: 100%;
+	max-width: calc(1440px + var(--page-margin) * 2);
+	margin-inline: auto;
+	padding-inline: var(--page-margin);
+}
+
+@utility grid-site {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--gutter);
+}
+
+@utility eyebrow {
+	font-family: var(--font-mono);
+	font-size: var(--text-mono-sm);
+	line-height: var(--text-mono-sm--line-height);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--fg-muted);
+}
+
+@utility hairline {
+	border: 1px solid var(--line);
+}
+
+@utility lens-glow {
+	background-image: radial-gradient(
+		closest-side,
+		color-mix(in oklab, var(--color-optic-400) 14%, transparent),
+		transparent
+	);
+}
+
+@utility scanlines {
+	background-image: repeating-linear-gradient(
+		to bottom,
+		color-mix(in oklab, var(--color-mist-100) 5%, transparent) 0 1px,
+		transparent 1px 3px
+	);
+}
+
+@utility focus-ring {
+	outline: 2px solid var(--focus);
+	outline-offset: 2px;
+}
+
+@utility tap {
+	min-width: 44px;
+	min-height: 44px;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+@layer base {
+	html {
+		background: var(--bg);
+		color: var(--fg);
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+		scroll-padding-top: calc(var(--header-h) + 1rem);
+	}
+	html.lenis,
+	html.lenis body {
+		height: auto;
+	}
+	.lenis.lenis-smooth [data-lenis-prevent] {
+		overscroll-behavior: contain;
+	}
+	body {
+		min-height: 100dvh;
+		font-size: var(--text-body);
+		line-height: 1.6;
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		text-wrap: balance;
+	}
+	p {
+		text-wrap: pretty;
+	}
+	:focus-visible {
+		outline: 2px solid var(--focus);
+		outline-offset: 2px;
+	}
+	::selection {
+		background: color-mix(in oklab, var(--color-optic-400) 35%, transparent);
+		color: var(--fg);
+	}
+	[hidden] {
+		display: none !important;
+	}
+}
+
+/* Film grain: one fixed layer for the whole page (3% opacity). */
+.grain {
+	position: fixed;
+	inset: 0;
+	z-index: 90;
+	pointer-events: none;
+	opacity: 0.03;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── View transitions (see src/lib/motion/transitions.ts) ──────────── */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 360ms;
+	animation-timing-function: var(--ease-lens);
+}
+html[data-vt='shutter']::view-transition-old(root) {
+	animation: none;
+}
+html[data-vt='shutter']::view-transition-new(root) {
+	animation: shutter-open 600ms var(--ease-shutter) both;
+}
+@keyframes shutter-open {
+	from {
+		clip-path: inset(50% 0 50% 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+::view-transition-group(*) {
+	animation-duration: 520ms;
+	animation-timing-function: var(--ease-lens);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
+
+@media print {
+	:root,
+	[data-theme='dark'] {
+		--bg: #fff;
+		--surface: #fff;
+		--raised: #fff;
+		--line: #c9d0da;
+		--fg: #07090d;
+		--fg-muted: #444c59;
+		--accent: #0a7a69;
+		--highlight: #8a5200;
+		--link: #2a5fc4;
+		color-scheme: light;
+	}
+	.grain,
+	[data-print='hide'] {
+		display: none !important;
+	}
+}

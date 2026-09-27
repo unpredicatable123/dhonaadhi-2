@@ -1,0 +1,12 @@
+{
+	"name": "render",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"brand": "node brand.mjs",
+		"render": "node render.mjs"
+	},
+	"devDependencies": {
+		"opentype.js": "^2.0.0"
+	}
+}
