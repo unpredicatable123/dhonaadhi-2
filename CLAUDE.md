@@ -30,8 +30,7 @@ One `.env` at the repo root (see `.env.example`). **If `PUBLIC_SANITY_PROJECT_ID
 ## Design tokens (see docs/design-system.md)
 
 - Theme: all light, no dark sections, no blue; emerald is the only accent and primary buttons are ink (`src/lib/theme.ts`, docs/design-system.md §8).
-- Colours: ink-950 `#07090D`, ink-900 `#0C1017`, ink-800 `#141A23`, ink-700 `#1F2733`, steel-400 `#8A95A8`, mist-100 `#E8EDF4`, paper-50 `#F6F8FB`, optic-400 `#2FE6C8`, optic-600 `#12B89E`, thermal-400 `#FFB547`, signal-blue `#4C8DFF`, alert-500 `#FF5A5F`
-- On-light AA variants: optic-700 `#086A5B`, steel-600 `#566173`, steel-500 `#6B7689` (control borders), signal-blue-600 `#2A5FC4`, thermal-700 `#8A5200`, alert-600 `#C4282E`
+- Colours (light): paper-50 `#FAFAF8`, surface `#FFFFFF`, stone-100 `#F2F2EE`, stone-200 `#E5E4DF` (lines), stone-500 `#85847E` (control borders), stone-600 `#5F5E59` (muted text), ink `#141413` (text, buttons), optic-700 `#0B6B4F` (emerald accent), optic-400 `#3BD49A` (detection graphics on imagery), thermal-700 `#8A5200` (highlight), alert-600 `#C4282E`. Legacy ink-9xx/steel/mist/signal-blue tokens exist only for the opt-in dark theme; never use them.
 - Type: Clash Display (display, 500/600, −0.02em) · Geist (UI) · JetBrains Mono (model numbers, spec values, detection labels)
 - Radius: chip 4 · control 10 · panel 20 · scene 32. Grid: 12 columns, 1440px max, 24/16px gutters.
 - Motion: `--ease-lens` (0.22,1,0.36,1), `--ease-shutter` (0.83,0,0.17,1); 180 / 320 / 700 / 1200ms
