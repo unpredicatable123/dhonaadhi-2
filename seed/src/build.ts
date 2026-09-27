@@ -254,8 +254,8 @@ const sections = [
 		dayImage: await img('images/scenes/city-day.webp', home.dusk.dayAlt),
 		conventionalImage: await img('images/scenes/city-conventional.webp', home.dusk.convAlt),
 		enhancedImage: await img('images/scenes/city-luma.webp', home.dusk.lumaAlt),
-		conventionalLabel: 'Conventional · 0.01 lux',
-		enhancedLabel: 'LumaNight · 0.0005 lux'
+		conventionalLabel: 'Conventional camera',
+		enhancedLabel: 'LumaNight'
 	},
 	{
 		_type: 'explodedView',

@@ -113,9 +113,9 @@ export const duskToNight = section('duskToNight', 'Dusk to Night', MoonIcon, [
 	defineField({
 		name: 'conventionalLabel',
 		type: 'string',
-		initialValue: 'Conventional · 0.01 lux'
+		initialValue: 'Conventional camera'
 	}),
-	defineField({ name: 'enhancedLabel', type: 'string', initialValue: 'LumaNight · 0.0005 lux' })
+	defineField({ name: 'enhancedLabel', type: 'string', initialValue: 'LumaNight' })
 ]);
 
 export const categoryRail = section('categoryRail', 'Category rail', ThListIcon, [
