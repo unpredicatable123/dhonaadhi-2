@@ -83,3 +83,23 @@ test('datasheet download is a real PDF', async ({ page, request }) => {
 	expect(res.headers()['content-type']).toBe('application/pdf');
 	expect((await res.body()).subarray(0, 4).toString()).toBe('%PDF');
 });
+
+test('a tilted carousel card opens its product page at the top', async ({ page }) => {
+	await page.setViewportSize({ width: 1440, height: 900 });
+	await page.goto(routes.home);
+	const slide = page.locator('section[aria-labelledby="featured-title"] [data-slide]').nth(1);
+	// Bring the side card on screen (lazy pins above it change the page height as they load).
+	await expect(async () => {
+		await slide.evaluate((el) => window.scrollBy(0, el.getBoundingClientRect().top - 200));
+		const top = (await slide.boundingBox())?.y ?? Infinity;
+		expect(Math.abs(top - 200)).toBeLessThan(60);
+	}).toPass({ timeout: 30_000 });
+	await page.waitForTimeout(500);
+	const box = (await slide.boundingBox())!;
+	const href = await slide.locator('a').first().getAttribute('href');
+	// Click the card itself (not via locator.click, which would scroll natively and bypass the 3D hit-test).
+	await page.mouse.click(box.x + box.width / 2, box.y + box.height * 0.35);
+	await expect(page).toHaveURL(href!);
+	await expect(page.locator('h1')).toBeVisible();
+	await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+});

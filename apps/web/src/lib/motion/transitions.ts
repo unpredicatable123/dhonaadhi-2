@@ -25,12 +25,27 @@ export function transitionFor(
 	return section(from) === section(to) ? 'morph' : 'shutter';
 }
 
+/** New pages start at the top, except back/forward (restored) and in-page anchors. */
+function startsAtTop(navigation: OnNavigate): boolean {
+	return (
+		navigation.type !== 'popstate' &&
+		!navigation.to?.url.hash &&
+		navigation.from?.url.pathname !== navigation.to?.url.pathname
+	);
+}
+
+/**
+ * Scroll must reset before the new page is revealed (inside the view-transition update,
+ * or while the shutter is closed); otherwise the new page is captured at the old offset
+ * and visibly jumps to the top afterwards.
+ */
 function viewTransition(navigation: OnNavigate): Promise<void> | void {
 	if (!document.startViewTransition) return;
 	return new Promise((resolve) => {
 		document.startViewTransition(async () => {
 			resolve();
-			await navigation.complete;
+			await navigation.complete.catch(() => undefined);
+			if (startsAtTop(navigation)) resetScroll();
 		});
 	});
 }
@@ -48,8 +63,9 @@ export function setupPageTransitions(getShutter: () => ShutterApi | undefined): 
 			shutter.close().then(async () => {
 				resolve();
 				await navigation.complete.catch(() => undefined);
-				await shutter.open();
 				getLenis()?.start();
+				if (startsAtTop(navigation)) resetScroll();
+				await shutter.open();
 			});
 		});
 	};

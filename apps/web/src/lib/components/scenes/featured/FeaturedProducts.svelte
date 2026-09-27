@@ -48,8 +48,14 @@
 		data-lenis-prevent-touch
 	>
 		{#each section.products ?? [] as p (p._id)}
-			<li data-slide class="w-[min(22rem,80vw)] shrink-0 snap-start [transform-style:preserve-3d]">
-				<div class="slide h-full transition-transform duration-(--dur-fast) ease-out">
+			<!-- The tilted card sits behind its <li> in 3D; the li lets clicks through to it. -->
+			<li
+				data-slide
+				class="pointer-events-none w-[min(22rem,80vw)] shrink-0 snap-start [transform-style:preserve-3d]"
+			>
+				<div
+					class="slide pointer-events-auto h-full transition-transform duration-(--dur-fast) ease-out"
+				>
 					<ProductCard product={p} sizes="22rem" />
 				</div>
 			</li>
