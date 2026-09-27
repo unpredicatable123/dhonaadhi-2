@@ -69,3 +69,16 @@ export const powerOptions = [
 	{ title: 'Solar (SunLink)', value: 'solar' },
 	{ title: '4G / cable-free', value: 'cellular' }
 ];
+
+/** Stage 2/3 sections that resolve to /coming-soon/{section} until they are built. */
+export const comingSoonSections = [
+	'solutions',
+	'technologies',
+	'partners',
+	'support',
+	'newsroom',
+	'about',
+	'contact',
+	'downloads',
+	'legal'
+];

@@ -17,6 +17,6 @@ export default defineCliConfig({
 		path: ['../apps/web/src/lib/sanity/queries.ts'],
 		schema: './schema.json',
 		generates: '../packages/sanity-types/src/sanity.types.ts',
-		overloadClientMethods: true
+		overloadClientMethods: false
 	}
 });

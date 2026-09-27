@@ -1,0 +1,82 @@
+{
+	"retail": {
+		"openverseId": "8afff219-6757-455c-b337-96bc6f09bcaf",
+		"url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4ODgyMzk5LWltYWdlLWt3dnV3Zm9iLmpwZw.jpg",
+		"title": "Free liquor aisle supermarket",
+		"creator": null,
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/5904812/photo-image-public-domain-free",
+		"alt": "Long supermarket aisle with stocked shelves on both sides"
+	},
+	"education": {
+		"openverseId": "3b71dab7-9771-4b2c-92f7-4fa1092c99a6",
+		"url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgxMjQ2OTQ0LWltYWdlLWt3eXFzdTJoLmpwZw.jpg",
+		"title": null,
+		"creator": null,
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/5959368/free-public-domain-cc0-photo",
+		"alt": "Students seated in a large lecture hall facing a projected slide"
+	},
+	"healthcare": {
+		"openverseId": "49f81aa7-a969-4905-a1bf-be958a274d2a",
+		"url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2ZyaG9zcGl0YWxfY29ycmlkb3Jfb3BlcmF0aW5nX3Jvb20taW1hZ2Uta3liZGduaGsuanBn.jpg",
+		"title": "Waiting room hospital",
+		"creator": null,
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/6036448/photo-image-public-domain-room-free",
+		"alt": "Bright hospital corridor with doors along one side"
+	},
+	"logistics": {
+		"openverseId": "2f6314e5-e34e-4f80-b8af-1a7849312af0",
+		"url": "https://images.rawpixel.com/image_1300/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L2ZsMzA3NzA5MzYwODgtcHVibGljLWltYWdlLWtvd3NnM3RuLmpwZw.jpg",
+		"title": "Food is prepared for distribution",
+		"creator": "U.S. Department of Agriculture",
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/3306725/free-photo-image-warehouse-forklift",
+		"alt": "Warehouse aisle between tall pallet racks with a forklift"
+	},
+	"energy": {
+		"openverseId": "2922fb90-0572-463d-a791-64ae960236fc",
+		"url": "https://images.rawpixel.com/image_1300/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZmwyODkwMjEzNTkyNC1pbWFnZS1rcHdhM2l1ei5qcGc.jpg",
+		"title": "Solar farm",
+		"creator": "The Bureau of Land Management",
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/3393401/free-photo-image-solar-panels-environmental-energy",
+		"alt": "Rows of solar panels in a field at sunset"
+	},
+	"traffic": {
+		"openverseId": "361f6600-ec5a-4a64-8605-5f3436211e8d",
+		"url": "https://cdn.stocksnap.io/img-thumbs/960w/DRBQ7M47RV.jpg",
+		"title": "Landscape Urban",
+		"creator": "Samuel Zeller",
+		"license": "cc0",
+		"source": "stocksnap",
+		"landing": "https://stocksnap.io/photo/landscape-urban-DRBQ7M47RV",
+		"alt": "Long-exposure light trails of traffic on a highway at night"
+	},
+	"transport": {
+		"openverseId": "96f46948-7871-45dd-82a4-43df112f561b",
+		"url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Nanjing_South_Railway_Station_platforms_%2854001572857%29.jpg",
+		"title": "Nanjing South Railway Station platforms (54001572857)",
+		"creator": "Astrid [aroma]",
+		"license": "cc0",
+		"source": "wikimedia",
+		"landing": "https://commons.wikimedia.org/w/index.php?curid=153394179",
+		"alt": "Wide railway station hall with platforms under a steel roof"
+	},
+	"manufacturing": {
+		"openverseId": "69bd9b77-4f75-4d90-8fb5-cfd0157dcb42",
+		"url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHgzNDM5MDItaW1hZ2Uta3d5cGQ4ZmYuanBn.jpg",
+		"title": null,
+		"creator": null,
+		"license": "cc0",
+		"source": "rawpixel",
+		"landing": "https://www.rawpixel.com/image/5950797/free-public-domain-cc0-photo",
+		"alt": "Large factory hall with production equipment along a central aisle"
+	}
+}

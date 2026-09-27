@@ -2,6 +2,7 @@ import { defineArrayMember, defineField, defineType } from 'sanity';
 import { LinkIcon } from '@sanity/icons/Link';
 import { ImageIcon } from '@sanity/icons/Image';
 import { DownloadIcon } from '@sanity/icons/Download';
+import { comingSoonSections } from '../../lib/enums';
 
 /** Documents that can be linked internally. Stage 2/3 types resolve to /coming-soon until built. */
 export const linkableTypes = [
@@ -103,16 +104,7 @@ export const link = defineType({
 			description:
 				'For sections not built yet (Solutions, Support…). Resolves to a "Coming soon" page.',
 			options: {
-				list: [
-					'solutions',
-					'technologies',
-					'partners',
-					'support',
-					'newsroom',
-					'about',
-					'contact',
-					'downloads'
-				]
+				list: comingSoonSections
 			},
 			hidden: ({ parent }) => parent?.kind !== 'internal'
 		})

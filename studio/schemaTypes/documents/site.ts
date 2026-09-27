@@ -5,6 +5,7 @@ import { BlockElementIcon } from '@sanity/icons/BlockElement';
 import { HomeIcon } from '@sanity/icons/Home';
 import { ClockIcon } from '@sanity/icons/Clock';
 import { homeSectionTypes } from '../sections';
+import { comingSoonSections } from '../../lib/enums';
 
 export const siteSettings = defineType({
 	name: 'siteSettings',
@@ -186,16 +187,7 @@ export const comingSoonPage = defineType({
 			type: 'string',
 			description: 'URL key: /coming-soon/{section}',
 			options: {
-				list: [
-					'solutions',
-					'technologies',
-					'partners',
-					'support',
-					'newsroom',
-					'about',
-					'contact',
-					'downloads'
-				]
+				list: comingSoonSections
 			},
 			validation: (r) => r.required()
 		}),

@@ -1,0 +1,34 @@
+[
+	{
+		"part": "sunshield",
+		"frame": 58,
+		"title": "Sunshield & IK10 shell",
+		"body": "Die-cast aluminium, IP67 sealed.",
+		"x": 50.3,
+		"y": 27.8
+	},
+	{
+		"part": "front",
+		"frame": 70,
+		"title": "Anti-glare front glass",
+		"body": "Hydrophobic coating sheds rain.",
+		"x": 69.8,
+		"y": 52.9
+	},
+	{
+		"part": "lens",
+		"frame": 82,
+		"title": "F1.0 LumaNight optics",
+		"body": "Four times the light of an F2.0 lens.",
+		"x": 65.8,
+		"y": 49.3
+	},
+	{
+		"part": "sensor",
+		"frame": 96,
+		"title": "1/1.8″ BSI sensor + SentinelAI",
+		"body": "Detection runs on the camera, not the server.",
+		"x": 56.7,
+		"y": 46.4
+	}
+]

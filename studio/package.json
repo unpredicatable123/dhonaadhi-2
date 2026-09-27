@@ -8,7 +8,7 @@
 		"build": "sanity build",
 		"deploy": "sanity deploy",
 		"check": "tsc --noEmit",
-		"typegen": "sanity schema extract --path ./schema.json && sanity typegen generate",
+		"typegen": "sanity schema extract --path ./schema.json --force && sanity typegen generate",
 		"lint": "prettier --check .",
 		"format": "prettier --write ."
 	},
