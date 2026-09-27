@@ -228,6 +228,11 @@
 	--focus: var(--color-optic-700);
 }
 
+/* Nested theme islands (footer, Lens cards) must re-resolve inherited text colour. */
+[data-theme] {
+	color: var(--fg);
+}
+
 @media (min-width: 768px) {
 	:root {
 		--gutter: 1.5rem;
