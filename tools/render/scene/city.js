@@ -68,7 +68,7 @@ function buildStreet(mode) {
 	scene.fog = new THREE.FogExp2(night ? 0x0a111c : 0xc9d6e2, night ? 0.01 : 0.008);
 
 	// LumaNight: same night scene, but the sensor 'sees' it — lifted ambient keeps full colour.
-	const luma = mode === 'luma';
+	const luma = mode === 'luma' || mode === 'hero';
 	scene.add(
 		new THREE.HemisphereLight(
 			luma ? 0x9fb6d8 : night ? 0x2a3b55 : 0xdbe8ff,
@@ -227,7 +227,8 @@ function buildStreet(mode) {
 		car.add(beam, beam.target);
 	}
 	car.traverse((o) => (o.castShadow = true));
-	car.position.set(-3.2, 0, -8);
+	// Hero: right lane, so both subjects share the right half of the frame.
+	car.position.set(mode === 'hero' ? 3.4 : -3.2, 0, mode === 'hero' ? -12 : -8);
 	car.rotation.y = Math.PI;
 	scene.add(car);
 
@@ -285,12 +286,17 @@ window.city = ({ mode, width, height }) => {
 	renderer.setPixelRatio(1);
 	renderer.setSize(width, height, false);
 	const { scene, subjects } = buildStreet(mode);
-	const camera = new THREE.PerspectiveCamera(mode === 'hero' ? 38 : 42, width / height, 0.1, 400);
-	if (mode === 'hero') camera.position.set(4.5, 7.2, 22);
-	else camera.position.set(3.5, 5.5, 18);
-	camera.lookAt(0, 2.2, -30);
+	const camera = new THREE.PerspectiveCamera(mode === 'hero' ? 46 : 42, width / height, 0.1, 400);
+	// Hero: framed so both subjects sit in the right half; the left half stays calm for copy.
+	if (mode === 'hero') {
+		camera.position.set(-2.5, 6.4, 21);
+		camera.lookAt(-4.5, 2.6, -30);
+	} else {
+		camera.position.set(3.5, 5.5, 18);
+		camera.lookAt(0, 2.2, -30);
+	}
 	camera.updateMatrixWorld();
-	renderer.toneMappingExposure = { day: 1.0, night: 0.9, luma: 1.35, hero: 1.05 }[mode];
+	renderer.toneMappingExposure = { day: 1.0, night: 0.9, luma: 1.35, hero: 1.15 }[mode];
 	const composer = new EffectComposer(renderer);
 	composer.addPass(new RenderPass(scene, camera));
 	if (mode !== 'day')
